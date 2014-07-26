@@ -1,12 +1,12 @@
 function tree(){
 
   var svgW=1000,
-      svgH =460,
+      svgH =1000,
       rHeight=60,
       rWidth=80,
       tree = {x:svgW/2-rWidth/2, y:20, w:100, h:80};
 
-  tree.vis={v:0, l:'START', p:{x:tree.x, y:tree.y}, c:[], t:'q'};
+  tree.vis={v:0, l:'START', p: {x:tree.x, y:tree.y}, c:[], t:'q'};
   tree.size=1;
   
   tree.getVertices =  function(){
@@ -31,7 +31,13 @@ function tree(){
   
   tree.addLeaf = function(_){
     function addLeaf(t){
-      if(t.v==_){ t.c.push({v:tree.size++, l:'option', p:{}, c:[], t:'o'}); return; }
+      if(t.v==_){ t.c.push({
+        v:tree.size++,
+        l:$('#editLeaf-label').val(),
+        p:{},
+        c:[],
+        t:$('#editLeaf-type').val()
+      }); return; }
       t.c.forEach(addLeaf);
     }
     addLeaf(tree.vis);
@@ -42,28 +48,14 @@ function tree(){
   tree.editLeaf = function(_) {
     function editLeaf(t){
       if(t.v==_) {
-        $('#editLeaf-label').val(t.l);
+        $('#editLeaf-label').val('');
+        $('#editLeaf-type').val('q');
         $('#editLeaf-v').val(t.v);
-        $('#editLeaf-type').val(t.t);
         $('#editLeaf-modal').modal();
       }
       t.c.forEach(editLeaf);
     }
     editLeaf(tree.vis);
-  };
-
-  tree.changeLeaf = function(_) {
-    function changeLeaf(t) {
-      if (t.v == _) {
-        console.log(t);
-        t.l = $('#editLeaf-label').val();
-        t.t = $('#editLeaf-type').val();
-      }
-      t.c.forEach(changeLeaf);
-    }
-    changeLeaf(tree.vis);
-    reposition(tree.vis);
-    redraw();
   };
   
   redraw = function(){
@@ -102,7 +94,7 @@ function tree(){
         .attr('y',function(d){ return d.f.p.y;})
         .attr('height',rHeight)
         .attr('width',rWidth)
-        .style('fill',function(d) {console.log(d);  console.log('here'); return typeColor(d.t); })
+        .style('fill',function(d) {return typeColor(d.t); })
       .on('click',function(d){return tree.editLeaf(d.v);})
       .transition().duration(500)
         .attr('x',function(d){ return d.p.x;})
@@ -189,9 +181,6 @@ function tree(){
         .attr('y',function(d){ return d.p.y+5;})
         .text(function(d){return d.l;})
       .on('click',function(d){return tree.editLeaf(d.v);});
-
-    tree.addLeaf(0);
-    tree.addLeaf(0);
   };
 
   initialize();
@@ -199,7 +188,7 @@ function tree(){
   return tree;
 }
 
-var tree= tree();
+var tree = tree();
 
 function typeColor(t) {
   if (t == 's') { return '#ff9999';  } // green
@@ -208,12 +197,6 @@ function typeColor(t) {
 }
 
 $('#editLeaf-save').click(function () {
-  var v = $('#editLeaf-v').val();
-  tree.changeLeaf(v);
-  $('#editLeaf-modal').modal('hide');
-});
-
-$('#editLeaf-add').click(function() {
   var v = $('#editLeaf-v').val();
   tree.addLeaf(v);
   $('#editLeaf-modal').modal('hide');
