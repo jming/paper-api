@@ -1,0 +1,23 @@
+#flowchart-canvas{
+  width:960px;
+  margin:10px auto;
+}
+
+circle{
+  fill:white;
+  stroke:steelblue;  
+  stroke-width:2px;
+}
+
+line{
+  stroke:grey;
+  stroke-width:3px;
+}
+
+#treesvg g text:hover, #treesvg g circle:hover{
+  cursor:pointer;
+}
+
+#treesvg{
+  border:1px solid grey;
+}
