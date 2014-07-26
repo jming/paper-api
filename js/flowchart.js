@@ -4,15 +4,15 @@ function tree(){
       svgH =460,
       rHeight=60,
       rWidth=80,
-      tree = {x:svgW/2, y:20, w:100, h:80};
+      tree = {x:svgW/2-rWidth/2, y:20, w:100, h:80};
 
-  tree.vis={v:0, l:'START', p:{x:tree.x, y:tree.y},c:[]};
+  tree.vis={v:0, l:'START', p:{x:tree.x, y:tree.y}, c:[], t:'q'};
   tree.size=1;
   
   tree.getVertices =  function(){
     var v =[];
     function getVertices(t,f){
-      v.push({v:t.v, l:t.l, p:t.p, f:f});
+      v.push({v:t.v, l:t.l, p:t.p, f:f, t:t.t});
       t.c.forEach(function(d){ return getVertices(d,{v:t.v, p:t.p}); });
     }
     getVertices(tree.vis,{});
@@ -31,7 +31,7 @@ function tree(){
   
   tree.addLeaf = function(_){
     function addLeaf(t){
-      if(t.v==_){ t.c.push({v:tree.size++, l:'next step', p:{}, c:[], t:'q'}); return; }
+      if(t.v==_){ t.c.push({v:tree.size++, l:'option', p:{}, c:[], t:'o'}); return; }
       t.c.forEach(addLeaf);
     }
     addLeaf(tree.vis);
@@ -40,24 +40,28 @@ function tree(){
   };
 
   tree.editLeaf = function(_) {
-    function addLeaf(t){
-      if(t.v==_){ t.c.push({v:tree.size++, l:'next step', p:{},c:[]}); return; }
-      t.c.forEach(addLeaf);
-    }
     function editLeaf(t){
       if(t.v==_) {
-        // alert('here');
         $('#editLeaf-label').val(t.l);
+        $('#editLeaf-v').val(t.v);
+        $('#editLeaf-type').val(t.t);
         $('#editLeaf-modal').modal();
-        // console.log(t);
-        // t.l = 'derp';
-        // console.log(t);
       }
       t.c.forEach(editLeaf);
     }
-    // alert('derp');
     editLeaf(tree.vis);
-    addLeaf(tree.vis);
+  };
+
+  tree.changeLeaf = function(_) {
+    function changeLeaf(t) {
+      if (t.v == _) {
+        console.log(t);
+        t.l = $('#editLeaf-label').val();
+        t.t = $('#editLeaf-type').val();
+      }
+      t.c.forEach(changeLeaf);
+    }
+    changeLeaf(tree.vis);
     reposition(tree.vis);
     redraw();
   };
@@ -92,13 +96,13 @@ function tree(){
       .attr('x',function(d){ return d.p.x;})
       .attr('y',function(d){ return d.p.y;});
     
-    rects.enter().
-      append('rect')
+    rects.enter()
+      .append('rect')
         .attr('x',function(d){ return d.f.p.x;})
         .attr('y',function(d){ return d.f.p.y;})
         .attr('height',rHeight)
         .attr('width',rWidth)
-        .attr('color',function(d) {return typeColor(d.t)})
+        .style('fill',function(d) {console.log(d);  console.log('here'); return typeColor(d.t); })
       .on('click',function(d){return tree.editLeaf(d.v);})
       .transition().duration(500)
         .attr('x',function(d){ return d.p.x;})
@@ -171,7 +175,7 @@ function tree(){
         .attr('y',function(d){ return d.p.y;})
         .attr('height',rHeight)
         .attr('width',rWidth)
-        .attr('color',function(d) {return typeColor(d.t)})
+        .style('fill',function(d) {return typeColor(d.t); })
       .on('click',function(d){return tree.editLeaf(d.v);});
       
     d3.select("#treesvg")
@@ -198,8 +202,19 @@ function tree(){
 var tree= tree();
 
 function typeColor(t) {
-  if (t == 'q') { return '#99ff99';  } // green
+  if (t == 's') { return '#ff9999';  } // green
   else if (t == 'o') { return '#ffff99'; } // yellow
-  else { return '#ff9999'; } // red
+  else { return '#99ff99'; } // red
 }
 
+$('#editLeaf-save').click(function () {
+  var v = $('#editLeaf-v').val();
+  tree.changeLeaf(v);
+  $('#editLeaf-modal').modal('hide');
+});
+
+$('#editLeaf-add').click(function() {
+  var v = $('#editLeaf-v').val();
+  tree.addLeaf(v);
+  $('#editLeaf-modal').modal('hide');
+});
