@@ -6,9 +6,8 @@ function tree(){
       rWidth=80,
       tree={x:svgW/2, y:20, w:100, h:80};
 
-  tree.vis={v:0, l:'label', p:{x:tree.x, y:tree.y},c:[]};
+  tree.vis={v:0, l:'START', p:{x:tree.x, y:tree.y},c:[]};
   tree.size=1;
-  tree.glabels =[];
   
   tree.getVertices =  function(){
     var v =[];
@@ -37,14 +36,29 @@ function tree(){
     }
     addLeaf(tree.vis);
     reposition(tree.vis);
-    if(tree.glabels.length !== 0){
-      tree.glabels =[];
-      relabel(
-        {
-          lbl:d3.range(0, tree.size).map(function(d){ return 'step';}),
-        });
-      d3.select("#labelnav").style('visibility','hidden');
+    redraw();
+  };
+
+  tree.editLeaf = function(_) {
+    function addLeaf(t){
+      if(t.v==_){ t.c.push({v:tree.size++, l:'next step', p:{},c:[]}); return; }
+      t.c.forEach(addLeaf);
     }
+    function editLeaf(t){
+      if(t.v==_) {
+        // alert('here');
+        $('#editLeaf-label').val(t.l);
+        $('#editLeaf-modal').modal();
+        console.log(t);
+        t.l = 'derp';
+        console.log(t);
+      }
+      t.c.forEach(editLeaf);
+    }
+    // alert('derp');
+    editLeaf(tree.vis);
+    // addLeaf(tree.vis);
+    reposition(tree.vis);
     redraw();
   };
   
@@ -84,7 +98,7 @@ function tree(){
         .attr('y',function(d){ return d.f.p.y;})
         .attr('height',rHeight)
         .attr('width',rWidth)
-      .on('click',function(d){return tree.addLeaf(d.v);})
+      .on('click',function(d){return tree.editLeaf(d.v);})
       .transition().duration(500)
         .attr('x',function(d){ return d.p.x;})
         .attr('y',function(d){ return d.p.y;});
@@ -103,7 +117,7 @@ function tree(){
         .attr('x',function(d){ return d.f.p.x+10;})
         .attr('y',function(d){ return d.f.p.y+20;})
       .text(function(d){return d.l;})
-        .on('click',function(d){return tree.addLeaf(d.v);})
+        .on('click',function(d){return tree.editLeaf(d.v);})
       .transition().duration(500)
         .attr('x',function(d){ return d.p.x+10;})
         .attr('y',function(d){ return d.p.y+20;});
@@ -156,7 +170,7 @@ function tree(){
         .attr('y',function(d){ return d.p.y;})
         .attr('height',rHeight)
         .attr('width',rWidth)
-      .on('click',function(d){return tree.addLeaf(d.v);});
+      .on('click',function(d){return tree.editLeaf(d.v);});
       
     d3.select("#treesvg")
       .append('g')
@@ -168,7 +182,7 @@ function tree(){
         .attr('x',function(d){ return d.p.x;})
         .attr('y',function(d){ return d.p.y+5;})
         .text(function(d){return d.l;})
-      .on('click',function(d){return tree.addLeaf(d.v);});
+      .on('click',function(d){return tree.editLeaf(d.v);});
 
     tree.addLeaf(0);
     tree.addLeaf(0);
