@@ -5,13 +5,13 @@
 
 rect{
   fill:white;
-  stroke:steelblue;  
-  stroke-width:2px;
+  stroke:grey;  
+  stroke-width:1px;
 }
 
 line{
   stroke:grey;
-  stroke-width:3px;
+  stroke-width:1px;
 }
 
 #treesvg g text:hover, #treesvg g circle:hover{
