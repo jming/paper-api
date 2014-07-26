@@ -29,3 +29,9 @@ a:hover {
 .main-content {
   padding: 40px 15px;
 }
+
+.form-inline {
+  width: 30%;
+  display: inline-block;
+  margin: 0px 5px;
+}
