@@ -1,7 +1,12 @@
 function tree(){
 
-  var svgW=800, svgH =460, vRad=20, tree={cx:400, cy:30, w:40, h:70};
-  tree.vis={v:0, l:'label', p:{x:tree.cx, y:tree.cy},c:[]}; 
+  var svgW=1000,
+      svgH =460,
+      rHeight=60,
+      rWidth=80,
+      tree={x:svgW/2, y:20, w:100, h:80};
+
+  tree.vis={v:0, l:'label', p:{x:tree.x, y:tree.y},c:[]}; 
   tree.size=1;
   tree.glabels =[];
   
@@ -36,7 +41,7 @@ function tree(){
       tree.glabels =[]
       relabel(
         {
-          lbl:d3.range(0, tree.size).map(function(d){ return 'Label';}), 
+          lbl:d3.range(0, tree.size).map(function(d){ return 'step';}), 
         });
       d3.select("#labelnav").style('visibility','hidden');
     }
@@ -47,32 +52,32 @@ function tree(){
     var edges = d3.select("#g_lines").selectAll('line').data(tree.getEdges());
     
     edges.transition().duration(500)
-      .attr('x1',function(d){ return d.p1.x;}).attr('y1',function(d){ return d.p1.y;})
-      .attr('x2',function(d){ return d.p2.x;}).attr('y2',function(d){ return d.p2.y;})
+      .attr('x1',function(d){ return d.p1.x+rWidth/2;}).attr('y1',function(d){ return d.p1.y+rHeight;})
+      .attr('x2',function(d){ return d.p2.x+rWidth/2;}).attr('y2',function(d){ return d.p2.y;});
   
     edges.enter().append('line')
-      .attr('x1',function(d){ return d.p1.x;}).attr('y1',function(d){ return d.p1.y;})
-      .attr('x2',function(d){ return d.p1.x;}).attr('y2',function(d){ return d.p1.y;})
+      .attr('x1',function(d){ return d.p1.x+rWidth/2;}).attr('y1',function(d){ return d.p1.y+rHeight;})
+      .attr('x2',function(d){ return d.p1.x+rWidth/2;}).attr('y2',function(d){ return d.p1.y+rHeight;})
       .transition().duration(500)
-      .attr('x2',function(d){ return d.p2.x;}).attr('y2',function(d){ return d.p2.y;});
+      .attr('x2',function(d){ return d.p2.x+rWidth/2;}).attr('y2',function(d){ return d.p2.y;});
       
-    var circles = d3.select("#g_circles").selectAll('circle').data(tree.getVertices());
+    var rects = d3.select("#g_rects").selectAll('rect').data(tree.getVertices());
 
-    circles.transition().duration(500).attr('cx',function(d){ return d.p.x;}).attr('cy',function(d){ return d.p.y;});
+    rects.transition().duration(500).attr('x',function(d){ return d.p.x;}).attr('y',function(d){ return d.p.y;});
     
-    circles.enter().append('circle').attr('cx',function(d){ return d.f.p.x;}).attr('cy',function(d){ return d.f.p.y;}).attr('r',vRad)
+    rects.enter().append('rect').attr('x',function(d){ return d.f.p.x;}).attr('y',function(d){ return d.f.p.y;}).attr('height',rHeight).attr('width',rWidth)
       .on('click',function(d){return tree.addLeaf(d.v);})
-      .transition().duration(500).attr('cx',function(d){ return d.p.x;}).attr('cy',function(d){ return d.p.y;});
+      .transition().duration(500).attr('x',function(d){ return d.p.x;}).attr('y',function(d){ return d.p.y;});
 
     var labels = d3.select("#g_labels").selectAll('text').data(tree.getVertices());
     
     labels.text(function(d){return d.l;}).transition().duration(500)
-      .attr('x',function(d){ return d.p.x;}).attr('y',function(d){ return d.p.y+5;});
+      .attr('x',function(d){ return d.p.x+10;}).attr('y',function(d){ return d.p.y+20;});
       
-    labels.enter().append('text').attr('x',function(d){ return d.f.p.x;}).attr('y',function(d){ return d.f.p.y+5;})
+    labels.enter().append('text').attr('x',function(d){ return d.f.p.x+10;}).attr('y',function(d){ return d.f.p.y+20;})
       .text(function(d){return d.l;}).on('click',function(d){return tree.addLeaf(d.v);})
       .transition().duration(500)
-      .attr('x',function(d){ return d.p.x;}).attr('y',function(d){ return d.p.y+5;});   
+      .attr('x',function(d){ return d.p.x+10;}).attr('y',function(d){ return d.p.y+20;});   
       
   }
   
@@ -99,8 +104,8 @@ function tree(){
       .attr('x1',function(d){ return d.p1.x;}).attr('y1',function(d){ return d.p1.y;})
       .attr('x2',function(d){ return d.p2.x;}).attr('y2',function(d){ return d.p2.y;});
 
-    d3.select("#treesvg").append('g').attr('id','g_circles').selectAll('circle').data(tree.getVertices()).enter()
-      .append('circle').attr('cx',function(d){ return d.p.x;}).attr('cy',function(d){ return d.p.y;}).attr('r',vRad)
+    d3.select("#treesvg").append('g').attr('id','g_rects').selectAll('rect').data(tree.getVertices()).enter()
+      .append('rect').attr('x',function(d){ return d.p.x;}).attr('y',function(d){ return d.p.y;}).attr('height',rHeight).attr('width',rWidth)
       .on('click',function(d){return tree.addLeaf(d.v);});
       
     d3.select("#treesvg").append('g').attr('id','g_labels').selectAll('text').data(tree.getVertices()).enter().append('text')
