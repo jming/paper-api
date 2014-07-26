@@ -1,7 +1,7 @@
 function tree(){
 
-  var svgW=800, svgH =460, vRad=20, tree={cx:400, cy:30, w:40, h:70};
-  tree.vis={v:0, l:'label', p:{x:tree.cx, y:tree.cy},c:[]}; 
+  var svgW=958, svgH =460, vRad=12, tree={cx:300, cy:30, w:40, h:70};
+  tree.vis={v:0, l:'?', p:{x:tree.cx, y:tree.cy},c:[]}; 
   tree.size=1;
   tree.glabels =[];
   
@@ -27,7 +27,7 @@ function tree(){
   
   tree.addLeaf = function(_){
     function addLeaf(t){
-      if(t.v==_){ t.c.push({v:tree.size++, l:'next step', p:{},c:[]}); return; }
+      if(t.v==_){ t.c.push({v:tree.size++, l:'?', p:{},c:[]}); return; }
       t.c.forEach(addLeaf);
     }
     addLeaf(tree.vis);
@@ -63,17 +63,6 @@ function tree(){
     circles.enter().append('circle').attr('cx',function(d){ return d.f.p.x;}).attr('cy',function(d){ return d.f.p.y;}).attr('r',vRad)
       .on('click',function(d){return tree.addLeaf(d.v);})
       .transition().duration(500).attr('cx',function(d){ return d.p.x;}).attr('cy',function(d){ return d.p.y;});
-
-    var labels = d3.select("#g_labels").selectAll('text').data(tree.getVertices());
-    
-    labels.text(function(d){return d.l;}).transition().duration(500)
-      .attr('x',function(d){ return d.p.x;}).attr('y',function(d){ return d.p.y+5;});
-      
-    labels.enter().append('text').attr('x',function(d){ return d.f.p.x;}).attr('y',function(d){ return d.f.p.y+5;})
-      .text(function(d){return d.l;}).on('click',function(d){return tree.addLeaf(d.v);})
-      .transition().duration(500)
-      .attr('x',function(d){ return d.p.x;}).attr('y',function(d){ return d.p.y+5;});   
-      
   }
   
   getLeafCount = function(_){
@@ -106,6 +95,10 @@ function tree(){
     d3.select("#treesvg").append('g').attr('id','g_labels').selectAll('text').data(tree.getVertices()).enter().append('text')
       .attr('x',function(d){ return d.p.x;}).attr('y',function(d){ return d.p.y+5;}).text(function(d){return d.l;})
       .on('click',function(d){return tree.addLeaf(d.v);});  
+      
+    d3.select("#treesvg").append('g').attr('id','g_elabels').selectAll('text').data(tree.getEdges()).enter().append('text')
+      .attr('x',function(d){ return (d.p1.x+d.p2.x)/2+(d.p1.x < d.p2.x? 8: -8);}).attr('y',function(d){ return (d.p1.y+d.p2.y)/2;})
+      .text(function(d){return tree.glabels.length==0? '': Math.abs(d.l1 -d.l2);}); 
 
     tree.addLeaf(0);
     tree.addLeaf(0);
