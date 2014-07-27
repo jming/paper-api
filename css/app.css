@@ -35,3 +35,15 @@ a:hover {
   display: inline-block;
   margin: 0px 5px;
 }
+
+.green-text {
+  background-color: #99ff99;
+}
+
+.yellow-text {
+  background-color: #ffff99;
+}
+
+.red-text {
+  background-color: #ff9999;
+}

@@ -5,41 +5,42 @@ var svgW=1000,
 
 function tree() {
 
-  var tree = {x:svgW/2-rWidth/2, y:20, w:rWidth+10, h:rHeight+10};
+  var ttree = {x:svgW/2-rWidth/2, y:20, w:rWidth+10, h:rHeight+10};
 
-  tree.vis={
+  ttree.vis={
     v:0,
     l:'START',
-    p: {x:tree.x, y:tree.y},
+    p: {x:ttree.x, y:ttree.y},
     c:[],
     t:'q'
   };
-  tree.size=1;
+  ttree.size=1;
   
-  tree.getVertices =  function(){
+  ttree.getVertices =  function(){
     var v =[];
     function getVertices(t,f){
       v.push({v:t.v, l:t.l, p:t.p, f:f, t:t.t});
       t.c.forEach(function(d){ return getVertices(d,{v:t.v, p:t.p}); });
     }
-    getVertices(tree.vis,{});
+    getVertices(ttree.vis,{});
     return v.sort(function(a,b){ return a.v - b.v;});
   };
   
-  tree.getEdges =  function(){
+  ttree.getEdges =  function(){
     var e =[];
     function getEdges(_){
       _.c.forEach(function(d){ e.push({v1:_.v, l1:_.l, p1:_.p, v2:d.v, l2:d.l, p2:d.p});});
       _.c.forEach(getEdges);
     }
-    getEdges(tree.vis);
+    getEdges(ttree.vis);
     return e.sort(function(a,b){ return a.v2 - b.v2;});
   };
   
-  tree.addLeaf = function(_){
+  ttree.addLeaf = function(_){
+
     function addLeaf(t){
       if(t.v==_){ t.c.push({
-        v:tree.size++,
+        v:ttree.size++,
         l:$('#editLeaf-label').val(),
         p:{},
         c:[],
@@ -47,12 +48,12 @@ function tree() {
       }); return; }
       t.c.forEach(addLeaf);
     }
-    addLeaf(tree.vis);
-    reposition(tree.vis);
+    addLeaf(ttree.vis);
+    reposition(ttree.vis);
     redraw();
   };
 
-  tree.editLeaf = function(_) {
+  ttree.editLeaf = function(_) {
     function editLeaf(t){
       if(t.v==_) {
         $('#editLeaf-label').val('');
@@ -62,14 +63,14 @@ function tree() {
       }
       t.c.forEach(editLeaf);
     }
-    editLeaf(tree.vis);
+    editLeaf(ttree.vis);
   };
   
   redraw = function(){
 
     var edges = d3.select("#g_lines")
       .selectAll('line')
-      .data(tree.getEdges());
+      .data(ttree.getEdges());
     
     edges.transition().duration(500)
       .attr('x1',function(d){ return d.p1.x+rWidth/2;})
@@ -89,7 +90,7 @@ function tree() {
       
     var rects = d3.select("#g_rects")
       .selectAll('rect')
-      .data(tree.getVertices());
+      .data(ttree.getVertices());
 
     rects.transition().duration(500)
       .attr('x',function(d){ return d.p.x;})
@@ -102,21 +103,20 @@ function tree() {
         .attr('height',function(d) { return typeProperties(d.t, 'height'); })
         .attr('width',rWidth)
         .style('fill',function(d) {return typeProperties(d.t, 'color'); })
-      .on('click',function(d){return tree.editLeaf(d.v);})
+      .on('click',function(d){return ttree.editLeaf(d.v);})
       .transition().duration(500)
         .attr('x',function(d){ return d.p.x;})
         .attr('y',function(d){ return d.p.y;});
 
     var labels = d3.select("#g_labels")
       .selectAll('text')
-      .data(tree.getVertices());
+      .data(ttree.getVertices());
     
     // deals with labels that were already there previously
     labels.text(function(d){return d.l;})
       .transition().duration(500)
         .attr('x',function(d){ return d.p.x+5;})
         .attr('y',function(d){ return d.p.y+10;})
-        // .call(test);
       .call(wrap, rWidth-5);
       
     // deals with new labels
@@ -125,9 +125,7 @@ function tree() {
         .attr('x',function(d){ return d.f.p.x+5;})
         .attr('y',function(d){ return d.f.p.y+10;})
         .text(function(d){return d.l;})
-        // .call(test)
-        // .call(wrap, rWidth-5)
-        .on('click',function(d){return tree.editLeaf(d.v);})
+        .on('click',function(d){return ttree.editLeaf(d.v);})
 
       // deals with new labels with new positions
       .transition().duration(500)
@@ -143,16 +141,19 @@ function tree() {
   };
   
   reposition = function(v){
-    var lC = getLeafCount(v), left=v.p.x - tree.w*(lC-1)/2;
+    var lC = getLeafCount(v), left=v.p.x - ttree.w*(lC-1)/2;
     v.c.forEach(function(d){
-      var w =tree.w*getLeafCount(d);
+      var w =ttree.w*getLeafCount(d);
       left+=w;
-      d.p = {x:left-(w+tree.w)/2, y:v.p.y+tree.h};
+      d.p = {x:left-(w+ttree.w)/2, y:v.p.y+ttree.h};
       reposition(d);
     });
   };
   
-  initialize = function() {
+  ttree.initialize = function(label) {
+
+    ttree.vis.l = $('#editLeaf-label').val();
+    ttree.vis.t = $('#editLeaf-type').val();
             
     d3.select("#flowchart-canvas")
       .append("svg")
@@ -164,7 +165,7 @@ function tree() {
       .append('g')
         .attr('id','g_lines')
         .selectAll('line')
-        .data(tree.getEdges())
+        .data(ttree.getEdges())
         .enter()
       .append('line')
         .attr('x1',function(d){ return d.p1.x;})
@@ -176,7 +177,7 @@ function tree() {
       .append('g')
         .attr('id','g_rects')
         .selectAll('rect')
-        .data(tree.getVertices())
+        .data(ttree.getVertices())
         .enter()
       .append('rect')
         .attr('x',function(d){ return d.p.x;})
@@ -184,7 +185,7 @@ function tree() {
         .attr('height',function(d) { return typeProperties(d.t, 'height'); })
         .attr('width',rWidth)
         .style('fill',function(d) {return typeProperties(d.t, 'color'); })
-      .on('click',function(d){return tree.editLeaf(d.v);});
+      .on('click',function(d){return ttree.editLeaf(d.v);});
       
     d3.select("#treesvg")
       .append('g')
@@ -193,29 +194,29 @@ function tree() {
         // .data(tree.getVertices())
         // .enter()
         // .call(wrap, rWidth-10);
-        .data(tree.getVertices())
+        .data(ttree.getVertices())
         .enter()
       .append('text')
         .attr('x',function(d){ return d.p.x+5;})
         .attr('y',function(d){ return d.p.y+10;})
         .text(function(d){return d.l;})
       // .call(wrap, rWidth)
-      .on('click',function(d){return tree.editLeaf(d.v);});
+      .on('click',function(d){return ttree.editLeaf(d.v);});
       // .call(wrap, rWidth);
   };
 
-  initialize();
+  // initialize();
 
-  return tree;
+  return ttree;
 }
 
-var tree = tree();
+// var tree = tree();
 
 function typeProperties(t, prop) {
   if (prop == 'color') {
-    if (t == 's') { return '#ff9999';  } // green
+    if (t == 's') { return '#ff9999';  } // red
     else if (t == 'o') { return '#ffff99'; } // yellow
-    else { return '#99ff99'; } // red
+    else { return '#99ff99'; } // green
   } else if (prop == 'height') {
     return rHeight;
     // if (t == 'q') { return rHeight; }
@@ -250,13 +251,30 @@ function wrap(text, width) {
   }, 500);
 }
 
-function test (derp) {
-  console.log(derp);
-}
-
+var tree = tree();
 
 $('#editLeaf-save').click(function () {
   var v = $('#editLeaf-v').val();
-  tree.addLeaf(v);
+  if (v == -1) {
+    // console.log('here');
+    // var tree = tree();
+    tree.initialize();
+  }
+  else {
+    tree.addLeaf(v);
+  }
   $('#editLeaf-modal').modal('hide');
 });
+
+$('#addFlowchartButton').click(function() {
+  // var tree = tree();
+  
+  $('#editLeaf-v').val(-1);
+  $('#editLeaf-modal').modal();
+
+  $('#addFlowchartButton').text('Complete!');
+});
+
+
+
+

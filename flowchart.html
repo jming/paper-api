@@ -37,7 +37,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.html">Home</a></li>
             <li><a href="tracking.html">Tracking</a></li>
-            <li><a href="flowchart.html">Flowchart</a></li>
+            <li><a href="flowchart.html">Process</a></li>
             <li><a href="lookup.html">Lookup</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -51,7 +51,17 @@
 
       <div class="main-content">
 
-        <h1>Flowchart</h1>
+        <h1>Process</h1>
+        <p>Click on an existing box to add a new step to the procedure that you want to communicate. The three main types of steps you can include are:
+          <ul>
+            <li><b class='green-text'>Question.</b> Basic question to determine the direction of the next step. For example, "How long has the child had a fever?"</li>
+            <li><b class='yellow-text'>Answer.</b> This is an answer option to each of the questions. For example, "Less than 7 days" or "7 days or more" would be answers to the first question.</li>
+            <li><b class='red-text'>Instruction.</b>This is an instruction of an action to take once the state has been determined by the answers give. This is terminal and the flowchart procedure should end here. For example, if a child has had a fever for "7 days or more," it is advised that "The child should be brought to the nearest community health center."</li>
+          </ul>
+        See the <a href='flowchart-resources'>resources page </a>to see some examples of flowcharts you can construct.</p>
+        
+        <button class='btn' id='addFlowchartButton'>Begin!</button>
+        
         <div id='flowchart-canvas'></div>
 
         <div class="modal fade" id='editLeaf-modal'>
@@ -59,7 +69,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title">Add next step.</h4>
+                <h4 class="modal-title">Add a step.</h4>
               </div>
               <div class="modal-body">
                 <form role='form'>
@@ -68,8 +78,8 @@
                     <label for='editLeaf-type'>Type</label>
                     <select class='form-control' id='editLeaf-type'>
                       <option value='q'>Question</option>
-                      <option value='o'>Option</option>
-                      <option value='s'>Stop</option>
+                      <option value='o'>Answer</option>
+                      <option value='s'>Instruction</option>
                     </select>
                   </div>
                   <div class='form-group'>
