@@ -25,3 +25,28 @@ line{
 #g_labels text {
   font: 8px sans-serif;
 }
+
+.booklet-page table {
+  border: 1px solid grey;
+  table-layout: fixed;
+}
+
+.booklet-page td {
+  border: 1px solid grey;
+  width: 200px;
+  text-align: center;
+}
+
+.booklet-page tr {
+  border: 1px solid grey;
+  height: 300px;
+}
+
+.options-table table {
+  /*table-layout: fixed;*/
+}
+
+.options-table tr {
+  height:40px;
+}
+

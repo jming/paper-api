@@ -275,7 +275,7 @@ $('#addFlowchartButton').click(function() {
 
 $('#createFlowchartButton').click(function () {
   
-  initializeBooklet();
+  // initializeBooklet();
   fillInfoLabels(tree.vis);
   // downloadSVG();
 
@@ -283,7 +283,7 @@ $('#createFlowchartButton').click(function () {
 
 function initializeBooklet() {
 
-  $('#booklet-canvas').append($('<table>'));
+  // $('#booklet-canvas').append($('<table>'));
 
 }
 
@@ -343,6 +343,7 @@ function fillInfoLabels (t) {
       for (var k=0; k<c.length; k++) {
         o.push(c[k].l);
       }
+      o.reverse();
       addOptionsToStep(o, step_number);
     }
     step_number++;
@@ -351,14 +352,36 @@ function fillInfoLabels (t) {
 
 function addTextToStep (text, step_number) {
   console.log('addTextToStep', text, step_number);
+  if (step_number % 4 === 0) {
+    $('#booklet-canvas')
+      .append('<table class="booklet-page" id="table-'+Math.floor((step_number/4)).toString()+'">');
+  }
+  if (step_number % 2 === 0) {
+    $('#table-'+Math.floor(step_number/4))
+      .append('<tr class="booklet-page" id="row-'+Math.floor((step_number/2)).toString()+'">');
+  }
+  $('#row-'+Math.floor(step_number/2)).append('<td class="booklet-page" id="col-'+step_number+'">');
+  // $('#col-'+step_number).append(step_number.toString() + '.<br>');
+  $('#col-'+step_number).append(text);
 }
 
 function addOptionsToStep (options, step_number) {
   console.log('addOptionsToStep', options, step_number);
+  // $('#col-'+step_number).append('<br>'+options.toString());
+  $('#col-'+step_number).append(
+    $('<table class="options-table">').append(
+      $('<tr>')
+    )
+  );
+  for (var i=0; i<options.length; i++) {
+    var l = $('#col-'+step_number+' table tr').append($('<td>').append(options[i]));
+  }
+  
 }
 
 function addStopToStep (step_number) {
   console.log('addStopToStep', step_number);
+  $('#col-'+step_number).append('<br>STOP');
 }
 
 function downloadSVG() {
