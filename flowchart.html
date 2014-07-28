@@ -35,9 +35,9 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="tracking.html">Tracking</a></li>
-            <li><a href="flowchart.html">Process</a></li>
+            <li class="active"><a href="flowchart.html">Process</a></li>
             <li><a href="lookup.html">Lookup</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -56,13 +56,15 @@
           <ul>
             <li><b class='green-text'>Question.</b> Basic question to determine the direction of the next step. For example, "How long has the child had a fever?"</li>
             <li><b class='yellow-text'>Answer.</b> This is an answer option to each of the questions. For example, "Less than 7 days" or "7 days or more" would be answers to the first question.</li>
-            <li><b class='red-text'>Instruction.</b>This is an instruction of an action to take once the state has been determined by the answers give. This is terminal and the flowchart procedure should end here. For example, if a child has had a fever for "7 days or more," it is advised that "The child should be brought to the nearest community health center."</li>
+            <li><b class='red-text'>Instruction.</b> This is an instruction of an action to take once the state has been determined by the answers give. This is terminal and the flowchart procedure should end here. For example, if a child has had a fever for "7 days or more," it is advised that "The child should be brought to the nearest community health center."</li>
           </ul>
         See the <a href='flowchart-resources'>resources page </a>to see some examples of flowcharts you can construct.</p>
         
         <button class='btn' id='addFlowchartButton'>Begin!</button>
+        <button class='btn' id='createFlowchartButton' style='display:none;'>Create Tool</button>
         
         <div id='flowchart-canvas'></div>
+        <div id='booklet-canvas' style='display:none;'></div>
 
         <div class="modal fade" id='editLeaf-modal'>
           <div class="modal-dialog">

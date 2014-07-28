@@ -12,3 +12,7 @@ var prefixSelect = '<select class="form-control form-inline">' +
 	'</select>';
 
 var prefixText = "<input type='text' class='form-control form-inline' />";
+
+function createBasicTable () {
+	
+}

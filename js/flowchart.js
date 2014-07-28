@@ -256,8 +256,6 @@ var tree = tree();
 $('#editLeaf-save').click(function () {
   var v = $('#editLeaf-v').val();
   if (v == -1) {
-    // console.log('here');
-    // var tree = tree();
     tree.initialize();
   }
   else {
@@ -267,14 +265,105 @@ $('#editLeaf-save').click(function () {
 });
 
 $('#addFlowchartButton').click(function() {
-  // var tree = tree();
   
   $('#editLeaf-v').val(-1);
   $('#editLeaf-modal').modal();
 
-  $('#addFlowchartButton').text('Complete!');
+  $('#addFlowchartButton').hide();
+  $('#createFlowchartButton').show();
 });
 
+$('#createFlowchartButton').click(function () {
+  
+  initializeBooklet();
+  fillInfoLabels(tree.vis);
+  // downloadSVG();
 
+});
+
+function initializeBooklet() {
+
+  $('#booklet-canvas').append($('<table>'));
+
+}
+
+function fillInfoLabels (t) {
+
+  // stack to track vertices
+  var S = [];
+  // array to check which vertices are discovered
+  var discovered = [];
+  // step_number to determine where to write in booklet
+  var step_number = 0;
+
+  // push root onto stack
+  S.push(t);
+
+  // while S not empty
+  while (S.length > 0) {
+    // take off the next vertex
+    var v = S.pop();
+    addTextToStep(v.l, step_number);
+
+    // if it has not been looked at before
+    if (discovered.indexOf(v.v) == -1) {
+      discovered.push(v.v);
+      if (v.t == 'q') {
+        var children = v.c;
+        children.reverse();
+        var options = [];
+        // add children's labels as options
+        for (var i=0; i<children.length; i++) {
+          options.push(children[i].l);
+          discovered.push(children[i].v);
+          // push children's children onto stack
+          var childrens_children = children[i].c;
+          childrens_children.reverse();
+          for (var j=0; j<childrens_children.length; j++) {
+            S.push(childrens_children[j]);
+            S.push(v);
+          }
+        }
+        // remove the extra odd v
+        S.pop();
+        // add these options as text
+        options.reverse();
+        addOptionsToStep(options, step_number);
+      }
+      // else it is of type stop/instruction
+      else {
+        addStopToStep(step_number);
+      }
+    }
+    // if it has been looked at before
+    // just need to add information
+    else {
+      var c = v.c;
+      var o = [];
+      for (var k=0; k<c.length; k++) {
+        o.push(c[k].l);
+      }
+      addOptionsToStep(o, step_number);
+    }
+    step_number++;
+  }
+}
+
+function addTextToStep (text, step_number) {
+  console.log('addTextToStep', text, step_number);
+}
+
+function addOptionsToStep (options, step_number) {
+  console.log('addOptionsToStep', options, step_number);
+}
+
+function addStopToStep (step_number) {
+  console.log('addStopToStep', step_number);
+}
+
+function downloadSVG() {
+  // TODO: figure out a better way to download SVG
+  console.log(d3.select('#flowchart-canvas').html());
+}
 
 
