@@ -76,11 +76,15 @@
               <div class="modal-body">
                 <form role='form'>
                   <input type='text' id='editLeaf-v' hidden />
+                  <div class='form-group' id='editLeaf-answer-group'>
+                    <label for='editLeaf-answer'>Answer</label>
+                    <textarea class='form-control' rows='2' id='editLeaf-answer'></textarea>
+                  </div>
                   <div class='form-group'>
                     <label for='editLeaf-type'>Type</label>
                     <select class='form-control' id='editLeaf-type'>
                       <option value='q'>Question</option>
-                      <option value='o'>Answer</option>
+                      <!-- <option value='o'>Answer</option> -->
                       <option value='s'>Instruction</option>
                     </select>
                   </div>

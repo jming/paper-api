@@ -39,13 +39,24 @@ function tree() {
   ttree.addLeaf = function(_){
 
     function addLeaf(t){
-      if(t.v==_){ t.c.push({
-        v:ttree.size++,
-        l:$('#editLeaf-label').val(),
-        p:{},
-        c:[],
-        t:$('#editLeaf-type').val()
-      }); return; }
+      if(t.v==_){
+        t.c.push({
+          v:ttree.size++,
+          l:$('#editLeaf-answer').val(),
+          p:{},
+          c:[],
+          t:'o'
+        });
+        t.c[t.c.length - 1].c.push({
+        // t.c.push({
+          v:ttree.size++,
+          l:$('#editLeaf-label').val(),
+          p:{},
+          c:[],
+          t:$('#editLeaf-type').val()
+        });
+        return;
+      }
       t.c.forEach(addLeaf);
     }
     addLeaf(ttree.vis);
@@ -56,9 +67,11 @@ function tree() {
   ttree.editLeaf = function(_) {
     function editLeaf(t){
       if(t.v==_) {
+        $('#editLeaf-answer').val('');
         $('#editLeaf-label').val('');
         $('#editLeaf-type').val('q');
         $('#editLeaf-v').val(t.v);
+        $('#editLeaf-answer-group').show();
         $('#editLeaf-modal').modal();
       }
       t.c.forEach(editLeaf);
@@ -253,6 +266,16 @@ function wrap(text, width) {
 
 var tree = tree();
 
+$('#addFlowchartButton').click(function() {
+  
+  $('#editLeaf-v').val(-1);
+  $('#editLeaf-modal').modal();
+
+  $('#addFlowchartButton').hide();
+  $('#editLeaf-answer-group').hide();
+  $('#createFlowchartButton').show();
+});
+
 $('#editLeaf-save').click(function () {
   var v = $('#editLeaf-v').val();
   if (v == -1) {
@@ -262,15 +285,6 @@ $('#editLeaf-save').click(function () {
     tree.addLeaf(v);
   }
   $('#editLeaf-modal').modal('hide');
-});
-
-$('#addFlowchartButton').click(function() {
-  
-  $('#editLeaf-v').val(-1);
-  $('#editLeaf-modal').modal();
-
-  $('#addFlowchartButton').hide();
-  $('#createFlowchartButton').show();
 });
 
 $('#createFlowchartButton').click(function () {
