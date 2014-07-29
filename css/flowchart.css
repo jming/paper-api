@@ -1,5 +1,5 @@
 #flowchart-canvas{
-  width:960px;
+  /*width:960px;*/
   margin:10px auto;
 }
 
@@ -30,17 +30,18 @@ line{
 .booklet-page table {
   border: 1px solid grey;
   table-layout: fixed;
+  font-size: 24px;
 }
 
 .booklet-page td {
   border: 1px solid grey;
-  width: 200px;
+  width: 500px;
   text-align: center;
 }
 
 .booklet-page tr {
   border: 1px solid grey;
-  height: 300px;
+  height: 550px;
 }
 
 .options-table table {
@@ -48,11 +49,30 @@ line{
 }
 
 .options-table tr {
-  height:40px;
-  font-size: 12px;
+  height:60px;
+  font-size: 20px;
 }
 
 .booklet-text {
   vertical-align: middle;
 }
 
+@media print {
+  body * { visibility: hidden; }
+  /*#flowchart-canvas * { visibility: visible; }*/
+  #flowchart-canvas { 
+    position: absolute; 
+    top: 0px; 
+    left: 20px; 
+    margin: 0px;
+  }
+  #booklet-canvas * { visibility: visible; }
+  #booklet-canvas {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    margin: 0px;
+    width: 100%;
+    border: 1px solid grey;
+  }
+}

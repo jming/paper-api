@@ -1,5 +1,5 @@
-var svgW=800,
-    svgH =1200,
+var svgW=1000,
+    svgH =1100,
     rHeight=80,
     rWidth=120;
 
@@ -268,35 +268,6 @@ function wrap(text, width) {
       }
     });
   }, 500);
-
-  // function fixrects(rect) {
-  //   // var rects = d3.select("#g_rects")
-  //   //   .selectAll('rect')
-  //   //   .data(ttree.getVertices());
-
-  //   // rects.transition().duration(500)
-  //   //   .attr('x',function(d){ return d.p.x;})
-  //   //   .attr('y',function(d){ return d.p.y;});
-    
-  //   // rects.enter()
-  //   //   .append('rect')
-  //   //     .attr('x',function(d){ return d.f.p.x;})
-  //   //     .attr('y',function(d){ return d.f.p.y;})
-  //   //     .attr('height',function(d) { return typeProperties(d.t, 'height'); })
-  //   //     .attr('width',rWidth)
-  //   //     .style('fill',function(d) {return typeProperties(d.t, 'color'); })
-  //   //   .on('click',function(d){return ttree.editLeaf(d.v);})
-  //   //   .transition().duration(500)
-  //   //     .attr('x',function(d){ return d.p.x;})
-  //   //     .attr('y',function(d){ return d.p.y;})
-  //   //   .call(fixrects);
-  //   setTimeout(function() {
-  //     rect.each(function() {
-  //       var rect = d3.select(this),
-  //           color = rect.style('fill');
-  //     })
-  //   }, 500);
-  // }
 }
 
 var tree = tree();
@@ -427,7 +398,7 @@ function addTextToStep (text, step_number, depth) {
   $('#row-'+Math.floor(step_number/2)).append('<td class="booklet-page" id="col-'+step_number+'">');
   // $('#col-'+step_number).append(step_number.toString() + '.<br>');
   $('#col-'+step_number).append(
-    $('<table style="width:200px; height:'+getHeight('t',depth)+'">').append(
+    $('<table style="width: 500px; height:'+getHeight('t',depth)+'">').append(
       $('<div>').append(text)
     )
   );
@@ -435,7 +406,7 @@ function addTextToStep (text, step_number, depth) {
 
 function getHeight(type, depth) {
   if (type == 't') {
-    return (300 - 40 * (parseInt(depth) + 1)).toString() + 'px';
+    return (550 - 60 * (parseInt(depth) + 1)).toString() + 'px';
   }
   else if (type == 'o') {
     return (40 * (parseInt(depth) +1)).toString() + 'px';
