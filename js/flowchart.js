@@ -233,8 +233,8 @@ function tree() {
 
 function typeProperties(t, prop) {
   if (prop == 'color') {
-    if (t == 's') { return '#ff9999';  } // red
-    else if (t == 'o') { return '#ffff99'; } // yellow
+    // if (t == 's') { return '#ff9999';  } // red
+    if (t == 'o') { return '#ffff99'; } // yellow
     else { return '#99ff99'; } // green
   } else if (prop == 'height') {
     // return rHeight;
