@@ -4,9 +4,9 @@
 }
 
 rect{
-  fill:white;
-  stroke:grey;  
-  stroke-width:1px;
+  fill:none;
+  /*stroke:grey;  */
+  /*stroke-width:1px;*/
 }
 
 line{
@@ -14,7 +14,8 @@ line{
   stroke-width:1px;
 }
 
-#treesvg g text:hover, #treesvg g circle:hover{
+#treesvg g text:hover, 
+#treesvg g rect:hover{
   cursor:pointer;
 }
 
@@ -23,7 +24,7 @@ line{
 }
 
 #g_labels text {
-  font: 8px sans-serif;
+  font: 11px sans-serif;
 }
 
 .booklet-page table {

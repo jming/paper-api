@@ -1,11 +1,11 @@
-var svgW=1000,
-    svgH =1000,
+var svgW=800,
+    svgH =1200,
     rHeight=80,
     rWidth=120;
 
 function tree() {
 
-  var ttree = {x:svgW/2-rWidth/2, y:20, w:rWidth+10, h:rHeight+10};
+  var ttree = {x:svgW/2-rWidth/2, y:20, w:rWidth+10, h:rHeight+15};
 
   ttree.vis={
     v:0,
@@ -67,12 +67,14 @@ function tree() {
   ttree.editLeaf = function(_) {
     function editLeaf(t){
       if(t.v==_) {
-        $('#editLeaf-answer').val('');
-        $('#editLeaf-label').val('');
-        $('#editLeaf-type').val('q');
-        $('#editLeaf-v').val(t.v);
-        $('#editLeaf-answer-group').show();
-        $('#editLeaf-modal').modal();
+        if (t.t != 'o') {
+          $('#editLeaf-answer').val('');
+          $('#editLeaf-label').val('');
+          $('#editLeaf-type').val('q');
+          $('#editLeaf-v').val(t.v);
+          $('#editLeaf-answer-group').show();
+          $('#editLeaf-modal').modal();
+        }
       }
       t.c.forEach(editLeaf);
     }
@@ -120,6 +122,7 @@ function tree() {
       .transition().duration(500)
         .attr('x',function(d){ return d.p.x;})
         .attr('y',function(d){ return d.p.y;});
+      // .call(fixrects);
 
     var labels = d3.select("#g_labels")
       .selectAll('text')
@@ -128,22 +131,22 @@ function tree() {
     // deals with labels that were already there previously
     labels.text(function(d){return d.l;})
       .transition().duration(500)
-        .attr('x',function(d){ return d.p.x+5;})
-        .attr('y',function(d){ return d.p.y+10;})
+        .attr('x',function(d){ return d.p.x+10;})
+        .attr('y',function(d){ return d.p.y+15;})
       .call(wrap, rWidth-5);
       
     // deals with new labels
     labels.enter()
       .append('text')
-        .attr('x',function(d){ return d.f.p.x+5;})
-        .attr('y',function(d){ return d.f.p.y+10;})
+        .attr('x',function(d){ return d.f.p.x+10;})
+        .attr('y',function(d){ return d.f.p.y+15;})
         .text(function(d){return d.l;})
         .on('click',function(d){return ttree.editLeaf(d.v);})
 
       // deals with new labels with new positions
       .transition().duration(500)
-        .attr('x',function(d){ return d.p.x+5;})
-        .attr('y',function(d){ return d.p.y+10;})
+        .attr('x',function(d){ return d.p.x+10;})
+        .attr('y',function(d){ return d.p.y+15;})
       .call(wrap, rWidth-5);
       
   };
@@ -154,11 +157,14 @@ function tree() {
   };
   
   reposition = function(v){
-    var lC = getLeafCount(v), left=v.p.x - ttree.w*(lC-1)/2;
+    // var vw = (v.t == 'o') ? ttree.w / 2 : ttree.w / 2;
+    var vw = ttree.w;
+    var vh = (v.t == 'o') ? rHeight / 2 : ttree.h;
+    var lC = getLeafCount(v), left=v.p.x - vw*(lC-1)/2;
     v.c.forEach(function(d){
-      var w =ttree.w*getLeafCount(d);
+      var w =vw*getLeafCount(d);
       left+=w;
-      d.p = {x:left-(w+ttree.w)/2, y:v.p.y+ttree.h};
+      d.p = {x:left-(w+vw)/2, y:v.p.y+vh};
       reposition(d);
     });
   };
@@ -210,8 +216,8 @@ function tree() {
         .data(ttree.getVertices())
         .enter()
       .append('text')
-        .attr('x',function(d){ return d.p.x+5;})
-        .attr('y',function(d){ return d.p.y+10;})
+        .attr('x',function(d){ return d.p.x+10;})
+        .attr('y',function(d){ return d.p.y+15;})
         .text(function(d){return d.l;})
       // .call(wrap, rWidth)
       .on('click',function(d){return ttree.editLeaf(d.v);});
@@ -231,9 +237,9 @@ function typeProperties(t, prop) {
     else if (t == 'o') { return '#ffff99'; } // yellow
     else { return '#99ff99'; } // green
   } else if (prop == 'height') {
-    return rHeight;
-    // if (t == 'q') { return rHeight; }
-    // else { return rHeight / 2; }
+    // return rHeight;
+    if (t == 'o') { return rHeight / 2; }
+    else { return rHeight; }
   }
 }
 
@@ -241,7 +247,7 @@ function wrap(text, width) {
   setTimeout(function () {
     text.each(function() {
       var text = d3.select(this),
-        words = text.text().substring(0,240).split(/\s+/).reverse(),
+          words = text.text().substring(0,140).split(/\s+/).reverse(),
           word,
           line = [],
           lineNumber = 0,
@@ -262,6 +268,35 @@ function wrap(text, width) {
       }
     });
   }, 500);
+
+  // function fixrects(rect) {
+  //   // var rects = d3.select("#g_rects")
+  //   //   .selectAll('rect')
+  //   //   .data(ttree.getVertices());
+
+  //   // rects.transition().duration(500)
+  //   //   .attr('x',function(d){ return d.p.x;})
+  //   //   .attr('y',function(d){ return d.p.y;});
+    
+  //   // rects.enter()
+  //   //   .append('rect')
+  //   //     .attr('x',function(d){ return d.f.p.x;})
+  //   //     .attr('y',function(d){ return d.f.p.y;})
+  //   //     .attr('height',function(d) { return typeProperties(d.t, 'height'); })
+  //   //     .attr('width',rWidth)
+  //   //     .style('fill',function(d) {return typeProperties(d.t, 'color'); })
+  //   //   .on('click',function(d){return ttree.editLeaf(d.v);})
+  //   //   .transition().duration(500)
+  //   //     .attr('x',function(d){ return d.p.x;})
+  //   //     .attr('y',function(d){ return d.p.y;})
+  //   //   .call(fixrects);
+  //   setTimeout(function() {
+  //     rect.each(function() {
+  //       var rect = d3.select(this),
+  //           color = rect.style('fill');
+  //     })
+  //   }, 500);
+  // }
 }
 
 var tree = tree();
