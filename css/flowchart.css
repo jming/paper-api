@@ -43,10 +43,15 @@ line{
 }
 
 .options-table table {
-  /*table-layout: fixed;*/
+  table-layout: fixed;
 }
 
 .options-table tr {
   height:40px;
+  font-size: 12px;
+}
+
+.booklet-text {
+  vertical-align: middle;
 }
 

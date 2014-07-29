@@ -311,18 +311,24 @@ function fillInfoLabels (t) {
   var step_number = 0;
 
   // push root onto stack
-  S.push(t);
+  S.push([t,0]);
 
   // while S not empty
   while (S.length > 0) {
     // take off the next vertex
-    var v = S.pop();
-    addTextToStep(v.l, step_number);
+    var p = S.pop();
+    console.log(p);
+    var v = p[0];
+    var d = p[1];
+    console.log(v.l, step_number, d);
+    
 
     // if it has not been looked at before
     if (discovered.indexOf(v.v) == -1) {
       discovered.push(v.v);
-      if (v.t == 'q') {
+      // if (v.t == 'q') {
+      if (v.c.length > 0) {
+        addTextToStep(v.l, step_number, d);
         var children = v.c;
         children.reverse();
         var options = [];
@@ -334,38 +340,47 @@ function fillInfoLabels (t) {
           var childrens_children = children[i].c;
           childrens_children.reverse();
           for (var j=0; j<childrens_children.length; j++) {
-            S.push(childrens_children[j]);
-            S.push(v);
+            S.push([childrens_children[j], d+1]);
+            S.push([v, d]);
           }
         }
         // remove the extra odd v
         S.pop();
         // add these options as text
         options.reverse();
-        addOptionsToStep(options, step_number);
+        addOptionsToStep(options, step_number, d);
       }
       // else it is of type stop/instruction
       else {
+        addTextToStep(v.l, step_number, d-1);
         addStopToStep(step_number);
       }
     }
     // if it has been looked at before
     // just need to add information
     else {
-      var c = v.c;
-      var o = [];
-      for (var k=0; k<c.length; k++) {
-        o.push(c[k].l);
+      if (v.c.length > 0) {
+        var c = v.c;
+        var o = [];
+        for (var k=0; k<c.length; k++) {
+          o.push(c[k].l);
+        }
+        o.reverse();
+        if (o.length > 0) {
+
+        }
+        addTextToStep(v.l, step_number, d);
+        addOptionsToStep(o, step_number);
+      } else {
+        addTextToStep(v.l, step_number, d - 1);
       }
-      o.reverse();
-      addOptionsToStep(o, step_number);
     }
     step_number++;
   }
 }
 
-function addTextToStep (text, step_number) {
-  console.log('addTextToStep', text, step_number);
+function addTextToStep (text, step_number, depth) {
+  console.log('addTextToStep', text, step_number, depth);
   if (step_number % 4 === 0) {
     $('#booklet-canvas')
       .append('<table class="booklet-page" id="table-'+Math.floor((step_number/4)).toString()+'">');
@@ -376,15 +391,31 @@ function addTextToStep (text, step_number) {
   }
   $('#row-'+Math.floor(step_number/2)).append('<td class="booklet-page" id="col-'+step_number+'">');
   // $('#col-'+step_number).append(step_number.toString() + '.<br>');
-  $('#col-'+step_number).append(text);
+  $('#col-'+step_number).append(
+    $('<table style="width:200px; height:'+getHeight('t',depth)+'">').append(
+      $('<div>').append(text)
+    )
+  );
 }
 
-function addOptionsToStep (options, step_number) {
+function getHeight(type, depth) {
+  if (type == 't') {
+    return (300 - 40 * (parseInt(depth) + 1)).toString() + 'px';
+  }
+  else if (type == 'o') {
+    return (40 * (parseInt(depth) +1)).toString() + 'px';
+  }
+}
+
+function addOptionsToStep (options, step_number, depth) {
   console.log('addOptionsToStep', options, step_number);
   // $('#col-'+step_number).append('<br>'+options.toString());
   $('#col-'+step_number).append(
-    $('<table class="options-table">').append(
-      $('<tr>')
+    $('<div>').append(
+      $('<table class="options-table">').append(
+        // $('<tr style="height:'+getHeight('o', depth)+'">')
+        $('<tr>')
+      )
     )
   );
   for (var i=0; i<options.length; i++) {
@@ -395,7 +426,7 @@ function addOptionsToStep (options, step_number) {
 
 function addStopToStep (step_number) {
   console.log('addStopToStep', step_number);
-  $('#col-'+step_number).append('<br>STOP');
+  $('#col-'+step_number+' table div').append('<br>STOP');
 }
 
 function downloadSVG() {
