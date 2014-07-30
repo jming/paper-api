@@ -295,13 +295,27 @@ $('#editLeaf-save').click(function () {
 
 $('#createFlowchartButton').click(function () {
   
-  // initializeBooklet();
+  initializeBooklet();
   fillInfoLabels(tree.vis);
   // downloadSVG();
 
+  $('#flowchart-canvas').hide();
+  $('#booklet-canvas').show();
+  $('#showFlowchartButton').show();
+  $('#createFlowchartButton').hide();
+
+});
+
+$('#showFlowchartButton').click(function () {
+  $('#flowchart-canvas').show();
+  $('#booklet-canvas').hide();
+  $('#createFlowchartButton').show();
+  $('#showFlowchartButton').hide();
 });
 
 function initializeBooklet() {
+
+  $('#booklet-canvas').html('');
 
   // $('#booklet-canvas').append($('<table>'));
 

@@ -1,4 +1,5 @@
-#flowchart-canvas{
+#flowchart-canvas,
+#booklet-canvas {
   /*width:960px;*/
   margin:10px auto;
 }
@@ -25,6 +26,10 @@ line{
 
 #g_labels text {
   font: 11px sans-serif;
+}
+
+.booklet-page {
+  margin: 45px 0px;
 }
 
 .booklet-page table {
@@ -59,7 +64,7 @@ line{
 
 @media print {
   body * { visibility: hidden; }
-  /*#flowchart-canvas * { visibility: visible; }*/
+  #flowchart-canvas * { visibility: visible; }
   #flowchart-canvas { 
     position: absolute; 
     top: 0px; 
@@ -74,5 +79,8 @@ line{
     margin: 0px;
     width: 100%;
     border: 1px solid grey;
+  }
+  .booklet-page {
+    margin: 45px 0px;
   }
 }
