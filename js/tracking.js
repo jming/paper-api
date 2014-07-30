@@ -7,11 +7,14 @@ $('#addTrackingTaskButton').click(function () {
   var num_tasks = $('#trackingFields .task-div').length;
   $('#trackingFields').append(
     $('<div id="task-'+num_tasks+'" class="task-div">').append(
-      $('<div id="task-'+num_tasks+'-info">').append( trackingTaskHTML )
-      ).append(
-      $('<div id="task-'+num_tasks+'-fields">')
+      // $('<div class="task-info">').append( trackingTaskHTML )
+      $('<div>').append(trackingTaskHTML)
       )
-    );
+      // .append(
+      // $('<div id="task-'+num_tasks+'-fields">')
+      // )
+    )
+  .append('<hr>');
 
 });
 
@@ -45,7 +48,22 @@ var trackingTaskHTML = '<p>I want to track the '+
   // '<option value="over">over</option>' +
   // '<option value="from">from</option>' +
   // '</select>'+
-  '</p><hr>';
+  '</p>';
+
+function followupQuestions(per_value, over_value) {
+  return '<p>I want the sum:' +
+  '<div class="checkbox"><label><input type="checkbox" value="per"> per '+per_value+'</label></div>' +
+  '<div class="checkbox"><label><input type="checkbox" value="over"> over '+over_value+'</label></div>' +
+  '<div class="form-group">'+
+  '<label for="input-unit">What is the unit of your input?</label>' +
+  '<input type="text" class="form-control" id="input-unit">' +
+  '</div>' +
+  '<div class="form-group">'+
+  '<label for="input-unit">What are the possible option(s) for input intervals?</label>' +
+  '<input type="text" class="form-control" id="input-intervals">' +
+  '</div>' +
+  '</p>';
+}
 
 // $('.select-durationprefix').change(function () {
 //   var duration_type = $(this).val();
@@ -84,21 +102,32 @@ $('#createToolButton').click(function () {
   for (var i=0; i<num_tasks; i++) {
 
     // get task info
-    var task_type = $('#task-'+i+'-info select').val();
-    var task_value = $('#task-'+i+'-info input').val();
+    var task_type = $('#task-'+i+' .select-tasktype').val();
+    var task_value = $('#task-'+i+' .input-taskvalue').val();
 
-    var num_fields = $('#task-'+i+'-fields div').length;
-    var fields = [];
+    var frequency_input = $('#task-'+i+' .input-frequency').val();
+    var frequency_select = $('#task-'+i+' .select-frequency select').val();
 
-    for (var j=0; j<num_fields; j++) {
-      var field_prefix = $('#task-'+i+'-field-'+j+' select').val();
-      var field_value = $('#task-'+i+'-field-'+j+' input').val();
+    var duration_input = $('#task-'+i+' .input-duration').val();
+    var duration_select = $('#task-'+i+' .select-duration select').val();
 
-      fields.push([field_prefix, field_value]);
+    // var num_fields = $('#task-'+i+'-fields div').length;
+    // var fields = [];
+
+    // for (var j=0; j<num_fields; j++) {
+    //   var field_prefix = $('#task-'+i+'-field-'+j+' select').val();
+    //   var field_value = $('#task-'+i+'-field-'+j+' input').val();
+
+    //   fields.push([field_prefix, field_value]);
+    // }
+
+    console.log(task_type, task_value, frequency_input, frequency_select, duration_input, duration_select);
+    // createBasicTable(task_type, task_value, frequency_input, frequency_select);
+
+    // followup questions
+    if (task_type == 'sum' || task_type == 'progress') {
+      $('#task-'+i).append($('<div>').append(followupQuestions(frequency_select, duration_select)));
     }
-
-    console.log(i);
-    createBasicTable(task_type, task_value, fields);
   }
 
   // decide how things are going to be condensed
