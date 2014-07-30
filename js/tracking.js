@@ -10,37 +10,67 @@ $('#addTrackingTaskButton').click(function () {
       $('<div id="task-'+num_tasks+'-info">').append( trackingTaskHTML )
       ).append(
       $('<div id="task-'+num_tasks+'-fields">')
-      ).append(
-      $('<button class="btn field-btn" onclick="addTrackingFieldTo('+num_tasks+')">').append(
-        '<span class="glyphicon glyphicon-plus-sign">').append(' New field')
       )
     );
 
 });
 
+var timeSelect = '<select class="form-control form-inline select-time">' +
+  '<option value="second">second(s)</option>' +
+  '<option value="minute">minute(s)</option>' +
+  '<option value="hour">hour(s)</option>' +
+  '<option value="day">day(s)</option>' +
+  '<option value="week">week(s)</option>' +
+  '<option value="month">month(s)</option>' +
+  '<option value="year">year(s)</option>' +
+  '</select>';
+
 var trackingTaskHTML = '<p>I want to track the '+
-  '<select class="form-control form-inline">' +
+  '<select class="form-control form-inline select-tasktype">' +
   '<option value="sum">sum</option>' +
   '<option value="regularity">regularity</option>' +
   '<option value="occurrence">occurrence</option>' +
   '<option value="progress">progress</option>' +
   '</select> of '+
-  '<input type="text" class="form-control form-inline" />' +
-  '</p>';
+  '<input type="text" class="form-control form-inline input-taskvalue" />' +
+  '</p> <p>' +
+  ' per ' +
+  '<input type="text" class="form-control form-inline input-frequency" />' +
+  '<span class="select-frequency">' + timeSelect + '</span></p>' +
+  '<p>'+
+  ' over ' +
+  '<input type="text" class="form-control form-inline input-duration" />' +
+  '<span class="select-duration">' + timeSelect + '</span>' +
+  // '<select class="form-control form-inline select-durationprefix">' +
+  // '<option value="over">over</option>' +
+  // '<option value="from">from</option>' +
+  // '</select>'+
+  '</p><hr>';
 
-var prefixSelect = '<select class="form-control form-inline">' +
- '<option value="per">per</option>' +
- '<option value="in">in</option>' +
- '<option value="over">over</option>' +
- '</select>' +
- "<input type='text' class='form-control form-inline' />";
+// $('.select-durationprefix').change(function () {
+//   var duration_type = $(this).val();
+//   $(this).parent().append(durationTypeText(duration_type));
+// });
 
-function addTrackingFieldTo(task_num) {
-  var num_fields = $('#task-'+task_num+'-fields div').length;
-  $('#task-'+task_num+'-fields').append(
-    $('<div id="task-'+task_num+'-field-'+num_fields+'">').append( prefixSelect )
-  );
-}
+// function durationTypeText(type) {
+//   if (type=='from') {
+//     return '<'
+//   }
+// }
+
+// var prefixSelect = '<select class="form-control form-inline">' +
+//  '<option value="per">per</option>' +
+//  '<option value="in">in</option>' +
+//  '<option value="over">over</option>' +
+//  '</select>' +
+//  "<input type='text' class='form-control form-inline' />";
+
+// function addTrackingFieldTo(task_num) {
+//   var num_fields = $('#task-'+task_num+'-fields div').length;
+//   $('#task-'+task_num+'-fields').append(
+//     $('<div id="task-'+task_num+'-field-'+num_fields+'">').append( prefixSelect )
+//   );
+// }
 
 // creatig the table
 
