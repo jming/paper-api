@@ -16,7 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/app.css" rel="stylesheet">
-    <link href="css/flowchart.css" rel="stylesheet">
+    <link href="css/tracking.css" rel="stylesheet">
 
   </head>
 
@@ -62,7 +62,15 @@
           </ul>
         </p>
 
-        <p>I want to track the
+        <p>
+          <button class='btn' id='addTrackingTaskButton'>
+            <span class='glyphicon glyphicon-plus-sign'></span>
+            New tracking task
+          </button>
+        </p>
+
+
+        <!-- <p>I want to track the
           <select class='form-control form-inline'>
             <option value='sum'>sum</option>
             <option value='regularity'>regularity</option>
@@ -71,15 +79,17 @@
           </select>
           of
           <input type='text' class='form-control form-inline' />
-        </p>
-        <p><div id='trackingFields'></div></p>
-        <button class='btn' id='addTrackingFieldButton'>
+        </p> -->
+        <p><div id='trackingFields'></div></p> 
+        <!-- <button class='btn' id='addTrackingFieldButton'>
           <span class='glyphicon glyphicon-plus-sign'></span>
           Add new field
-        </button>
-        <button class='btn' id='createToolButton'>
-          Create tool
-        </button>
+        </button> -->
+        <p>
+          <button class='btn' id='createToolButton' style='display:none;'>
+            Create tool
+          </button>
+        </p>
         <!-- I want to track *?* per *?* over *?*.  -->
         
       </div><!-- main-content -->
