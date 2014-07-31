@@ -1,3 +1,25 @@
 .field-btn {
   margin: 5px;
 }
+
+.form-inline {
+  width: 120px;
+  display: inline-block;
+  margin: 2px 5px;
+}
+
+.tracking-info-table{
+  margin-left: 20px;
+}
+
+.followup-info {
+  margin-left: 20px;
+}
+
+.input-select {
+  width: 240px;
+}
+
+.input-info {
+  margin-left: 40px;
+}

@@ -30,12 +30,6 @@ a:hover {
   padding: 40px 15px;
 }
 
-.form-inline {
-  width: 30%;
-  display: inline-block;
-  margin: 0px 5px;
-}
-
 .green-text {
   background-color: #99ff99;
 }
