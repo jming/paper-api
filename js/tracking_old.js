@@ -123,7 +123,7 @@ $('#createToolButton').click(function () {
     //   fields.push([field_prefix, field_value]);
     // }
 
-    console.log(task_type, task_value, frequency_input, frequency_select, duration_input, duration_select);
+    // console.log(task_type, task_value, frequency_input, frequency_select, duration_input, duration_select);
     // createBasicTable(task_type, task_value, frequency_input, frequency_select);
 
     // followup questions
@@ -140,5 +140,5 @@ $('#createToolButton').click(function () {
 
 function createBasicTable (type, value, fields) {
   // create the basic table
-  console.log(type, value, fields);
+  // console.log(type, value, fields);
 }

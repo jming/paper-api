@@ -27,3 +27,23 @@
 .input-info {
   margin-left: 40px;
 }
+
+.tool-table,
+.tool-table tr,
+.tool-table td,
+.tool-table th {
+  border: 1px solid grey;
+}
+
+.tool-table tr {
+  height: 35px;
+}
+
+.tool-table td,
+.tool-table th {
+  width: 100px;
+}
+
+/*.tool-table {
+  border: 1px solid grey;
+}*/

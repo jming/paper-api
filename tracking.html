@@ -53,17 +53,18 @@
 
         <h1>Tracking</h1>
         <p>
-          Define your parameters. Some examples include:
+          Define your parameters. 
+
+          <!-- Some examples include:
           <ul>
             <li>I want to track the <b>sum</b> of my deposits <b>per</b> day.</li>
             <li>I want to track the <b>regularity</b> of my medication consumption <b>per</b> day <b>over</b> six months.</li>
             <li>I want to track the <b>ocurrence</b> of infant mortality <b>per</b> community <b>per</b> week <b>in</b> India <b>over</b> a year.</li>
-            <!-- *progress* -->
           </ul>
-        </p>
+        </p> -->
 
         <p>
-          <button class='btn' id='addTrackingTaskButton'>
+          <button class='btn' id='addTrackingTaskButton' onclick="$(this).hide();">
             <span class='glyphicon glyphicon-plus-sign'></span>
             New tracking task
           </button>
@@ -84,6 +85,7 @@
           <input type='text' class='form-control form-inline' />
         </p> -->
         <p><div id='trackingFields'></div></p> 
+        <p><div id='toolsOutput'></div></p>
         <!-- <button class='btn' id='addTrackingFieldButton'>
           <span class='glyphicon glyphicon-plus-sign'></span>
           Add new field
