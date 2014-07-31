@@ -72,6 +72,20 @@ function inputIntervals(i, task_input) {
   return '<select class="form-control form-inline input-select" onChange="addInput('+i+')">' + options + '</select>';
 }
 
+function addFollowup(i) {
+
+  var task_select = $('#task-'+i+' .task-select').val();
+  var task_input = $('#task-'+i+' .task-input').val();
+
+  var frequency_input = $('#task-'+i+' .frequency-input').val();
+  var frequency_select = $('#task-'+i+' .frequency-select select').val();
+
+  var duration_input = $('#task-'+i+' .duration-input').val();
+  var duration_select = $('#task-'+i+' .duration-select select').val();
+
+  followupQuestions(i, task_select, frequency_input+' '+frequency_select, duration_input+' '+duration_select);
+}
+
 function addInput(i) {
   $('#task-'+i+' .input-info').html('');
   var inputOptions = $('#task-'+i+' .input-select').val();
@@ -83,6 +97,11 @@ function addInput(i) {
       '<input class="form-inline form-control input-text-high" placeholder="to" />';
   }
   $('#task-'+i+' .input-info-row').append('<td class="input-info">'+text+'</td>');
+  $('#task-'+i+' .followup-info').append('<button class="btn" onclick="createTool('+i+'); $(this).hide(); ">Create tools</button>');
+}
+
+function createTool(i) {
+
 }
 
 /* Event handlers */
@@ -98,24 +117,11 @@ $('#addTrackingTaskButton').click(function() {
         .append(trackingTaskHTML(num_tasks))
       )
       .append($('<div class="followup-info">'))
-      .append($('<div class="input-info">'))
     )
     .append('<hr>');
 
 });
 
-function addFollowup(i) {
 
-  var task_select = $('#task-'+i+' .task-select').val();
-  var task_input = $('#task-'+i+' .task-input').val();
-
-  var frequency_input = $('#task-'+i+' .frequency-input').val();
-  var frequency_select = $('#task-'+i+' .frequency-select select').val();
-
-  var duration_input = $('#task-'+i+' .duration-input').val();
-  var duration_select = $('#task-'+i+' .duration-select select').val();
-
-  followupQuestions(i, task_select, frequency_input+' '+frequency_select, duration_input+' '+duration_select);
-}
 
 
