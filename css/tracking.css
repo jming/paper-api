@@ -1,49 +1,29 @@
-.field-btn {
+.form-inline {
+  width: 240px;
+  display: inline-block;
   margin: 5px;
 }
 
-.form-inline {
-  width: 120px;
-  display: inline-block;
-  margin: 2px 5px;
-}
-
-.checkbox {
-  margin: 5px 0;
-}
-
-.tracking-info-table{
-  margin-left: 20px;
-}
-
-.followup-info {
-  margin-left: 20px;
-}
-
-.input-select {
-  width: 240px;
-}
-
-.input-info {
-  margin-left: 40px;
-}
-
-.tool-table,
-.tool-table tr,
-.tool-table td,
-.tool-table th {
-  border: 1px solid grey;
-}
-
-.tool-table tr {
-  height: 35px;
-}
-
-.tool-table td,
-.tool-table th {
+.form-inline-small {
   width: 100px;
 }
 
-/*.tool-table {
-  border: 1px solid grey;
-}*/
+.form-inline-smaller {
+  width: 64px;
+}
+
+.output-table,
+.output-table tr,
+.output-table th,
+.output-table tbody,
+.output-table td {
+  border: 1px solid rgb(204, 204, 204);
+}
+
+.output-table tr {
+  height: 25px;
+}
+
+.output-table td {
+  width: 100px;
+}
