@@ -1,5 +1,5 @@
 var timeSelectHTML = '<select class="form-control form-inline form-inline-small select-time frequency-select">' +
-    '<option value="second">second(s)</option>' +
+    // '<option value="second">second(s)</option>' +
     '<option value="minute">minute(s)</option>' +
     '<option value="hour">hour(s)</option>' +
     '<option value="day">day(s)</option>' +
@@ -9,14 +9,16 @@ var timeSelectHTML = '<select class="form-control form-inline form-inline-small 
   '</select>';
 
 // TODO: figure out time selector
-var timeInputHTML =
-  '<div class="input-append date time-input">' +
-    '<input data-format="dd/MM/yyyy hh:mm:ss" type="text" />' +
-    '<span class="add-on">' +
-      '<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>' +
-  '</span></div>';
-
-$(function() { $('.time-input').datetimepicker({language: 'pt-BR'}); });
+// var timeInputHTML =
+//   '<div class="input-append date time-input">' +
+//     '<input data-format="dd/MM/yyyy hh:mm:ss" type="text" />' +
+//     '<span class="add-on">' +
+//       '<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>' +
+//   '</span></div>';
+var timeInputHTML = "<div class='input-group date timeInput' id='datetimepicker1'>" +
+  "<input type='text' class='form-control' />" +
+  "<span class='input-group-addon'><span class='glyphicon glyphicon-calendar'></span>" +
+  "</span></div>";
 // '<input type="datetime" class="form-control form-inline" />';
 
 var definingWhatHTML = '<div class="form-group">' +
@@ -88,6 +90,7 @@ var valuesSingleHTML = '<div class="form-group">' +
 
 var valuesNumberHTML = '<div class="form-group">' +
   '<h4>How many possible values are there?</h4>' +
+  // TODO: include possibility for a range, yes/no?
   '<p>' +
     '<input type="text" id="valuemany-input" class="form-control form-inline form-inline-small"/>' +
     '<div class="checkbox"><label><input type="checkbox" class="form-control form-inline">More than 10</label></div>' +
@@ -296,8 +299,12 @@ function durationInput(selector,time) {
     // add the from time thingy
     $('.duration-input-table tr')
       .append($('<td>')
-        .append(timeInputHTML)
+        .append("<div class='input-group date' id='timeinput-1'>" +
+          "<input type='text' class='form-control' />" +
+          "<span class='input-group-addon'><span class='glyphicon glyphicon-calendar'></span>" +
+          "</span></div>")
       );
+    $('#timeinput-1').datetimepicker();
     $('.duration-input-table')
       .append($('<tr class="row2">')
         .append($('<td>'))
@@ -311,8 +318,12 @@ function durationInput(selector,time) {
     // add the date selector
     $('.duration-input-table .row2')
       .append($('<td>')
-        .append(timeInputHTML)
+        .append("<div class='input-group date' id='timeinput-2'>" +
+          "<input type='text' class='form-control' />" +
+          "<span class='input-group-addon'><span class='glyphicon glyphicon-calendar'></span>" +
+          "</span></div>")
       );
+    $('#timeinput-2').datetimepicker();
     $('#taskFields').append('<button class="btn" id="continue-4" onclick="continueFrom(this,4)">Continue</button>' );
   }
   else if (s == 'for') {
@@ -349,5 +360,4 @@ function skipFrom(btn, step) {
     continueFrom($('#continue-'+step), 10);
   }
 }
-
 
