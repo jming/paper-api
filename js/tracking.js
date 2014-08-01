@@ -9,7 +9,15 @@ var timeSelectHTML = '<select class="form-control form-inline form-inline-small 
   '</select>';
 
 // TODO: figure out time selector
-var timeInputHTML = 'TIME SELECTOR';
+var timeInputHTML =
+  '<div class="input-append date time-input">' +
+    '<input data-format="dd/MM/yyyy hh:mm:ss" type="text" />' +
+    '<span class="add-on">' +
+      '<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>' +
+  '</span></div>';
+
+$(function() { $('.time-input').datetimepicker({language: 'pt-BR'}); });
+// '<input type="datetime" class="form-control form-inline" />';
 
 var definingWhatHTML = '<div class="form-group">' +
   '<h4>What are you tracking?</h4>' +
@@ -44,15 +52,22 @@ var durationHTML = '<div class="form-group">' +
   '<h4>How long will you be tracking?</h4>' +
   '<p><table class="duration-input-table">' +
     '<td>I am tracking</td>'+
-    '<td><select class="form-control form-inline form-inline-smaller" onchange="durationInput(this)">' +
+    '<td><select class="form-control form-inline form-inline-smaller" onchange="durationInput(this,1)">' +
       '<option disabled selected></option>' +
       '<option value="for">for</option>' +
       '<option value="from">from</option>' +
     '</select></td>' +
   '</table></p>' +
-  '<button class="btn" id="continue-4" onclick="continueFrom(this,4)">Continue</button>' +
+  // '<button class="btn" id="continue-4" onclick="continueFrom(this,4)">Continue</button>' +
   '<button class="btn" id="skip-4" onclick="skipFrom(this,4)">Skip</button>' +
   '</div>';
+
+// TODO: flesh this out
+var durationHTML2 = '<select class="form-control form-inline form-inline-smaller" onchange="durationInput(this,2)">' +
+    '<option disabled selected></option>' +
+    '<option value="to">to</option>' +
+    '<option value="for">for</option>' +
+  '</select>';
 
 var valuesSameHTML = '<div class="form-group">' +
   '<h4>Are the values the same every time?</h4>' +
@@ -80,9 +95,6 @@ var valuesNumberHTML = '<div class="form-group">' +
   '</p>' +
   '<button class="btn" onclick="continueFrom(this,13)">Continue</button>' +
   '</div>';
-
-// TODO: flesh this out
-var durationHTML2 = 'DURATION HTML 2';
 
 $('#addTrackingTaskButton').click(function() {
   $('#taskFields').append($('<div>').append(definingWhatHTML));
@@ -180,7 +192,7 @@ function generateTable(step) {
     for (var j=0; j<5; j++) {
       $('.table-12a')
         .append($('<tr>')
-          .append($('<td>'))
+          .append($('<td>').append((1+j*freqi).toString()))
           .append($('<td>').append(vsingle))
         );
     }
@@ -199,7 +211,7 @@ function generateTable(step) {
     for (var k=0; k<5; k++) {
       $('.table-12b')
         .append($('<tr>')
-          .append($('<td>'))
+          .append($('<td>').append((1+k*freqi).toString()))
           .append($('<td>').append(k*vsingle))
         );
     }
@@ -221,7 +233,7 @@ function generateTable(step) {
     for (var l=1; l<=5; l++) {
       $('.table-12c')
         .append($('<tr>')
-          .append($('<td>'))
+          .append($('<td>').append((1+l*freqi).toString()))
           .append($('<td>').append(vsingle))
           .append($('<td>').append(l*vsingle))
         );
@@ -240,6 +252,9 @@ function addNextStep(step) {
   }
   else if (step == 3) {
     $('#taskFields').append($('<div>').append(durationHTML));
+  }
+  else if (step == 4) {
+    $('#taskFields').append($('<div>').append(valuesSameHTML));
   }
   else if (step == 10) {
     $('#taskFields').append($('<div>').append(valuesSameHTML));
@@ -273,28 +288,56 @@ function addNextStep(step) {
   }
 }
 
-function durationInput(selector) {
+function durationInput(selector,time) {
   // TODO: clear things from the next column
   var s = $(selector).val();
+
   if (s == 'from') {
     // add the from time thingy
+    $('.duration-input-table tr')
+      .append($('<td>')
+        .append(timeInputHTML)
+      );
     $('.duration-input-table')
       .append($('<tr class="row2">')
+        .append($('<td>'))
         .append($('<td>')
           .append(durationHTML2)
         )
       );
     // add the next row
   }
-  else if (s == 'for') {
-    // add the for time thingy
-    $('.duration-input-table tr')
+  else if (s == 'to') {
+    // add the date selector
+    $('.duration-input-table .row2')
       .append($('<td>')
-        .append('<input type="text" class="form-control form-inline form-inline-small duration-input" />')
-        .append($('<span class="duration-select">')
-          .append(timeSelectHTML)
-        )
+        .append(timeInputHTML)
       );
+    $('#taskFields').append('<button class="btn" id="continue-4" onclick="continueFrom(this,4)">Continue</button>' );
+  }
+  else if (s == 'for') {
+    if (time == 1) {
+      // add the for time thingy
+      $('.duration-input-table tr')
+        .append($('<td>')
+          .append('<input type="text" class="form-control form-inline form-inline-small duration-input" />')
+          .append($('<span class="duration-select">')
+            .append(timeSelectHTML)
+          )
+        );
+      $('#taskFields').append('<button class="btn" id="continue-4" onclick="continueFrom(this,4)">Continue</button>' );
+    }
+    else {
+      $('.duration-input-table .row2')
+        .append($('<td>')
+          .append('<input type="text" class="form-control form-inline form-inline-small duration-input" />')
+          .append($('<span class="duration-select">')
+            .append(timeSelectHTML)
+          )
+        );
+      $('#taskFields').append('<button class="btn" id="continue-4" onclick="continueFrom(this,4)">Continue</button>' );
+    }
+    
   }
 }
 
