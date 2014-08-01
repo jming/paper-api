@@ -198,6 +198,25 @@ function generateTable(step) {
         );
     }
   }
+
+  else if (step==4) {
+    if (freqs == 'minute' || freqs == 'hour') {
+
+    }
+    else {
+      $('#toolsOutput')
+        .append($('<table class="table output-table table3c">')
+          .append($('<td>').append($('<tr>').append('')).append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>'))
+          .append($('<td>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>'))
+          .append($('<td>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>'))
+          .append($('<td>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>'))
+          .append($('<td>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>'))
+          .append($('<td>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>'))
+          .append($('<td>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>').append('<tr>'))
+        );
+    }
+  }
+
   else if (step == 12) {
     $('#toolsOutput')
       .append($('<table class="table output-table table-12a">')
@@ -345,8 +364,8 @@ function durationInput(selector,time) {
           "</span></div>");
     $('#timeinput-2').datetimepicker();
     $('#button-bar').html('');
+      $('#button-bar').append('<button class="btn" id="continue-4" onclick="continueFrom(this,4)">Continue</button>' );
     $('#button-bar').append('<button class="btn" id="skip-4" onclick="skipFrom(this,4)">Skip</button>');
-    $('#button-bar').append('<button class="btn" id="continue-4" onclick="continueFrom(this,4)">Continue</button>' );
   }
   else if (s == 'for') {
     if (time == 1) {
@@ -358,8 +377,8 @@ function durationInput(selector,time) {
             .append(timeSelectHTML)
         );
       $('#button-bar').html('');
-      $('#button-bar').append('<button class="btn" id="skip-4" onclick="skipFrom(this,4)">Skip</button>');
       $('#button-bar').append('<button class="btn" id="continue-4" onclick="continueFrom(this,4)">Continue</button>' );
+      $('#button-bar').append('<button class="btn" id="skip-4" onclick="skipFrom(this,4)">Skip</button>');
     }
     else {
       $('#duration-input-r2c2').html('');
@@ -369,8 +388,8 @@ function durationInput(selector,time) {
             .append(timeSelectHTML)
         );
       $('#button-bar').html('');
-      $('#button-bar').append('<button class="btn" id="skip-4" onclick="skipFrom(this,4)">Skip</button>');
       $('#button-bar').append('<button class="btn" id="continue-4" onclick="continueFrom(this,4)">Continue</button>' );
+      $('#button-bar').append('<button class="btn" id="skip-4" onclick="skipFrom(this,4)">Skip</button>');
     }
     
   }
