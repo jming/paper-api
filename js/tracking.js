@@ -36,7 +36,8 @@ var frequencyHTML = '<div class="form-group">' +
     '<input class="form-control form-inline form-inline-small frequency-input" placeholder="number"/>' +
      '<span class="frequency-select">'+timeSelectHTML+'</span>'+
   '</p>' +
-  '<button class="btn" onclick="continueFrom(this,3)">Continue</button>' +
+  '<button class="btn" id="continue-3" onclick="continueFrom(this,3)">Continue</button>' +
+  '<button class="btn" id="skip-3" onclick="skipFrom(this,3)">Skip</button>' +
   '</div>';
 
 var durationHTML = '<div class="form-group">' +
@@ -49,7 +50,35 @@ var durationHTML = '<div class="form-group">' +
       '<option value="from">from</option>' +
     '</select></td>' +
   '</table></p>' +
-  '<button class="btn" onclick="continueFrom(this,4)">Continue</button>' +
+  '<button class="btn" id="continue-4" onclick="continueFrom(this,4)">Continue</button>' +
+  '<button class="btn" id="skip-4" onclick="skipFrom(this,4)">Skip</button>' +
+  '</div>';
+
+var valuesSameHTML = '<div class="form-group">' +
+  '<h4>Are the values the same every time?</h4>' +
+  '<p><select class="form-control form-inline form-inline-small valuessame-select">' +
+    '<option value="y">Yes</option>' +
+    '<option value="n">No</option>' +
+  '</select></p>' +
+  '<button class="btn" onclick="continueFrom(this,11)">Continue</button>' +
+  '</div>';
+
+var valuesSingleHTML = '<div class="form-group">' +
+  '<h4>What is the value?</h4>' +
+  '<p>The input value each time is' +
+    '<input type="text" id="valuesingle-input" class="form-control form-inline form-inline-small"/>' +
+  '</p>' +
+  '<button class="btn" onclick="continueFrom(this,12)">Continue</button>' +
+  '</div>';
+
+var valuesNumberHTML = '<div class="form-group">' +
+  '<h4>How many possible values are there?</h4>' +
+  '<p>' +
+    '<input type="text" id="valuemany-input" class="form-control form-inline form-inline-small"/>' +
+    '<div class="checkbox"><label><input type="checkbox" class="form-control form-inline">More than 10</label></div>' +
+    // <div class="checkbox"><label><input type="checkbox" value="per" class="sum-check-per"> per '+task.freqi+' '+task.freqs+'</label></div>' +
+  '</p>' +
+  '<button class="btn" onclick="continueFrom(this,13)">Continue</button>' +
   '</div>';
 
 // TODO: flesh this out
@@ -61,17 +90,23 @@ $('#addTrackingTaskButton').click(function() {
 
 function continueFrom(btn,step) {
   $(btn).hide();
+  if (step==3 || step==4) {
+    $('#skip-'+step).hide();
+  }
   generateTable(step);
   addNextStep(step);
 }
 
 function generateTable(step) {
 
+  console.log('generateTable', step);
+
   var what = $('#what-input').val();
   var ts = $('#timespace-select').val();
   var ts_text = (ts == 'time') ? 'Location' : 'Date';
   var freqi = parseInt($('.frequency-input').val(), 10);
   var freqs = $('.frequency-select').val();
+  var vsingle = parseInt($('#valuesingle-input').val(),10);
 
   if (step == 1) {
 
@@ -130,9 +165,73 @@ function generateTable(step) {
         );
     }
   }
+  else if (step == 12) {
+    $('#toolsOutput')
+      .append($('<table class="table output-table table-12a">')
+        .append($('<tr>')
+          .append($('<th>')
+            .append(ts_text)
+          )
+          .append($('<th>')
+            .append(what)
+          )
+        )
+      );
+    for (var j=0; j<5; j++) {
+      $('.table-12a')
+        .append($('<tr>')
+          .append($('<td>'))
+          .append($('<td>').append(vsingle))
+        );
+    }
+
+    $('#toolsOutput')
+      .append($('<table class="table output-table table-12b">')
+        .append($('<tr>')
+          .append($('<th>')
+            .append(ts_text)
+          )
+          .append($('<th>')
+            .append(what)
+          )
+        )
+      );
+    for (var k=0; k<5; k++) {
+      $('.table-12b')
+        .append($('<tr>')
+          .append($('<td>'))
+          .append($('<td>').append(k*vsingle))
+        );
+    }
+
+    $('#toolsOutput')
+      .append($('<table class="table output-table table-12c">')
+        .append($('<tr>')
+          .append($('<th>')
+            .append(ts_text)
+          )
+          .append($('<th>')
+            .append(what)
+          )
+          .append($('<th>')
+            .append('Sum of ' + what)
+          )
+        )
+      );
+    for (var l=1; l<=5; l++) {
+      $('.table-12c')
+        .append($('<tr>')
+          .append($('<td>'))
+          .append($('<td>').append(vsingle))
+          .append($('<td>').append(l*vsingle))
+        );
+    }
+  }
 }
 
 function addNextStep(step) {
+  console.log('addNextStep', step);
+
   if (step == 1) {
     $('#taskFields').append($('<div>').append(timeSpaceHTML));
   }
@@ -141,6 +240,36 @@ function addNextStep(step) {
   }
   else if (step == 3) {
     $('#taskFields').append($('<div>').append(durationHTML));
+  }
+  else if (step == 10) {
+    $('#taskFields').append($('<div>').append(valuesSameHTML));
+  }
+  else if (step == 11) {
+    if ($('.valuessame-select').val() == 'y') {
+      $('#taskFields').append($('<div>').append(valuesSingleHTML));
+    }
+    else {
+      $('#taskFields').append($('<div>').append(valuesNumberHTML));
+    }
+  }
+  else if (step == 13) {
+    var num_values = parseInt($('#valuemany-input').val(), 10);
+    $('#taskFields')
+      .append($('<table class="table" id="manyinput-table">')
+        .append($('<tr>')
+          .append($('<th>').append('Label'))
+          .append($('<th>').append('Value'))
+        )
+      );
+
+    for (var i=0; i<num_values; i++) {
+      $('#manyinput-table')
+        .append($('<tr>')
+          .append($('<td>').append('<input class="form-control form-inline" id="manyinput-label-'+i+'" />'))
+          .append($('<td>').append('<input class="form-control form-inline" id="manyinput-value-'+i+'" />'))
+        );
+    }
+    $('#taskFields').append($('<button class="btn" onclick="continueFrom(this,14)">Continue</button>'));
   }
 }
 
@@ -166,6 +295,15 @@ function durationInput(selector) {
           .append(timeSelectHTML)
         )
       );
+  }
+}
+
+function skipFrom(btn, step) {
+  $(btn).hide();
+  console.log();
+  if (step == 3 || step == 4) {
+    // TODO: this is an arbitrary number
+    continueFrom($('#continue-'+step), 10);
   }
 }
 
