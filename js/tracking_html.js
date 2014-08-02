@@ -21,7 +21,7 @@ var trackingHTML =
     '<select class="form-control form-inline valuetype-select" onchange="updateValueType(this)">' +
     '<option value="yn">yes or no</option>' +
     '<option value="single">the same number every time</option>' +
-    '<option value="set">from a set of less than 10 possibilities</option>' +
+    '<option value="set">from a set of less than 5 possibilities</option>' +
     '<option value="other">other</option>' +
     '</select></p>' +
 '</div>' +
@@ -33,7 +33,7 @@ var trackingHTML =
 '</div>' +
 '<div class="valueset-div" style="display:none;">' +
   '<h4>What are the possible values of <span class="what-span"></span> each time?</h4>' +
-  '<p>(Please separate values with a linebreak)</p>' +
+  '<p>(Please separate values with a comma)</p>' +
     '<p><textarea class="form-control valueset-input"/></p>' +
 '</div>' +
 '<div class="timespace-div" style="display:none;">' +
@@ -113,9 +113,9 @@ var trackingHTML =
     '</td>' +
   '</tr></table>' +
 '</div>' +
-'<div class="continuebutton-div"><p>' +
+'<div class="continuebutton-div">' +
   '<button class="btn" onclick="continueFrom(1,0)">Continue</button>' +
-'</p></div>';
+'</div>';
 
 var outputHTML = '<div class="panel-group" id="accordion">' + '</div>';
 
@@ -124,14 +124,15 @@ function basicTableHTML (n, opt_n) {
   '<div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#option'+n+'">' +
     'Option #' +opt_n +
   '</a></h4></div>' +
-  '<div id=option'+n+' class="panel-collapse collapse in"><div class="panel-body">' +
-    '<table class="output-table">' +
-      '<tr class="r1"><th class="c1"></th><th class="c2"></th></tr>' +
-      '<tr class="r2"><td class="c1"></td><td class="c2"></td></tr>' +
-      '<tr class="r3"><td class="c1"></td><td class="c2"></td></tr>' +
-      '<tr class="r4"><td class="c1"></td><td class="c2"></td></tr>' +
-      '<tr class="r5"><td class="c1"></td><td class="c2"></td></tr>' +
-    '</table>' +
+  '<div id=option'+n+' class="panel-collapse collapse options-collapse in"><div class="panel-body">' +
+    '<table class="table output-table">' +
+      '<tr class="r1"><th class="c1"></th><th class="c2" style="display:none;"><th class="c3" style="display:none;"></th><th class="c4" style="display:none;"></th><th class="c5" style="display:none;"></th></tr>' +
+      '<tr class="r2"><td class="c1"></td><td class="c2" style="display:none;"><td class="c3" style="display:none;"></td><td class="c4" style="display:none;"></td><td class="c5" style="display:none;"></td></tr>' +
+      '<tr class="r3"><td class="c1"></td><td class="c2" style="display:none;"><td class="c3" style="display:none;"></td><td class="c4" style="display:none;"></td><td class="c5" style="display:none;"></td></tr>' +
+      '<tr class="r4"><td class="c1"></td><td class="c2" style="display:none;"><td class="c3" style="display:none;"></td><td class="c4" style="display:none;"></td><td class="c5" style="display:none;"></td></tr>' +
+      '<tr class="r5"><td class="c1"></td><td class="c2" style="display:none;"><td class="c3" style="display:none;"></td><td class="c4" style="display:none;"></td><td class="c5" style="display:none;"></td></tr>' +
+      '<tr class="r6"><td class="c1"></td><td class="c2" style="display:none;"><td class="c3" style="display:none;"></td><td class="c4" style="display:none;"></td><td class="c5" style="display:none;"></td></tr>' +
+      '</table>' +
   '</div></div>';
 }
 
