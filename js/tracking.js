@@ -26,7 +26,10 @@ function continueFrom(step, n) {
     what : $('#task-'+n+' .what-input').val(),
     valuetype : $('#task-'+n+' .valuetype-select').val(),
     valuesingle : $('#task-'+n+' .valuesingle-input').val(),
-    valueset : $('#task-'+n+' .valueset-input').val().split(',')
+    valueset : $('#task-'+n+' .valueset-input').val().split(','),
+    timespace : $('#task-'+n+' .timespace-select').val(),
+    freqi : $('#task-'+n+' .frequency-input').val(),
+    freqs : $('#task-'+n+' .frequency-select').val()
   };
   createTable(step, task, n);
   showNextStep(step, task, n);
@@ -102,7 +105,24 @@ function createTable(step, task, n) {
   }
 
   else if (step == STEP.TIMESPACE) {
-    
+
+    var ts_text = (task.timespace == 'time') ? 'Date' : 'Location';
+    $('#accordion').append(basicTableHTML(step,opt_n));
+    $('#option10 .c2').show();
+    $('#option10 .r1 .c1').append(ts_text);
+    $('#option10 .r1 .c2').append(capitalize(task.what));
+
+  }
+
+  else if (step == STEP.FREQUENCY) {
+    console.log(task);
+    $('#accordion').append(basicTableHTML(step,opt_n));
+    $('#option11 .c2').show();
+    $('#option11 .r1 .c1').append(capitalize(task.freqs));
+    $('#option11 .r1 .c2').append(capitalize(task.what));
+    for (var f=0; f<5; f++) {
+      $('#option11 .r'+(f+2)+' .c1').append(1+task.freqi*f);
+    }
   }
 
 }
