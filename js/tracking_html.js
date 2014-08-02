@@ -113,11 +113,27 @@ var trackingHTML =
     '</td>' +
   '</tr></table>' +
 '</div>' +
-'<div class="continuebutton-div">' +
+'<div class="continuebutton-div"><p>' +
   '<button class="btn" onclick="continueFrom(1,0)">Continue</button>' +
-'</div>';
+'</p></div>';
 
-var outputHTML = '';
+var outputHTML = '<div class="panel-group" id="accordion">' + '</div>';
+
+function basicTableHTML (n, opt_n) {
+  return '<div class="panel panel-default">' +
+  '<div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#option'+n+'">' +
+    'Option #' +opt_n +
+  '</a></h4></div>' +
+  '<div id=option'+n+' class="panel-collapse collapse in"><div class="panel-body">' +
+    '<table class="output-table">' +
+      '<tr class="r1"><th class="c1"></th><th class="c2"></th></tr>' +
+      '<tr class="r2"><td class="c1"></td><td class="c2"></td></tr>' +
+      '<tr class="r3"><td class="c1"></td><td class="c2"></td></tr>' +
+      '<tr class="r4"><td class="c1"></td><td class="c2"></td></tr>' +
+      '<tr class="r5"><td class="c1"></td><td class="c2"></td></tr>' +
+    '</table>' +
+  '</div></div>';
+}
 
 function durationInput(select,opt) {
   var s = $(select).val();
