@@ -33,3 +33,17 @@
 .continuebutton-div {
   margin-bottom: 10px;
 }
+
+.output-calendar tr {
+  height: 50px;
+}
+
+.output-print {
+  float: right;
+  padding: 1px 5px;
+}
+
+.output-clock {
+  height: 200px;
+  width: 200px;
+}
