@@ -26,6 +26,12 @@ function showDiv2(div,what) {
   showDiv(0,div,what);
 }
 
+function newTrackingTask(m) {
+  $('#taskFields').append($('<div id="task-'+m+'">').append(trackingHTML));
+  $('#task-'+(m-1)).hide();
+  continueButton(1,m);
+}
+
 function continueFrom(step, n) {
   $('#task-'+n+' .continuebutton-div').html('');
   var dur3it = new Date($('#task-'+n+' .duration3-input').val());
@@ -56,12 +62,6 @@ function continueFrom(step, n) {
   if (step == STEP.NEWSTEP) {
     newTrackingTask(n+1);
   }
-}
-
-function newTrackingTask(m) {
-  $('#taskFields').append($('<div id="task-'+m+'">').append(trackingHTML));
-  $('#task-'+(m-1)).hide();
-  continueButton(1,m);
 }
 
 function createTable(step, task, n) {

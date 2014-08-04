@@ -203,6 +203,9 @@ function updateValueType (select) {
 }
 
 function outputPrint (opt) {
+  $('#option'+opt).addClass('toprint');
   console.log(opt);
+  window.print();
+  
 }
 
