@@ -1,34 +1,159 @@
-<!DOCTYPE HTML>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen"
-     href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Delius+Swash+Caps" />
+    <title>NiftyPaper</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/tracking.css" rel="stylesheet">
+    <link href="dist/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
   </head>
+
   <body>
-    <div id="datetimepicker" class="input-append date">
-      <input type="text"></input>
-      <span class="add-on">
-        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-      </span>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><b>NiftyPaper</b></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="tracking.html">Tracking</a></li>
+            <li><a href="flowchart.html">Process</a></li>
+            <li><a href="lookup.html">Lookup</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="about.html">About and Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </div>
-    <script type="text/javascript"
-     src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
-    </script> 
-    <script type="text/javascript"
-     src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+
+    <div class="container">
+
+      <div class="main-content">
+
+<table class="table output-table">
+    <tbody>
+        <tr class="r1">
+            <th class="c1">Medication consumption</th>
+            <th class="c2" style="display:none;"></th>
+            <th class="c3" style="display:none;"></th>
+            <th class="c4" style="display:none;"></th>
+            <th class="c5" style="display:none;"></th>
+            <th class="c6" style="display:none;"></th>
+            <th class="c7" style="display:none;"></th>
+            <th class="c8" style="display:none;"></th>
+            <th class="c9" style="display:none;"></th>
+            <th class="c10" style="display:none;"></th>
+        </tr>
+        <tr class="r2">
+            <td class="c1 input-test">7/1</td>
+            <td class="c2" style="display:none;"></td>
+            <td class="c3" style="display:none;"></td>
+            <td class="c4" style="display:none;"></td>
+            <td class="c5" style="display:none;"></td>
+            <td class="c6" style="display:none;"></td>
+            <td class="c7" style="display:none;"></td>
+            <td class="c8" style="display:none;"></td>
+            <td class="c9" style="display:none;"></td>
+            <td class="c10" style="display:none;"></td>
+        </tr>
+        <tr class="r3">
+            <td class="c1 input-test">7/4</td>
+            <td class="c2" style="display:none;"></td>
+            <td class="c3" style="display:none;"></td>
+            <td class="c4" style="display:none;"></td>
+            <td class="c5" style="display:none;"></td>
+            <td class="c6" style="display:none;"></td>
+            <td class="c7" style="display:none;"></td>
+            <td class="c8" style="display:none;"></td>
+            <td class="c9" style="display:none;"></td>
+            <td class="c10" style="display:none;"></td>
+        </tr>
+        <tr class="r4">
+            <td class="c1 input-test">7/5</td>
+            <td class="c2" style="display:none;"></td>
+            <td class="c3" style="display:none;"></td>
+            <td class="c4" style="display:none;"></td>
+            <td class="c5" style="display:none;"></td>
+            <td class="c6" style="display:none;"></td>
+            <td class="c7" style="display:none;"></td>
+            <td class="c8" style="display:none;"></td>
+            <td class="c9" style="display:none;"></td>
+            <td class="c10" style="display:none;"></td>
+        </tr>
+        <tr class="r5">
+            <td class="c1 input-test">7/6</td>
+            <td class="c2" style="display:none;"></td>
+            <td class="c3" style="display:none;"></td>
+            <td class="c4" style="display:none;"></td>
+            <td class="c5" style="display:none;"></td>
+            <td class="c6" style="display:none;"></td>
+            <td class="c7" style="display:none;"></td>
+            <td class="c8" style="display:none;"></td>
+            <td class="c9" style="display:none;"></td>
+            <td class="c10" style="display:none;"></td>
+        </tr>
+        <tr class="r6">
+            <td class="c1 input-test">7/8</td>
+            <td class="c2" style="display:none;"></td>
+            <td class="c3" style="display:none;"></td>
+            <td class="c4" style="display:none;"></td>
+            <td class="c5" style="display:none;"></td>
+            <td class="c6" style="display:none;"></td>
+            <td class="c7" style="display:none;"></td>
+            <td class="c8" style="display:none;"></td>
+            <td class="c9" style="display:none;"></td>
+            <td class="c10" style="display:none;"></td>
+        </tr>
+    </tbody>
+</table>
+        
+      </div><!-- main-content -->
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src='dist/js/moment.js'></script>
+    <script src='dist/js/bootstrap-datetimepicker.min.js'></script>
     </script>
-    <script type="text/javascript"
-     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-    </script>
-    <script type="text/javascript"
-     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
-    </script>
-    <script type="text/javascript">
-      $('#datetimepicker').datetimepicker({
-        format: 'dd/MM/yyyy hh:mm:ss',
-        language: 'pt-BR'
-      });
-    </script>
+    <script src='js/tracking_html.js'></script>
+    <script src='js/tracking.js'></script>
+    
   </body>
-<html>
+</html>
+
+
+
+
+
+
+
+
+

@@ -4,7 +4,12 @@ $('#taskOutput').append($('<div id="task-0-output">').append(outputHTML));
 
 function continueButton(step,n) {
   $('#task-'+n+' .continuebutton-div').html('');
-  $('#task-'+n+' .continuebutton-div').append('<button class="btn continue-'+step+'" onclick="continueFrom('+step+','+n+')">Continue</button>');
+  if (step == STEP.NEWSTEP) {
+    $('#task-'+n+' .continuebutton-div').append('<button class="btn continue-'+step+'" onclick="continueFrom('+step+','+n+')">New tracking task</button>');
+  }
+  else {
+    $('#task-'+n+' .continuebutton-div').append('<button class="btn continue-'+step+'" onclick="continueFrom('+step+','+n+')">Continue</button>');
+  }
 }
 
 function capitalize(word) {
@@ -41,14 +46,22 @@ function continueFrom(step, n) {
     dur5s : $('#task-'+n+' .duration5-select').val(),
     dur6i : dur6it
   };
-  console.log(task);
+  // console.log(task);
   createTable(step, task, n);
   showNextStep(step, task, n);
+  if (step == STEP.NEWSTEP) {
+    newTrackingTask(n+1);
+  }
+}
+
+function newTrackingTask(m) {
+  $('#taskFields').append($('<div id="task-'+m+'">').append(trackingHTML));
+  $('#task-'+(m-1)).hide();
 }
 
 function createTable(step, task, n) {
 
-  console.log(step, task, n);
+  // console.log(step, task, n);
 
   $('.options-collapse').collapse('hide');
   var opt_n = $('.options-collapse').size()+1;
@@ -117,21 +130,25 @@ function createTable(step, task, n) {
 
   else if (step == STEP.VALUESET) {
 
+    $('#option1 .instructions').append('<br><b>Alternative instruction:</b> Write the values that is taken on for each row.');
+    $('#option1 .instructions').append('<br><b>Alternative instruction:</b> Take stickers with the possible values and paste one in the row each time the event occurs.');
+
     var num_opt = task.valueset.length;
-    console.log(task);
     $('#accordion').append(basicTableHTML(step+'a', opt_n));
     for (var no=1; no<=num_opt; no++) {
       $('#option4a .c'+no).show();
       $('#option4a .r1 .c'+no).append(task.valueset[no-1]);
     }
 
-    $('#accordion').append(basicTableHTML(step+'b', opt_n+1));
-    $('#option4b .r1 .c1').append(capitalize(task.what));
-    $('#option4b').append('with shading instructions');
+    $('#option4a .instructions').append('Tally the number of times an event of each of the possible values occurs.');
 
-    $('#accordion').append(basicTableHTML(step+'c', opt_n+2));
-    $('#option4c .r1 .c1').append(capitalize(task.what));
-    $('#option4c').append('with sticker sheet');
+    // $('#accordion').append(basicTableHTML(step+'b', opt_n+1));
+    // $('#option4b .r1 .c1').append(capitalize(task.what));
+    // $('#option4b').append('with shading instructions');
+
+    // $('#accordion').append(basicTableHTML(step+'c', opt_n+2));
+    // $('#option4c .r1 .c1').append(capitalize(task.what));
+    // $('#option4c').append('with sticker sheet');
 
   }
 
@@ -190,6 +207,25 @@ function createTable(step, task, n) {
 
     }
 
+    else if (task.valuetype == 'set') {
+      // $()
+      $('#option10a .instructions').append('<br><b>Alternative instruction:</b> Write the values that is taken on for each row.');
+      $('#option10a .instructions').append('<br><b>Alternative instruction:</b> Take stickers with the possible values and paste one in the row each time the event occurs.');
+
+      var num_opt = task.valueset.length;
+      $('#accordion').append(basicTableHTML(step+'b', opt_n+1));
+      $('#option10b .c2').show();
+      $('#option10b .r1 .c1').append(ts_text);
+
+      for (var no=1; no<=num_opt; no++) {
+        $('#option10b .c'+(no+1)).show();
+        $('#option10b .r1 .c'+(no+1)).append(task.valueset[no-1]);
+      }
+
+      $('#option10b .instructions').append('Tally the number of times an event of each of the possible values occurs.');
+
+    }
+
   }
 
   else if (step == STEP.FREQUENCY) {
@@ -218,7 +254,7 @@ function createTable(step, task, n) {
         $('#option11b .r'+i+' .c2').append('YES / NO');
       }
 
-      $('#option11b .instructions').append('Cirlce YES or NO depending on whether the event occurs.');
+      $('#option11b .instructions').append('Circle YES or NO depending on whether the event occurs.');
 
       $('#accordion').append(basicTableHTML(step+'c',opt_n+2));
       $('#option11c .r1 .c1').append(capitalize(task.freqs));
@@ -230,6 +266,28 @@ function createTable(step, task, n) {
       $('#option11c .instructions').append('<br><b>Alternative instruction:</b> Shade in the times the event occurs.');
       $('#option11c .instructions').append('<br><b>Alternative instruction:</b> Place a sticker on the times when the event occurs.');
 
+    }
+
+    else if (task.valuetype == 'single') {
+
+    }
+
+    else if (task.valuetype == 'set') {
+      var num_opt = task.valueset.length;
+      $('#accordion').append(basicTableHTML(step+'b', opt_n+1));
+      $('#option11b .c2').show();
+      $('#option11b .r1 .c1').append(capitalize(task.freqs));
+
+      for (var f=0; f<5; f++) {
+        $('#option11b .r'+(f+2)+' .c1').append(1+task.freqi*f);
+      }
+
+      for (var no=1; no<=num_opt; no++) {
+        $('#option11b .c'+(no+1)).show();
+        $('#option11b .r1 .c'+(no+1)).append(task.valueset[no-1]);
+      }
+
+      $('#option11b .instructions').append('Tally the number of times an event of each of the possible values occurs.');
     }
 
     if (task.freqs == 'day' || task.freqs == 'week' || task.freqs == 'month' || task.freqs == 'year') {
@@ -303,6 +361,28 @@ function createTable(step, task, n) {
         $('#option12a .instructions').append('<br><b>Alternative instruction:</b> Write the cumulative sum at the given time by crossing numbers off of a running total.');
       }
 
+      else if (task.valuetype == 'set') {
+
+        // $('#option12a .instructions').append('<br><b>Alternative instruction:</b> Write down which of the ')
+
+        var num_opt = task.valueset.length;
+        $('#accordion').append(basicTableHTML(step+'b', opt_n+1));
+        $('#option12b .c2').show();
+        $('#option12b .r1 .c1').append(capitalize(td));
+
+        for (var d=0; d<5; d++) {
+          // need to calculate the intervals
+          $('#option12b .r'+(d+2)+' .c1').append(calculateNextTime(d,task.dur3i,task.freqi,task.freqs));
+        }
+
+        for (var no=1; no<=num_opt; no++) {
+          $('#option12b .c'+(no+1)).show();
+          $('#option12b .r1 .c'+(no+1)).append(task.valueset[no-1]);
+        }
+
+        $('#option12b .instructions').append('Tally the number of times an event of each of the possible values occurs.');
+        }
+
     }
     
   }
@@ -325,10 +405,10 @@ function calculateNextTime(line, start_date, freqi, freqs) {
 
   // console.log(line, start_date, freqi, freqs);
   var next = new Date(start_date);
-  console.log(next);
+  // console.log(next);
 
   if (freqs == 'hour') {
-    console.log(next.getHours, line, freqs, next.getHours() + line * freqi);
+    // console.log(next.getHours, line, freqs, next.getHours() + line * freqi);
     next.setHours(next.getHours() + line * freqi);
     return printTime('hhmm', next);
   }
@@ -382,5 +462,9 @@ function showNextStep(step, task, n) {
   else if (step == STEP.FREQUENCY) {
     showDiv(n, '.duration-div', task.what);
     // continueButton()
+  }
+
+  else if (step == STEP.DURATION) {
+    continueButton(STEP.NEWSTEP,n);
   }
 }

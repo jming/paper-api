@@ -5,7 +5,8 @@ var STEP = {
   VALUESET: 4,
   TIMESPACE: 10,
   FREQUENCY: 11,
-  DURATION: 12
+  DURATION: 12,
+  NEWSTEP: 20
 };
 
 var trackingHTML =
@@ -21,7 +22,7 @@ var trackingHTML =
     '<select class="form-control form-inline valuetype-select" onchange="updateValueType(this)">' +
     '<option value="yn">whether it occurs or not</option>' +
     '<option value="single">the same number every time</option>' +
-    '<option value="set">from a set of less than 5 possibilities</option>' +
+    // '<option value="set">from a set of less than 5 possibilities</option>' +
     '<option value="other">other</option>' +
     '</select></p>' +
 '</div>' +
