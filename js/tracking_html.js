@@ -115,7 +115,7 @@ var trackingHTML =
   '</tr></table>' +
 '</div>' +
 '<div class="continuebutton-div">' +
-  '<button class="btn" onclick="continueFrom(1,0)">Continue</button>' +
+  // '<button class="btn" onclick="continueFrom(1,0)">Continue</button>' +
 '</div>';
 
 var outputHTML = '<div class="panel-group" id="accordion">' + '</div>';

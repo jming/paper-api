@@ -1,5 +1,6 @@
 
 $('#taskFields').append($('<div id="task-0">').append(trackingHTML));
+continueButton(1,0);
 $('#taskOutput').append($('<div id="task-0-output">').append(outputHTML));
 
 function continueButton(step,n) {
@@ -47,7 +48,10 @@ function continueFrom(step, n) {
     dur6i : dur6it
   };
   // console.log(task);
-  createTable(step, task, n);
+  if (n === 0) {
+    createTable(step, task, n);
+  }
+
   showNextStep(step, task, n);
   if (step == STEP.NEWSTEP) {
     newTrackingTask(n+1);
@@ -57,6 +61,7 @@ function continueFrom(step, n) {
 function newTrackingTask(m) {
   $('#taskFields').append($('<div id="task-'+m+'">').append(trackingHTML));
   $('#task-'+(m-1)).hide();
+  continueButton(1,m);
 }
 
 function createTable(step, task, n) {
