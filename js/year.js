@@ -11,13 +11,21 @@ var arc_months = d3.svg.arc()
     .outerRadius(outerRadius*1.2)
     .innerRadius(innerRadius);
 
+var arc_select = d3.svg.arc()
+    .outerRadius(innerRadius)
+    .innerRadius(10);
+
 var pie_days = d3.layout.pie()
     .sort(null)
     .value(function(d) { return 1; });
 
 var pie_months = d3.layout.pie()
-  .sort(null)
-  .value(function(d) { return d.num_days; });
+    .sort(null)
+    .value(function(d) { return d.num_days; });
+
+var pie_select = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return 1; });
 
 var svg_days = d3.select("#calendar-output1").append("svg")
     .attr("width", width)
@@ -26,6 +34,12 @@ var svg_days = d3.select("#calendar-output1").append("svg")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 var svg_months = d3.select("#calendar-output2").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+var svg_inside = d3.select('#calendar-output3').append('svg')
     .attr("width", width)
     .attr("height", height)
   .append("g")

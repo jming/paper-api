@@ -62,6 +62,8 @@
         
         <div id="graph" style="display:none;">
 
+          <p>This is for information that can be presented in a graph format. This includes options for various tools that can make reading a graph easier for individuals with low-literacy.</p>
+
           <p>I would like to 
             <select class="form-control form-inline">
               <option disabled selected></option>
@@ -80,10 +82,24 @@
 
         <div id="calendar" style="display:none;">
 
-          <p>What are some important times in the ? </p>
+          <p>This tool can be useful for estimating the occurrence events in twelve months from a given start date, essentially calculating based on a calendar year.</p>
+
+          <p>One use case is in pregnancy, where the expected date of gestation can be calculated based on the date of the last menses.</p>
+          <pre>
+{
+  "Last menses began": 0,
+  "Conception": 14,
+  "Expected date of confinement": 280
+}
+          </pre>
+
+          <p><b>Try it yourself!</b> Input important days in a process in the range of 0 to 365 in the format shown above.</p>
+          <textarea class="form-control" id="calendar-textarea" rows="3"></textarea>
+          <div style="padding-top:5px;"><button class="btn" onclick="updateData();">Update data!</button></div>
 
           <div id="calendar-output1" style="z-index:1;position:absolute;"></div>
           <div id="calendar-output2" style="z-index:-1;position:absolute;"></div>
+          <div id="calendar-output3" style="z-index:2;position:absolute;"></div>
           
         </div>
         
