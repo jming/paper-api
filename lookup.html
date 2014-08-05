@@ -52,9 +52,39 @@
       <div class="main-content">
 
         <h1>Lookup</h1>
-        <p>The information I have is...</p>
-<!--         <select></select>
-        <input type='text' class='form-control' placeholder=''> -->
+        <p>The information I have is based on a 
+          <select class="form-control form-inline" onchange="changeView(this)">
+            <option disabled selected></option>
+            <option value="graph">graph</option>
+            <option value="calendar">calendar year calculation</option>
+          </select>
+        </p>
+        
+        <div id="graph" style="display:none;">
+
+          <p>I would like to 
+            <select class="form-control form-inline">
+              <option disabled selected></option>
+              <option value="upload">upload my own information</option>
+              <option value="existing">select existing dataset</option>
+            </select>
+          </p>
+
+          <p>I would like to include the following reading enhancements</p>
+            <div class="checkbox"><input type='checkbox' value='hor'>horizontal slider</div>
+            <div class='checkbox'><input type='checkbox' value='ver'>vertical slider</div>
+            Graph reading enhancements (vertical slide, horizontal slide)</p>
+          <p>Smart viewfinders (slope, difference)</p>
+
+        </div>
+
+        <div id="calendar" style="display:none;">
+
+          <p>Input data or upload graph / select existing dataset</p>
+          <p>When does it start?</p>
+          <p>Do you want to include something on the back?</p>
+          
+        </div>
         
       </div><!-- main-content -->
 
@@ -67,6 +97,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src='js/flowchart.js'></script>
+    <script src='js/lookup.js'></script>
   </body>
 </html>

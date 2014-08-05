@@ -41,3 +41,17 @@ a:hover {
 .red-text {
   background-color: #ff9999;
 }
+
+.form-inline {
+  width: 300px;
+  display: inline-block;
+  margin: 5px;
+}
+
+.form-inline-small {
+  width: 100px;
+}
+
+.form-inline-smaller {
+  width: 64px;
+}
