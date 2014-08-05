@@ -16,7 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/app.css" rel="stylesheet">
-    <link href="css/flowchart.css" rel="stylesheet">
+    <link href="css/lookup.css" rel="stylesheet">
 
   </head>
 
@@ -80,9 +80,10 @@
 
         <div id="calendar" style="display:none;">
 
-          <p>Input data or upload graph / select existing dataset</p>
-          <p>When does it start?</p>
-          <p>Do you want to include something on the back?</p>
+          <p>What are some important times in the ? </p>
+
+          <div id="calendar-output1" style="z-index:1;position:absolute;"></div>
+          <div id="calendar-output2" style="z-index:-1;position:absolute;"></div>
           
         </div>
         
@@ -98,5 +99,6 @@
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src='js/lookup.js'></script>
+    <script src='js/year.js'></script>
   </body>
 </html>

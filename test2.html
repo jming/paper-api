@@ -13,16 +13,19 @@ body {
 </style>
 <body>
 
-  <div id="div1"></div>
+  <div id="div1" style="z-index:1;position:absolute;"></div>
   <div id="div2" style="z-index:-1;position:absolute;"></div>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
 var width = 960,
-    height = 600,
+    height = 960,
     // radius = Math.min(width, height) / 2;
-    radius = 200;
+    // radius = width/ 2;
+    // radius = 300,
+    innerRadius = 185,
+    outerRadius = 195;
 
 // var color = d3.scale.ordinal()
 //     // .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
@@ -31,12 +34,12 @@ var width = 960,
 //     .range(['#83FFAC']);
 
 var arc = d3.svg.arc()
-    .outerRadius(radius - 10)
-    .innerRadius(100);
+    .outerRadius(outerRadius)
+    .innerRadius(innerRadius);
 
 var arc2 = d3.svg.arc()
-    .outerRadius(radius*1.1 - 10)
-    .innerRadius(100);
+    .outerRadius(outerRadius*1.2)
+    .innerRadius(innerRadius);
 
 var pie = d3.layout.pie()
     .sort(null)
@@ -44,7 +47,7 @@ var pie = d3.layout.pie()
 
 var pie2 = d3.layout.pie()
   .sort(null)
-  .value(function(d) { return d.data.population });
+  .value(function(d) { return d.population });
 
 var svg = d3.select("#div1").append("svg")
     .attr("width", width)
@@ -52,11 +55,19 @@ var svg = d3.select("#div1").append("svg")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-// var svg2 = d3.select("#div2").append("svg")
-//     .attr("width", width)
-//     .attr("height", height)
-//   .append("g")
-//     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+// var arcs = svg.selectAll('g.slice')
+//   .data(pie)
+//   .enter()
+//   .append('svg:g')
+//   .attr('class','slice');
+
+
+var svg2 = d3.select("#div2").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 d3.csv("data.csv", function(error, data) {
 
@@ -74,37 +85,70 @@ d3.csv("data.csv", function(error, data) {
       // .style("fill", function(d) { return color(d.data.age); });
       .style("fill", function(d) { return getColor(d); });
 
+  // var pos = d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius);
+
+  // arcs.append("svg:text") 
+  //    .attr("transform", function(d) { return "translate(" + 
+  // pos.centroid(d) + ")"; }) 
+  //    .attr("dy", 5) 
+  //    .attr("text-anchor", "middle") 
+  //    .attr("fill", function(d, i) { return colorL(i); }) //Colorarray Labels
+  //    .attr("display", function(d) { return d.value >= 2 ? null : "none"; })  
+  //    .text(function(d, i) { return d.value.toFixed(0) + "%"});
+
   g.append("text")
-      .attr("transform", function(d) { return "translate(" + arc.centroid(d)+ ")"; })
+      .attr("transform", function(d) { 
+        var c = arc.centroid(d),
+            x = c[0],
+            y = c[1],
+            h = Math.sqrt(x*x + y*y),
+            labelr = 200;
+        return "translate(" + (x/h * labelr) + ',' + (y/h * labelr) + ')rotate(' + angle(d) + ')';
+
+        // return "translate(" + arc.centroid(d)+ ")"; 
+      })
       .attr("dy", ".35em")
       .style("text-anchor", "middle")
+      .style('font-size','10px')
       .text(function(d) { return getText(d); });
 
 });
 
-// d3.csv('data2.csv', function (error, data) {
-//   data.forEach(function(d) {
-//     d.population = +d.population;
-//   });
+d3.csv('data2.csv', function (error, data) {
+  data.forEach(function(d) {
+    d.population = +d.population;
+  });
 
-//   var g = svg.selectAll(".arc")
-//       .data(pie(data))
-//     .enter().append("g")
-//       .attr("class", "arc");
+  var g = svg2.selectAll(".arc")
+      .data(pie2(data))
+    .enter().append("g")
+      .attr("class", "arc");
 
-//   g.append("path")
-//       .attr("d", arc2)
-//       // .style("fill", function(d) { return color(d.data.age); });
-//       .style("fill", function(d) { return getColor(d); });
+  g.append("path")
+      .attr("d", arc2)
+      // .style("fill", function(d) { return color(d.data.age); });
+      .style("fill", function(d) { return getColor(d); });
 
-//   g.append("text")
-//       .attr("transform", function(d) { return "translate(" + arc.centroid(d)+ ")"; })
-//       .attr("dy", ".35em")
-//       .attr('x', 10)
-//       .style("text-anchor", "middle")
-//       .text(function(d) { return getText(d); });
+  g.append("text")
+      .attr("transform", function(d) { 
+        console.log(d);
 
-// })
+        var c = arc.centroid(d),
+            x = c[0],
+            y = c[1],
+            h = Math.sqrt(x*x + y*y),
+            labelr = 215;
+        return "translate(" + (x/h * labelr) + ',' + (y/h * labelr) + ')rotate(' + angle(d) + ')';
+
+        // return "translate(" + arc.centroid(d)+ ")"; 
+
+      })
+      .attr("dy", ".35em")
+      .attr('x', 10)
+      .style("text-anchor", "middle")
+      .text(function(d) { return getText2(d); });
+
+});
 
 
 function getColor(d) {
@@ -112,14 +156,33 @@ function getColor(d) {
   // console.log(m);
   // var colors = ['#52B272','#5ECC82','#69E693','#75FFA3','#83FFAC','#91FFB5','#9EFFBF','#ACFFC8','#BAFFD1','#C8FFDA','#D6FFE3','#E3FFED']
   var colors = ['#FF66CC', '#FF667F', '#FF9966', '#FFE666', '#CCFF66', '#7FFF66', '#66FF99', '#66FFE6', '#66CCFF', '#667FFF', '#9966FF', '#E666FF'];
+  // var colors2 = ['#FF33BB', '#FF3355', '#FF7733', '#FFDD33', '#BBFF33', '#55FF33', '#33FF77', '#33FFDD', '#33BBFF', '#3355FF', '#7733FF', '#DD33FF']
+  var colors2 = ['#CC0088', '#CC0022', '#CC4400', '#CCAA00', '#88CC00', '#22CC00', '#00CC44', '#00CCAA', '#0088CC', '#0022CC', '#4400CC', '#AA00CC']
+  if (parseInt(d.data.age.split('/')[1]) % 5 == 0) {
+    return colors2[m]
+  }
   return colors[m];
 }
 
+function getColor2(d) {
+
+}
+
 function getText(d) {
-  var m = parseInt(d.data.age.split('/')[1]) - 1;
+  var m = parseInt(d.data.age.split('/')[1]);
   if (m % 5 == 0) {
-    return m;
+    return d.data.age.split('/')[1];
   }
+}
+
+function getText2(d) {
+  return d.data.name;
+}
+
+function angle(d) {
+  var a = (d.startAngle + d.endAngle) * 90 / Math.PI ;
+  return a;
+      // return a > 90 ? a - 180 : a;
 }
 
 </script>
