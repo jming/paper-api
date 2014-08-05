@@ -1,84 +1,7 @@
+
+
+
 <!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-
-body {
-  font: 10px sans-serif;
-}
-
-.arc path {
-  stroke: #fff;
-}
-
-</style>
-<body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script>
-
-var width = 960,
-    height = 500,
-    radius = Math.min(width, height) / 2;
-
-var color = d3.scale.ordinal()
-    // .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-    // .range(['#75FFA3', '#91FFB5', '#ACFFC8', '#C8FFDA', '#E3FFED'])
-    // .range(['#52B272', '#5ECC82', ' #69E693', '#75FFA3', '#83FFAC', ''])
-    .range(['#83FFAC']);
-
-var arc = d3.svg.arc()
-    .outerRadius(radius - 10)
-    .innerRadius(0);
-
-var pie = d3.layout.pie()
-    .sort(null)
-    .value(function(d) { return 1; });
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-  .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-d3.csv("data.csv", function(error, data) {
-
-  data.forEach(function(d) {
-    d.population = 1;
-  });
-
-  var g = svg.selectAll(".arc")
-      .data(pie(data))
-    .enter().append("g")
-      .attr("class", "arc");
-
-  g.append("path")
-      .attr("d", arc)
-      // .style("fill", function(d) { return color(d.data.age); });
-      .style("fill", function(d) { return getColor(d); });
-
-  g.append("text")
-      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-      .attr("dy", ".35em")
-      .style("text-anchor", "middle")
-      .text(function(d) { return getText(d); });
-
-});
-
-function getColor(d) {
-  var m = parseInt(d.data.age.split(',')[0]) - 1;
-  // console.log(m);
-  // var colors = ['#52B272','#5ECC82','#69E693','#75FFA3','#83FFAC','#91FFB5','#9EFFBF','#ACFFC8','#BAFFD1','#C8FFDA','#D6FFE3','#E3FFED']
-  var colors = ['#FF66CC', '#FF667F', '#FF9966', '#FFE666', '#CCFF66', '#7FFF66', '#66FF99', '#66FFE6', '#66CCFF', '#667FFF', '#9966FF', '#E666FF'];
-  return colors[m];
-}
-
-function getText(d) {
-  return '';
-}
-
-</script>
-
-
-<!-- <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
 
@@ -97,8 +20,8 @@ form {
 
 </style>
 <form>
-  <label><input type="radio" name="mode" value="size"> Size</label>
-  <label><input type="radio" name="mode" value="count" checked> Count</label>
+  <!-- <label><input type="radio" name="mode" value="size"> Size</label>
+  <label><input type="radio" name="mode" value="count" checked> Count</label> -->
 </form>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
@@ -147,6 +70,22 @@ d3.json("js/flare.json", function(error, root) {
         .duration(1500)
         .attrTween("d", arcTween);
   });
+
+  var g = svg.selectAll("g")
+  .data(partition.nodes(root))
+    .enter().append("g");
+
+  var path = g.append("path")
+    .attr("d", arc)
+    .style("fill", function(d) { return color((d.children ? d : d.parent).name); });
+    // .on("click", click);
+
+    var text = g.append("text")
+      .attr("x", function(d) { return y(d.y); })
+      .attr("dx", "6") // margin
+      .attr("dy", ".35em") // vertical-align
+      .text(function(d) { return d.name; });
+
 });
 
 // Stash the old values for transition.
@@ -168,4 +107,34 @@ function arcTween(a) {
 
 d3.select(self.frameElement).style("height", height + "px");
 
-</script> -->
+
+
+// function computeTextRotation(d) {
+//   var angle = x(d.x + d.dx / 2) - Math.PI / 2;
+//   return angle / Math.PI * 180;
+// }
+
+// text.attr("transform", function(d) { return "rotate(" + computeTextRotation(d) + ")"; });
+
+// function click(d) {
+//   // fade out all text elements
+//   text.transition().attr("opacity", 0);
+
+//   path.transition()
+//     .duration(750)
+//     .attrTween("d", arcTween(d))
+//     .each("end", function(e, i) {
+//         // check if the animated element's data e lies within the visible angle span given in d
+//         if (e.x >= d.x && e.x < (d.x + d.dx)) {
+//           // get a selection of the associated text element
+//           var arcText = d3.select(this.parentNode).select("text");
+//           // fade in the text element and recalculate positions
+//           arcText.transition().duration(750)
+//             .attr("opacity", 1)
+//             .attr("transform", function() { return "rotate(" + computeTextRotation(e) + ")" })
+//             .attr("x", function(d) { return y(d.y); });
+//         }
+//     });
+// }
+
+</script>
