@@ -412,15 +412,17 @@ function addTextToStep (text, step_number, depth) {
   $('#row-'+Math.floor(step_number/2)).append('<td class="booklet-page" id="col-'+step_number+'">');
   // $('#col-'+step_number).append(step_number.toString() + '.<br>');
   $('#col-'+step_number).append(
-    $('<table style="width: 500px; height:'+getHeight('t',depth)+'">').append(
-      $('<div>').append(text)
+    $('<div class="booklet-text" style="width: 500px; height:'+getHeight('t',depth)+'">').append(
+      // $('<div>').append(text)
+      text
+      // $('<tr>').append(text)
     )
   );
 }
 
 function getHeight(type, depth) {
   if (type == 't') {
-    return (550 - 60 * (parseInt(depth) + 1)).toString() + 'px';
+    return (420 - 60 * (parseInt(depth) + 1)).toString() + 'px';
   }
   else if (type == 'o') {
     return (40 * (parseInt(depth) +1)).toString() + 'px';
@@ -446,7 +448,7 @@ function addOptionsToStep (options, step_number, depth) {
 
 function addStopToStep (step_number) {
   console.log('addStopToStep', step_number);
-  $('#col-'+step_number+' table div').append('<br>STOP');
+  $('#col-'+step_number+' .booklet-text').append('<div class="booklet-stop">STOP</div>');
 }
 
 function downloadSVG() {

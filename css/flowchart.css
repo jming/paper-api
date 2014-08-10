@@ -35,31 +35,48 @@ line{
 .booklet-page table {
   border: 1px solid grey;
   table-layout: fixed;
-  font-size: 24px;
+  /*font-size: 36px;*/
 }
 
 .booklet-page td {
   border: 1px solid grey;
-  width: 500px;
+  width: 350px;
   text-align: center;
 }
 
 .booklet-page tr {
   border: 1px solid grey;
-  height: 550px;
+  height: 410px;
+  /*background-color: grey;*/
 }
 
 .options-table table {
   table-layout: fixed;
+  background-color: grey;
 }
 
 .options-table tr {
   height:60px;
-  font-size: 20px;
+  font-size: 28px;
+  background-color: lightgrey;
 }
 
 .booklet-text {
   vertical-align: middle;
+  font-size: 36px;
+  border: 1px solid grey;
+  position: relative;
+  text-align: center;
+  display: table-cell;
+}
+
+.booklet-stop {
+  background-color: #ff9999;
+  position: absolute;
+  bottom: 0;
+  width: 348px;
+  font-size: 28px;
+  /*height: ;*/
 }
 
 @media print {
@@ -81,6 +98,14 @@ line{
     border: 1px solid grey;
   }
   .booklet-page {
-    margin: 45px 0px;
+    margin: 4.5px 0px;
   }
+/*
+  .options-table tr {
+    background-color: lightgrey;
+  }
+
+  .booklet-stop {
+    background-color: #ff9999;
+  }*/
 }
