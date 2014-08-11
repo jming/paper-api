@@ -1,0 +1,84 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: abbrv.bst
+Database file #1: ref.bib
+Warning--string name "january" is undefined
+--line 95 of file ref.bib
+I was expecting a `,' or a `}'---line 97 of file ref.bib
+ :     
+ :     BOOKTITLE="In Proceedings of the fourth international conference on Tangible, embedded, and embodied interaction",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 122 of file ref.bib
+ :     pages={87-96}
+ :                  .
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 167 of file ref.bib
+ :     
+ :     TITLE="Shreddr: pipelined paper digitization for low-resource organizations",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 177 of file ref.bib
+ :     
+ :     TITLE="Mobile phones and paper documents: evaluating a new approach for capturing microfinance data in rural India",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 188 of file ref.bib
+ :     
+ :     TITLE="Managing microfinance with paper, pen and digital slate",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--to sort, need author or key in eisenberg1997
+Warning--empty author in eisenberg1997
+Warning--empty year in anoto
+Warning--empty title in chen2012
+Warning--empty booktitle in chen2012
+Warning--empty journal in who1988
+Warning--empty title in parikh2006
+Warning--empty booktitle in parikh2006
+Warning--empty booktitle in qi2010
+Warning--empty title in ratan2010
+Warning--empty booktitle in ratan2010
+You've used 22 entries,
+            2118 wiz_defined-function locations,
+            608 strings with 7207 characters,
+and the built_in function-call counts, 7640 in all, are:
+= -- 703
+> -- 387
+< -- 5
++ -- 157
+- -- 130
+* -- 520
+:= -- 1238
+add.period$ -- 66
+call.type$ -- 22
+change.case$ -- 127
+chr.to.int$ -- 0
+cite$ -- 33
+duplicate$ -- 318
+empty$ -- 625
+format.name$ -- 130
+if$ -- 1637
+int.to.chr$ -- 0
+int.to.str$ -- 22
+missing$ -- 23
+newline$ -- 109
+num.names$ -- 42
+pop$ -- 182
+preamble$ -- 1
+purify$ -- 109
+quote$ -- 0
+skip$ -- 210
+stack$ -- 0
+substring$ -- 363
+swap$ -- 74
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 86
+warning$ -- 11
+while$ -- 58
+width$ -- 24
+write$ -- 223
+(There were 5 error messages)
