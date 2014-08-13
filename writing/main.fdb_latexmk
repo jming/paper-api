@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1407753575 "main.aux" "main.bbl" "main" 1407753580
+["bibtex main"] 1407915060 "main.aux" "main.bbl" "main" 1407915065
   "/usr/local/texlive/2013/texmf-dist/bibtex/bst/base/abbrv.bst" 1292289607 20329 b5fed53e10044d0f8112183785c759b1 ""
-  "main.aux" 1407753580 9901 5be4b6466cedbb5e5488b3fd475e5706 ""
+  "main.aux" 1407915065 10221 be4ca11692cc188e4e6c87599ff49802 ""
   "main.bcf" 0 -1 0 ""
-  "ref.bib" 1407735874 6491 24a85f26e7d442f426b32af96a640e5e ""
+  "ref.bib" 1407915053 10740 81143f48a25d14a5e5f332e1d2b8a52c ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1407753576 "main.tex" "main.pdf" "main" 1407753580
+["pdflatex"] 1407915061 "main.tex" "main.pdf" "main" 1407915065
   "/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty" 1303254447 7324 11d14f318d865f420e692d4e6c9c18c3 ""
@@ -76,9 +76,9 @@
   "img/table-inputs.png" 1407735874 23269 4544f6a18eda44e6fb3a62f299ea6d81 ""
   "img/table-split.png" 1407735874 32699 3abdfa83f89bdc7fdf9e3120b8c068f0 ""
   "img/tracking-screen.png" 1407735874 199672 3c694a3463b6e3b50101fd17cc3f30b3 ""
-  "main.aux" 1407753580 9901 5be4b6466cedbb5e5488b3fd475e5706 ""
-  "main.bbl" 1407753576 4487 de4c78cbbf4bd22dd3feb25cee760008 "bibtex main"
-  "main.tex" 1407753566 70821 5bb27b5a6fb506b21ebf293fd64606b4 ""
+  "main.aux" 1407915065 10221 be4ca11692cc188e4e6c87599ff49802 ""
+  "main.bbl" 1407915061 6786 78534f829f1a93941166930a179577bc "bibtex main"
+  "main.tex" 1407914295 76468 385ef46c49abf45dc833086b3ea8c189 ""
   "sig-alternate.cls" 1407735874 58095 3c82fd28fb22c25d8dc5facd718fcbbf ""
   (generated)
   "main.log"

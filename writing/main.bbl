@@ -1,20 +1,21 @@
 \begin{thebibliography}{10}
 
-\bibitem{eisenberg1997}
-Orihedra: Mathematical sculptures in paper.
-\newblock {\em International Journal of Computers for Mathematical Learning},
-  1:225--261, 1997.
+\bibitem{akona2009}
+Y.~Anokwa, C.~Hartung, W.~Brunette, G.~Borriello, and A.~Lerer.
+\newblock Open source data collection in the developing world.
+\newblock {\em Computer}, 42(10):97--99, 2009.
 
 \bibitem{anoto}
 Anoto.
 \newblock Digital pen and paper technology.
 \newblock {\em Anoto AB}.
 
-\bibitem{bonnard2010}
-Q.~Bonnard, R.~Center, F.~Kaplan, and P.~Dillenbourg.
-\newblock A paper interface for code exploration.
-\newblock In {\em In 12th ACM International Conference on Ubiquitous Computing
-  (No. EPFL-POSTER-158791)}, 2010.
+\bibitem{chandler2002}
+C.~D. Chandler, G.~Lo, and A.~K. Sinha.
+\newblock Multimodal theater: Extending low fidelity paper prototyping to
+  multimodal applications.
+\newblock In {\em CHI'02 Extended Abstracts on Human Factors in Computing
+  Systems}, pages 874--875. ACM, 2002.
 
 \bibitem{chen2012}
 K.~Chen, A.~Kannan, Y.~Yano, J.~Hellerstein, and T.~Parikh.
@@ -26,6 +27,21 @@ M.~Coelho, L.Hall, J.~Berzowska, and P.~Maes.
   paper.
 \newblock In {\em In CHI'09 Extended Abstracts on Human Factors in Computing
   Systems}, pages 3527--3528. ACM, April 2009.
+
+\bibitem{dell2013}
+N.~Dell, N.~Breit, J.~O. Wobbrock, and G.~Borriello.
+\newblock Improving form-based data entry with image snippets.
+\newblock In {\em Proceedings of the 2013 Graphics Interface Conference}, pages
+  157--164. Canadian Information Processing Society, 2013.
+
+\bibitem{dell2012}
+N.~Dell, J.~Crawford, N.~Breit, T.~Chaluco, A.~Coelho, J.~McCord, and
+  G.~Borriello.
+\newblock Integrating odk scan into the community health worker supply chain in
+  mozambique.
+\newblock In {\em Proceedings of the Sixth International Conference on
+  Information and Communication Technologies and Development: Full
+  Papers-Volume 1}, pages 228--237. ACM, 2013.
 
 \bibitem{fahdy2005}
 M.~Fahdhy and V.~Chongsuvivatwong.
@@ -39,12 +55,19 @@ A.~Fawole, K.~Hunyinbo, and D.~Adekanle.
   givers in south west nigeria.
 \newblock {\em African journal of reproductive health}, 12(1):22--29, 2009.
 
-\bibitem{hendrix2005}
-S.~Hendrix and M.~Eisenberg.
-\newblock Computer- assisted pop-up design for children: Computationally-
-  enriched paper engineering.
-\newblock In {\em In Proceedings of IASTED Intl. Conf. On Computers and
-  Advanced Technology in Education}, 2005.
+\bibitem{gomes2013}
+A.~Gomes, A.~Nesbitt, and R.~Vertegaal.
+\newblock Morephone: A study of actuated shape deformations for flexible
+  thin-film smartphone notifications.
+\newblock In {\em In Proceedings of ACM CHI’13 Conference on Human Factors in
+  Computing Systems}, pages 583--592. ACM Press, 2013.
+
+\bibitem{gomes2014}
+A.~Gomes and R.~Vertegaal.
+\newblock Paperfold: A shape changing mobile device with multiple
+  reconfigurable electrophoretic magnetic display tiles.
+\newblock In {\em In Extended Abstracts of ACM CHI’14 Conference on Human
+  Factors in Computing}. ACM Press, 2014.
 
 \bibitem{johnson1993}
 W.~Johnson, H.~Jellinek, L.~K. Jr, R.~Rao, and S.~Card.
@@ -64,6 +87,12 @@ W.~H.~O. Maternal, C.~Health, and F.~Planning.
   labour (vol. 1).
 \newblock 1988.
 
+\bibitem{newman1992}
+W.~Newman and P.~Wellner.
+\newblock A desk supporting computer-based interaction with paper documents.
+\newblock In {\em Proceedings of the SIGCHI conference on Human factors in
+  computing systems}. ACM, 1992.
+
 \bibitem{parikh2006}
 T.~Parikh, S.~Javid, K.~Ghosh, and K.~Toyama.
 \newblock April 2006.
@@ -78,18 +107,6 @@ K.~Pettersson, M.~Svensson, and K.~Christensson.
 T.~Pietrzak, S.~Malacria, and �.~Lecolinet.
 \newblock What do u-note? an augmented note taking system for the classroom.
 \newblock In {\em In Papercomp Workshop}, 2010.
-
-\bibitem{portocarrero2010}
-E.~Portocarrero, D.~Robert, S.~Follmer, and M.~Chung.
-\newblock The never ending storytelling machine a platform for creative
-  collaboration using a sketchbook and everyday objects.
-\newblock In {\em Proc. PaperComp, 10}, 2010.
-
-\bibitem{qi2010}
-J.~Qi and L.~Buechley.
-\newblock Electronic popables: exploring paper-based computing through an
-  interactive pop-up book.
-\newblock 2010.
 
 \bibitem{ratan2010}
 A.~Ratan, K.~Toyama, S.~Chakraborty, S.~Ooi, K.~Koenig, M.~Chitnis, and
@@ -107,6 +124,25 @@ A.~Sellen and R.~Harper.
 \newblock {\em The myth of the paperless office}.
 \newblock MIT Press, 2002.
 
+\bibitem{signer2007}
+B.~Signer and M.~C. Norrie.
+\newblock Paperpoint: a paper-based presentation and interactive paper
+  prototyping tool.
+\newblock In {\em Proceedings of the 1st international conference on Tangible
+  and embedded interaction}, pages 57--64. ACM, 2007.
+
+\bibitem{synder2001}
+C.~Snyder.
+\newblock {\em Paper prototyping: The fast and easy way to design and refine
+  user interfaces}.
+\newblock Newnes, 2003.
+
+\bibitem{tarun2013}
+A.~Tarun, P.~Wang, A.~Girouard, P.~Strohmeier, D.~Reilly, and R.~Vertgaal.
+\newblock Papertab: Tablets as thin and flexible as paper.
+\newblock In {\em In Extended Abstracts of ACM CHI’13 Conference on Human
+  Factors in Computing Systems}, pages 2881--2882. ACM Press, 2013.
+
 \bibitem{thomas1976}
 A.~Thomas, D.~McKay, and M.~Cutlip.
 \newblock A nomograph method for assessing body weight.
@@ -118,6 +154,25 @@ A.~Umezulike, H.~Onah, and J.~Okaro.
 \newblock Use of the partograph among medical personnel in enugu nigeria.
 \newblock {\em International Journal of Gynecology and Obstetrics},
   65(2):203--5, 1999.
+
+\bibitem{underwood2012}
+H.~Underwood.
+\newblock Partopen: enhancing the partograph with digital pen technology.
+\newblock In {\em CHI'12 Extended Abstracts on Human Factors in Computing
+  Systems}, pages 1393--1398. ACM, 2012.
+
+\bibitem{underwood2013}
+H.~Underwood, S.~R. Sterling, and J.~K. Bennett.
+\newblock The partopen in training and clinical use-two preliminary studies in
+  kenya.
+\newblock In {\em HEALTHINF}, pages 112--121, 2013.
+
+\bibitem{wart2010}
+S.~Van~Wart, K.~J. Tsai, and T.~Parikh.
+\newblock Local ground: a paper-based toolkit for documenting local geo-spatial
+  knowledge.
+\newblock In {\em Proceedings of the First ACM Symposium on Computing for
+  Development}, page~11. ACM, 2010.
 
 \bibitem{wellner1993}
 P.~Wellner.
