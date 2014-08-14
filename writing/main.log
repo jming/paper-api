@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  13 AUG 2014 16:54
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  14 AUG 2014 16:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -268,7 +268,17 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \TX@delta=\dimen138
 \TX@cols=\count118
 \TX@ftn=\toks39
-) (./main.aux)
+) (./main.aux
+
+LaTeX Warning: Label `fig:average' multiply defined.
+
+
+LaTeX Warning: Label `fig:graph' multiply defined.
+
+
+LaTeX Warning: Label `fig:flowchart' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -283,8 +293,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
-
-(/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count119
 \scratchdimen=\dimen139
@@ -374,15 +383,15 @@ ed
  []
 
 
-Overfull \hbox (2.77908pt too wide) in paragraph at lines 46--47
+Overfull \hbox (2.77908pt too wide) in paragraph at lines 50--51
 \T1/aer/m/n/9 many use-ful prop-er-ties and de-vel-op-ing more stan-dalone tool
 s,
  []
 
 
-Overfull \hbox (9.06084pt too wide) in paragraph at lines 46--47
-\T1/aer/m/n/9 while si-mul-ta-ne-ously val-i-dat-ing their use-ful-ness in low-
-resource
+Overfull \hbox (1.20317pt too wide) in paragraph at lines 57--58
+[]\T1/aer/m/n/9 Construction of \T1/aess/m/n/9 Pa-pyr\T1/aer/m/n/9 , a sys-tem 
+for in-ter-me-di-aries from
  []
 
 
@@ -392,211 +401,195 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-Overfull \hbox (1.20317pt too wide) in paragraph at lines 53--54
-[]\T1/aer/m/n/9 Construction of \T1/aess/m/n/9 Pa-pyr\T1/aer/m/n/9 , a sys-tem 
-for in-ter-me-di-aries from
- []
-
-
-Overfull \hbox (3.19475pt too wide) in paragraph at lines 75--76
-[]\T1/aer/bx/n/9 The spec-trum be-tween pa-per and tech-nol-ogy. \T1/aer/m/n/9 
-There
- []
-
 <img/spectrum.png, id=13, 595.023pt x 121.4136pt>
 File: img/spectrum.png Graphic file (type png)
  <use img/spectrum.png>
-Package pdftex.def Info: img/spectrum.png used on input line 79.
+Package pdftex.def Info: img/spectrum.png used on input line 84.
 (pdftex.def)             Requested size: 240.0pt x 48.97029pt.
 
-[2 <./img/spectrum.png>] <img/band.png, id=21, 443.7378pt x 275.5896pt>
+[2 <./img/spectrum.png>] <img/band.png, id=20, 434.1018pt x 198.0198pt>
 File: img/band.png Graphic file (type png)
 
 <use img/band.png>
-Package pdftex.def Info: img/band.png used on input line 148.
-(pdftex.def)             Requested size: 192.00073pt x 119.24132pt.
- <img/add.png, id=22, 647.0574pt x 602.25pt>
+Package pdftex.def Info: img/band.png used on input line 154.
+(pdftex.def)             Requested size: 167.99927pt x 76.63518pt.
+ <img/add.png, id=21, 647.0574pt x 602.25pt>
 File: img/add.png Graphic file (type png)
 
 <use img/add.png>
-Package pdftex.def Info: img/add.png used on input line 186.
+Package pdftex.def Info: img/add.png used on input line 193.
 (pdftex.def)             Requested size: 215.99854pt x 201.0405pt.
- [3 <./img/band.png>]
-<img/susu-init.png, id=28, 308.15125pt x 188.705pt>
-File: img/susu-init.png Graphic file (type png)
- <use img/susu-init.png>
-Package pdftex.def Info: img/susu-init.png used on input line 272.
-(pdftex.def)             Requested size: 192.00073pt x 117.5804pt.
+ [3 <./img/band.png> <./img/add.png>]
+<img/average.png, id=29, 803.6424pt x 531.4254pt>
+File: img/average.png Graphic file (type png)
+ <use img/average.png>
+Package pdftex.def Info: img/average.png used on input line 236.
+(pdftex.def)             Requested size: 240.0pt x 158.70715pt.
 
-<img/susu-final.png, id=29, 223.83624pt x 161.60374pt>
-File: img/susu-final.png Graphic file (type png)
+<img/susu.png, id=30, 552.6246pt x 508.299pt>
+File: img/susu.png Graphic file (type png)
+ <use img/susu.png>
+Package pdftex.def Info: img/susu.png used on input line 291.
+(pdftex.def)             Requested size: 192.00073pt x 176.6043pt.
 
-<use img/susu-final.png>
-Package pdftex.def Info: img/susu-final.png used on input line 274.
-(pdftex.def)             Requested size: 144.00146pt x 103.96852pt.
- [4 <./img/add.png>]
-<img/graph-square.png, id=34, 461.725pt x 561.09625pt>
-File: img/graph-square.png Graphic file (type png)
 
-<use img/graph-square.png>
-Package pdftex.def Info: img/graph-square.png used on input line 291.
-(pdftex.def)             Requested size: 95.99854pt x 116.65218pt.
+LaTeX Warning: Reference `fig:graph-slope' on page \thepage  undefined on input
+ line 317.
 
-<img/graph-strips.png, id=35, 463.7325pt x 564.1075pt>
-File: img/graph-strips.png Graphic file (type png)
+[4 <./img/average.png> <./img/susu.png>]
 
-<use img/graph-strips.png>
-Package pdftex.def Info: img/graph-strips.png used on input line 293.
-(pdftex.def)             Requested size: 95.99854pt x 116.77037pt.
+LaTeX Warning: Reference `fig:graph-focus' on page \thepage  undefined on input
+ line 321.
 
-<img/graph-slope.png, id=36, 489.83pt x 131.99312pt>
-File: img/graph-slope.png Graphic file (type png)
- <use img/graph-slope.png>
-Package pdftex.def Info: img/graph-slope.png used on input line 300.
-(pdftex.def)             Requested size: 192.00073pt x 51.73691pt.
 
-<img/graph-viewfinder.png, id=37, 435.6275pt x 186.6975pt>
-File: img/graph-viewfinder.png Graphic file (type png)
+LaTeX Warning: Reference `fig:graph-viewfinder' on page \thepage  undefined on 
+input line 323.
 
-<use img/graph-viewfinder.png>
-Package pdftex.def Info: img/graph-viewfinder.png used on input line 302.
-(pdftex.def)             Requested size: 144.00146pt x 61.7129pt.
+<img/graph.png, id=36, 857.1222pt x 518.4168pt>
+File: img/graph.png Graphic file (type png)
+ <use img/graph.png>
+Package pdftex.def Info: img/graph.png used on input line 332.
+(pdftex.def)             Requested size: 240.0pt x 145.1557pt.
 
-Underfull \vbox (badness 1648) has occurred while \output is active []
+Overfull \hbox (7.79057pt too wide) in paragraph at lines 370--372
+\T1/aer/m/n/9 and in-ter-ac-tions with com-mu-nity health vol-un-teers, we lear
+ned
+ []
 
- [5 <./img/susu-init.png> <./img/susu-final.png> <./img/graph-square.png> <./im
-g/graph-strips.png> <./img/graph-slope.png> <./img/graph-viewfinder.png>]
-<img/flowchart-grameen.png, id=43, 883.3pt x 648.4225pt>
-File: img/flowchart-grameen.png Graphic file (type png)
+<img/flowchart.png, id=37, 472.164pt x 308.352pt>
+File: img/flowchart.png Graphic file (type png)
+ <use img/flowchart.png>
+Package pdftex.def Info: img/flowchart.png used on input line 382.
+(pdftex.def)             Requested size: 240.0pt x 156.73517pt.
 
-<use img/flowchart-grameen.png>
-Package pdftex.def Info: img/flowchart-grameen.png used on input line 320.
-(pdftex.def)             Requested size: 192.00073pt x 140.9417pt.
+[5 <./img/graph.png> <./img/flowchart.png>]
+Underfull \vbox (badness 1558) has occurred while \output is active []
 
-<img/flowchart-imci.png, id=44, 1138.2525pt x 691.58376pt>
-File: img/flowchart-imci.png Graphic file (type png)
 
-<use img/flowchart-imci.png>
-Package pdftex.def Info: img/flowchart-imci.png used on input line 322.
-(pdftex.def)             Requested size: 192.00073pt x 116.6496pt.
- [6 <./img/flowchart-grameen.png> <./img/flowchart-imci.png>] <img/home-screen.
-png, id=48, 1284.8pt x 604.2575pt>
+<img/home-screen.png, id=43, 1284.8pt x 604.2575pt>
 File: img/home-screen.png Graphic file (type png)
-
-<use img/home-screen.png>
-Package pdftex.def Info: img/home-screen.png used on input line 400.
+ <use img/home-screen.png>
+Package pdftex.def Info: img/home-screen.png used on input line 479.
 (pdftex.def)             Requested size: 250.93842pt x 118.01875pt.
 
-Overfull \hbox (10.93842pt too wide) in paragraph at lines 400--401
+Overfull \hbox (10.93842pt too wide) in paragraph at lines 479--480
  [][] 
  []
 
+[6 <./img/home-screen.png>]
 
 LaTeX Warning: Reference `fig:add-init' on page \thepage  undefined on input li
-ne 422.
+ne 501.
 
 
 LaTeX Warning: Reference `fig:band-final' on page \thepage  undefined on input 
-line 422.
+line 501.
 
-<img/tracking-screen.png, id=49, 1142.2675pt x 619.31375pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+<img/tracking-screen.png, id=47, 1142.2675pt x 619.31375pt>
 File: img/tracking-screen.png Graphic file (type png)
 
 <use img/tracking-screen.png>
-Package pdftex.def Info: img/tracking-screen.png used on input line 437.
+Package pdftex.def Info: img/tracking-screen.png used on input line 516.
 (pdftex.def)             Requested size: 250.93842pt x 136.051pt.
 
-Overfull \hbox (10.93842pt too wide) in paragraph at lines 437--438
+Overfull \hbox (10.93842pt too wide) in paragraph at lines 516--517
  [][] 
  []
 
-
-Underfull \vbox (badness 1558) has occurred while \output is active []
-
- [7 <./img/home-screen.png>] <img/table-basic.png, id=54, 435.6275pt x 123.4612
-4pt>
+<img/table-basic.png, id=48, 435.6275pt x 123.46124pt>
 File: img/table-basic.png Graphic file (type png)
 
 <use img/table-basic.png>
-Package pdftex.def Info: img/table-basic.png used on input line 452.
+Package pdftex.def Info: img/table-basic.png used on input line 531.
 (pdftex.def)             Requested size: 155.99854pt x 44.21051pt.
 
-<img/table-inputs.png, id=55, 222.8325pt x 158.5925pt>
+<img/table-inputs.png, id=49, 222.8325pt x 158.5925pt>
 File: img/table-inputs.png Graphic file (type png)
 
 <use img/table-inputs.png>
-Package pdftex.def Info: img/table-inputs.png used on input line 454.
+Package pdftex.def Info: img/table-inputs.png used on input line 533.
 (pdftex.def)             Requested size: 60.0pt x 42.70195pt.
 
-<img/table-split.png, id=56, 437.635pt x 169.63374pt>
+<img/table-split.png, id=50, 437.635pt x 169.63374pt>
 File: img/table-split.png Graphic file (type png)
 
 <use img/table-split.png>
-Package pdftex.def Info: img/table-split.png used on input line 456.
+Package pdftex.def Info: img/table-split.png used on input line 535.
 (pdftex.def)             Requested size: 132.00073pt x 51.16487pt.
 
-<img/graph-print.png, id=57, 697.10437pt x 711.15688pt>
+Underfull \vbox (badness 1117) has occurred while \output is active []
+
+ [7 <./img/tracking-screen.png>]
+
+LaTeX Warning: Reference `fig:graph-viewfinder' on page \thepage  undefined on 
+input line 546.
+
+<img/graph-print.png, id=56, 697.10437pt x 711.15688pt>
 File: img/graph-print.png Graphic file (type png)
 
 <use img/graph-print.png>
-Package pdftex.def Info: img/graph-print.png used on input line 475.
+Package pdftex.def Info: img/graph-print.png used on input line 554.
 (pdftex.def)             Requested size: 103.19824pt x 105.26909pt.
-
-<img/graph-tool.png, id=58, 467.24562pt x 463.7325pt>
+ <img/graph-tool.png, id=57, 524.6802pt x 451.4466pt>
 File: img/graph-tool.png Graphic file (type png)
- <use img/graph-tool.png>
-Package pdftex.def Info: img/graph-tool.png used on input line 477.
-(pdftex.def)             Requested size: 103.19824pt x 102.41771pt.
 
-<img/circletool.png, id=59, 470.75874pt x 470.75874pt>
+<use img/graph-tool.png>
+Package pdftex.def Info: img/graph-tool.png used on input line 556.
+(pdftex.def)             Requested size: 103.19824pt x 88.79291pt.
+
+<img/circletool.png, id=58, 470.75874pt x 470.75874pt>
 File: img/circletool.png Graphic file (type png)
 
 <use img/circletool.png>
-Package pdftex.def Info: img/circletool.png used on input line 485.
+Package pdftex.def Info: img/circletool.png used on input line 564.
 (pdftex.def)             Requested size: 150.56305pt x 150.55968pt.
-
-Underfull \vbox (badness 1558) has occurred while \output is active []
-
- [8 <./img/tracking-screen.png> <./img/table-basic.png> <./img/table-inputs.png
-> <./img/table-split.png>]
-Overfull \hbox (8.60231pt too wide) in paragraph at lines 498--499
+ [8 <./img/table-basic.png> <./img/table-inputs.png> <./img/table-split.png> <.
+/img/graph-print.png> <./img/graph-tool.png> <./img/circletool.png>]
+Overfull \hbox (8.60231pt too wide) in paragraph at lines 577--578
 \T1/aer/m/n/9 page of the book-let will present one ques-tion from the flowchar
 t
  []
 
-<img/flowchart.png, id=66, 345.29pt x 316.18124pt>
 File: img/flowchart.png Graphic file (type png)
- <use img/flowchart.png>
-Package pdftex.def Info: img/flowchart.png used on input line 504.
-(pdftex.def)             Requested size: 95.99854pt x 87.90295pt.
+<use img/flowchart.png>
+Package pdftex.def Info: img/flowchart.png used on input line 583.
+(pdftex.def)             Requested size: 95.99854pt x 62.69029pt.
 
 <img/flowchart-booklet.png, id=67, 358.33875pt x 438.63875pt>
 File: img/flowchart-booklet.png Graphic file (type png)
 
 <use img/flowchart-booklet.png>
-Package pdftex.def Info: img/flowchart-booklet.png used on input line 506.
+Package pdftex.def Info: img/flowchart-booklet.png used on input line 585.
 (pdftex.def)             Requested size: 95.99854pt x 117.51039pt.
 
-Overfull \hbox (1.80328pt too wide) in paragraph at lines 523--524
+Overfull \hbox (1.80328pt too wide) in paragraph at lines 602--603
 \T1/aer/m/n/9 mo-ti-va-tions, prin-ci-ples, and ap-pli-ca-tions re-main broadly
  con-
  []
 
-[9 <./img/graph-print.png> <./img/graph-tool.png> <./img/circletool.png> <./img
-/flowchart.png> <./img/flowchart-booklet.png>] (./main.bbl [10]
+[9 <./img/flowchart-booklet.png>] (./main.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-) [11]
-(./main.aux)
+ [10])
+[11
+
+] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 4700 strings out of 493315
- 68740 string characters out of 6137904
- 136660 words of memory out of 5000000
- 8028 multiletter control sequences out of 15000+600000
+ 4663 strings out of 493315
+ 67757 string characters out of 6137904
+ 137571 words of memory out of 5000000
+ 7996 multiletter control sequences out of 15000+600000
  52181 words of font info for 70 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  41i,9n,47p,1631b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -611,10 +604,10 @@ xmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2013/texmf-dis
 t/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
 pe1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/ti
 mes/utmri8a.pfb>
-Output written on main.pdf (11 pages, 2119543 bytes).
+Output written on main.pdf (11 pages, 1780655 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
+ 111 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
