@@ -74,7 +74,12 @@ These examples of ``smart" paper tools indicate a particularly compelling resear
 
 \textbf{The spectrum between paper and technology.} There is a spectrum of innovations that attempt to bridge the gap between technology and paper and leverage the benefits of both. This spectrum is based on the degree to which the innovation is integrated with technology, as described in Figure~\ref{fig:spectrum}.
 
-[insert spectrum image]
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/spectrum.png}
+\caption{Spectrum between paper and technology.}
+\label{fig:spectrum}
+\end{figure}
 
 % pure paper-based tools
 % paper composites with other low-cost materials
@@ -112,69 +117,147 @@ We believe \nifty is an unusual but appropriate marriage between paper and techn
 \section{Exploring Paper}
 \label{sec:exploring-paper}
 
-For this project we focus on specific problems within the health and microfinance contexts. After establishing the problem space, reviewing the related work, and identifying real-world problems in low-resource settings where paper is already deeply rooted and in constant use, we held several brainstorming sessions to ambitiously explore the range of computational and visual feedback that paper in and of itself could provide. We then explored how paper was being used in the health and microfinance contexts at field sites in Ghana to assess how paper is currently being used. Finally, we designed several improvements to existing paper tools and iterated on our designs with real end users.
+For this project, we started brainstorming based on specific problems within the health and microfinance contexts. After reviewing related work and identifying real-world problems in low-resource settings where paper is already deeply rooted and in constant use, we developed two sets of design iterations: one based solely on brainstorming sessions and the other based on in the field feedback. In Section~\ref{sec:brainstorming}, we describe designs that attempt to push the boundaries of paper to explore the range of computational and visual feedback that paper in and of itself could provide. Afterwards, in Section~\ref{sec:field}, we discuss designs that are based on a needs assessment to see how paper is being used in the health and microfinance contexts at field sites in Ghana and feedback from real end users.
 
-\subsection{What Can Paper Do?}
+% For this project we focus on specific problems within the health and microfinance contexts. After establishing the problem space, reviewing the related work, and identifying real-world problems in low-resource settings where paper is already deeply rooted and in constant use, we held several brainstorming sessions to ambitiously explore the range of computational and visual feedback that paper in and of itself could provide, as seen in Section~\ref{sec:brainstorming}. We then explored how paper was being used in the health and microfinance contexts at field sites in Ghana to assess how paper is currently being used. Given this context, we designed several improvements to existing paper tools and iterated on our designs with real end users, as seen in Section~\ref{sec:field}.
+
+\subsection{Brainstorming Design Iterations}
+\label{sec:brainstorming}
 
 %Our brainstorming sessions were accompanied with needs assessment studies in parallel where we visited low-income populations (usually areas with low-income housing options, or wholesale market places) within Accra and conducted informal interviews with people regarding their health and financial practices, and any tools (paper or otherwise) they might already be using to support these practices. This qualitative understanding helped ground our ideas in a real-world context to justify their continued assessment and to focus our scope. 
-The primary goal of these preliminary brainstorming sessions was to push the boundaries of what ``smart paper" could accomplish. In other words, how could we re-design paper in a way that makes it somehow better? Here, we describe a small subset of the ``smart-paper" tools we designed in our brainstorming sessions.
+The primary goal of these preliminary brainstorming sessions was to push the boundaries of what ``smart paper" could accomplish. In other words, how could we re-design paper in a way that makes it somehow better? Here, we describe a small subset of the ``smart-paper" tools we designed.
 
 \subsubsection{The Subtraction Band}
+\label{sec:subtraction}
 
-The subtraction band gives the difference of numbers. The base is made of stiff paper, plastic, cardboard, or other material that could support two narrow slits through which a closed paper loop could be smoothly slid and rotated. Figure \ref{fig:band} is a representation of this tool where the numbered upper region is the base in reference to which the paper loop, or darker region, would move.
+\textbf{Use cases.}
+One problem in the microfinance domain for low-literate users is keeping track of exactly how much is earned and where money is spent in a given day. We designed a tool that would help tackle one of the sources of difficulty for this problem, or doing addition and subtraction of expenditures more easily.
 
-To take a simple example, we shaded ten boxes on the number line on the base. We now want to subtract ``3" from ``10" (Figure~\ref{fig:band-init}). We locate ``3" on the number line and remove the stickers until that point. After this slide the paper band to the left such that the first shaded cell moves back to ``1". We can now see that the result is ``7" (Figure~\ref{fig:band-final}). Alternatively, if materials are available, shading cells could be replaced with sticking stickers.
+\textbf{Proposed tool.}
+The base is made of stiff paper, plastic, cardboard, or other material that could support two narrow slits through which a closed paper loop could be smoothly slid and rotated. There are two sections on the base, the top section is a basic scale of amounts with a predetermined interval and on the bottom is the band threaded through two slits. This band can be made with paper or waxed paper to ensure smoother sliding. A depiction can be seen in Figure~\ref{fig:band}.
 
-\begin{figure}%
-    \centering
-    \subfloat[Initial]{{\label{fig:band-init}\includegraphics[width=.8\linewidth]{img/band-init.png} }}%
-    \qquad
-    \subfloat[Final]{{\label{fig:band-final}\includegraphics[width=.8\linewidth]{img/band-final.png} }}%
-    \caption{Subtraction band initial and final state.}%
-    \label{fig:band}%
+\textbf{Usage.}
+An individual will place a sticker in each slot every time they earn money that day. To take a simple example, say an individual has earned cumulatively 10 cedi\footnote{local currency corresponding to roughly 0.28 USD per cedi at the time of writing} today. The band would be marked up to the 10th slot. However, the individual now spends 3 cedis. They will remove the stickers up to the 3rd slot. Then, they can shift the band to the left such that the first filled slot moves back to the leftmost point, or the 1st slot.
+Depending on the resources available, the individual can opt to shade in the band instead of using stickers.
+
+\textbf{Lessons learned.}
+This tool can be generalized from the basic use case to include any type of task that requires addition and subtraction. However, it was found that the full tool is too bulky to use on a consistent basis. Modified tools include bands that ... 
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\linewidth]{img/band.png}
+\caption{Subtraction band described in Section~\ref{sec:subtraction}.}
+\label{fig:band}
 \end{figure}
+
+% Analysis? Reflections? Benefits?
+
+% The subtraction band gives the difference of numbers. The base is made of stiff paper, plastic, cardboard, or other material that could support two narrow slits through which a closed paper loop could be smoothly slid and rotated. Figure \ref{fig:band} is a representation of this tool where the numbered upper region is the base in reference to which the paper loop, or darker region, would move.
+
+% To take a simple example, we shaded ten boxes on the number line on the base. We now want to subtract ``3" from ``10" (Figure~\ref{fig:band-init}). We locate ``3" on the number line and remove the stickers until that point. After this slide the paper band to the left such that the first shaded cell moves back to ``1". We can now see that the result is ``7" (Figure~\ref{fig:band-final}). Alternatively, if materials are available, shading cells could be replaced with sticking stickers.
+
+% \begin{figure}%
+%     \centering
+%     \subfloat[Initial]{{\label{fig:band-init}\includegraphics[width=.8\linewidth]{img/band-init.png} }}%
+%     \qquad
+%     \subfloat[Final]{{\label{fig:band-final}\includegraphics[width=.8\linewidth]{img/band-final.png} }}%
+%     \caption{Subtraction band initial and final state.}%
+%     \label{fig:band}%
+% \end{figure}
 
 \subsubsection{The Addition By Matching Tool}
+\label{sec:add}
 
-The addition by matching tool calculates the sum as well as compares and matches analogous variables. Again, the base would be made of stiff paper, plastic, cardboard, or other material that would support two narrow slits through which a paper strip could be smoothly slid up or down. Figure \ref{fig:add} is a representation of this tool, where the axes indicate the base in which each separate strip, or column, would move in relation to.
+\textbf{Use cases.} Low-income populations are typically engaged in the informal labour market, meaning their income inflows are irregular and variable, accumulated through a variety of financial instruments such as money earned through different jobs and money borrowed through different sources of credit. We decided to design a tool that can be used to compare income and expenses to determine when income-expenses can be met or matched versus when one exceeds the other as well as allow the user to flexibly update any changes in the projected values.
 
-Income inflows for low-income populations typically engaged in the informal labour market are irregular and variable, accumulated through a variety of financial instruments such as money earned through different jobs and money borrowed through different sources of credit. This tool can be used to compare income and expenses, for instance, and determine when income-expenses can be met or matched or when one exceeds the other. To do this, we first shade in the requisite number of 100 cedi\footnote{local currency corresponding to roughly 0.28 USD per cedi at the time of writing} cells to fill up the projected income and expenses column on ``Day 1". We then fill in cells in the income and expenses column on ``Day 2", starting from the point where income and expenses leveled out, respectively, on the previous day. This is repeated for every successive day. At this point, the tool is able to tell the user when expenses exceed income. 
+\textbf{Proposed tool.} Again, the base would be made of stiff paper, plastic, cardboard, or other material that would support two narrow slits through which a paper strip could be smoothly slid up or down. Figure~\ref{fig:add} is a representation of this tool. The horizontal axes indicates where each separate strip would be strung and the vertical axes indicate the amounts accumulated on each strip.
 
-In this example, user estimates that the incomes for the first day will be around 200 cedi, shading cells to fill that amount. The user then estimates that on the second day, income will be approximately 300 cedi. He or she would then fill the cells from the bottom up to the 300 cedi point and then shift the band so that the starting point of the shaded cells is at the point in which they left off, or at the 200 cedi mark. The resulting configuration can be seen in Figure~\ref{fig:add-init}. The user is now able to tell that over the two days, the income has accumulated to 500 cedis. And after populating the expenses columns in a similar manner on the tool, the user can see that expenses exceed income on ``Day 1", income exceeds expenses on ``Day 2", and they match on ``Day 3". The tool also indicates how much money has accumulated at any given time, by checking the scale on the left.
- 
-While tracking income-expenses, if there is an unexpected expense unit that is introduced on ``Day 1" (represented by the red cell in Figure \ref{fig:add-final}), then the successive stacks of expenses must be readjusted. This is achieved by sliding the paper strips representing expenses on ``Day 2" and ``Day 3" one unit up. The tool is therefore able to readjust to match the dynamic nature of money flow for low-income populations.
+\textbf{Usage.} If a user estimates that the incomes for the first day will be around 20 cedi, she or he would fill the cells in the income column for Day 1 up to the 20 cedi mark on the vertical axis. And then if the user estimates that on the second day, the income will be approximately 30 cedi, she or he would fill the cells up to the 30 cedi mark on the axis and then shift the band so that the stickers start after the filled income for the previous day, at the 20 cedi mark. In this case, the user can easily tell that over the two days, the income has been accumulated to 50 cedis. The user then can finish populating the rest of her or his projected income in a similar manner and continue in a similar manner for the expenses columns. In the example, the user can then see that over three days, she or he as earned and spent cumulatively 60 cedis. The user can also see that expenses exceed income on Day 1, income exceeds expenses on Day 2, and they match on Day 3.
 
-\begin{figure}%
-    \centering
-    \subfloat[Initial]{{\label{fig:add-init}\includegraphics[width=.43\linewidth]{img/add-init.png} }}%
-    \qquad
-    \subfloat[Final]{{\label{fig:add-final}\includegraphics[width=.43\linewidth]{img/add-final.png} }}%
-    \caption{Addition and matching tool initial and final state.}%
-    \label{fig:add}%
+While tracking incomes and expenses, if there is an unexpected 10 cedis of expense that is introduced on Day 1, then the successive stacks of expenses must be readjusted. This is achieved by sliding the paper strip for the expenses on the following day up so that the filled in units rest above the end of the filled units for the day that was altered, and continued through to all of the successive days.
+% After populating the expenses columns in a similar 
+
+% if a user earns 200 cedi on the first day, they would fill up the projected income and expenses column on ``Day 1'' to the 100 cedi point. They would continue to do this 
+
+\textbf{Lessons learned.} This tool can be generalized to calculate any cumulative sum and compare and match analogous variables.
+
+\begin{figure}
+\centering
+\includegraphics[width=.9\linewidth]{img/add.png}
+\caption{Addition by matching described in Section~\ref{sec:add}.}
+\label{fig:add}
 \end{figure}
+
+% The addition by matching tool calculates the sum as well as compares and matches analogous variables. Again, the base would be made of stiff paper, plastic, cardboard, or other material that would support two narrow slits through which a paper strip could be smoothly slid up or down. Figure \ref{fig:add} is a representation of this tool, where the axes indicate the base in which each separate strip, or column, would move in relation to.
+
+% Income inflows for low-income populations typically engaged in the informal labour market are irregular and variable, accumulated through a variety of financial instruments such as money earned through different jobs and money borrowed through different sources of credit. This tool can be used to compare income and expenses, for instance, and determine when income-expenses can be met or matched or when one exceeds the other. To do this, we first shade in the requisite number of 100 cedi\footnote{local currency corresponding to roughly 0.28 USD per cedi at the time of writing} cells to fill up the projected income and expenses column on ``Day 1". We then fill in cells in the income and expenses column on ``Day 2", starting from the point where income and expenses leveled out, respectively, on the previous day. This is repeated for every successive day. At this point, the tool is able to tell the user when expenses exceed income. 
+
+% In this example, user estimates that the incomes for the first day will be around 200 cedi, shading cells to fill that amount. The user then estimates that on the second day, income will be approximately 300 cedi. He or she would then fill the cells from the bottom up to the 300 cedi point and then shift the band so that the starting point of the shaded cells is at the point in which they left off, or at the 200 cedi mark. The resulting configuration can be seen in Figure~\ref{fig:add-init}. The user is now able to tell that over the two days, the income has accumulated to 500 cedis. And after populating the expenses columns in a similar manner on the tool, the user can see that expenses exceed income on ``Day 1", income exceeds expenses on ``Day 2", and they match on ``Day 3". The tool also indicates how much money has accumulated at any given time, by checking the scale on the left.
+ 
+% While tracking income-expenses, if there is an unexpected expense unit that is introduced on ``Day 1" (represented by the red cell in Figure \ref{fig:add-final}), then the successive stacks of expenses must be readjusted. This is achieved by sliding the paper strips representing expenses on ``Day 2" and ``Day 3" one unit up. The tool is therefore able to readjust to match the dynamic nature of money flow for low-income populations.
+
+% \begin{figure}%
+%     \centering
+%     \subfloat[Initial]{{\label{fig:add-init}\includegraphics[width=.43\linewidth]{img/add-init.png} }}%
+%     \qquad
+%     \subfloat[Final]{{\label{fig:add-final}\includegraphics[width=.43\linewidth]{img/add-final.png} }}%
+%     \caption{Addition and matching tool initial and final state.}%
+%     \label{fig:add}%
+% \end{figure}
 
 \subsubsection{Averages Tool}
 
-We also developed a tool that could help estimate averages. Averages, for instance, can be particularly useful in calculating the length of a typical menstrual cycle in order to predict the length of future cycles. In its simplest form, a rolled strip of paper can be incrementally unrolled by a standard unit size to track each day the individual is not menstruating and then ripped or torn when menstruation occurs. 
+\textbf{Use cases.} 
+Often times in villages women are not actively tracking their menstrual cycle. Therefore, a woman who does not track her menstrual cycle does not necessarily know when ovulation is likely to occur to determine when she is most fertile or have a sense of her cycle length to determine if she has missed her period and are pregnant. We create a tool to help women track their menstrual cycles to give them a sense of their average cycle length.
 
-When these strips of paper are layered up on top of each other, the thickest part of the strips would indicate where the average would be located. The next time the individual is unrolling the strips of paper, they can know where to anticipate their cycle to end. Additionally, the halfway point is a good approximation of when ovulation would occur. A similar process could be done with the strips of paper folded in half to have a rough estimate of when the individual is most fertile. 
+\textbf{Proposed tool.}
+In its simplest form, the tool is a long strip of paper segmented so that each square is a given date. This strip of paper can be similar in shape to a tape measure or thinner.
 
-Arranging these strips of paper next to each other would also give a good ``eyeball" estimate of the average, as seen in Figure~\ref{fig:avg-basic}. This could be enhanced with the use of a tool that lines up with shortest strip and the longest strip in the range of data points and, with springs or rubber bands attached to the middle mark, draws a line between the two to come up with an alternate means of estimating the average as seen in Figure~\ref{fig:avg-spring}. These two do not necessarily give a very accurate average, but each has its own strengths. 
+\textbf{Usage.}
+Each day the individual does not have their period, she will unroll the strips of paper and on the day she do get their period she will do one of the following:
+\begin{compactitem}
 
-Another potential design is taking thinner but sturdier strips of paper or string marked with standardized units. The strip is unrolled during the current cycle from the end of the last cycle and all of it is wound around two thin stiff rods, such as a pencil, the number of times that is the number of cycles. These can then be readjusted so that the strip comfortably spans the two rods in a way that results in equivalent sections for the number of cycles. A graphical depiction is seen in Figure~\ref{fig:avg-wrap}. This can give a fairly accurate estimation of average. However, there is a tradeoff because this is one of the prototypes that is the hardest to implement due to the need for very specific materials and complicated gestures.
+	\item Rip the strip of paper at that point to get a segment of dates that represent that one cycle. Once there are paper segments for each of the cycles, these strips can be layered on top of each other. The thickest portion of these layered strips would indicate where the average would be located. The next time, as the woman is unrolling her strip of paper, she will know that when she reaches that point, she should anticipate her cycle to end.
 
-\begin{figure}%
-    \centering
-    \subfloat[Basic]{{\label{fig:avg-basic}\includegraphics[width=.25\linewidth]{img/avg-basic.png} }}%
-    \qquad
-    \subfloat[Spring]{{\label{fig:avg-spring}\includegraphics[width=.25\linewidth]{img/avg-spring.png} }}%
-    \qquad
-    \subfloat[Wrap]{{\label{fig:avg-wrap}\includegraphics[width=.25\linewidth]{img/avg-wrap.png} }}%
-    \caption{Different iterations of a tool to find averages.}%
-    \label{fig:avg}
-\end{figure}
+	\item Also rip the strip of paper at that point but arrange the segments next to each other. This could give a good ``eyeball'' estimate of the average. The next time, as the the woman is unrolling her strip of paper, she will know that as her paper lines up similarly to the previous cycles, she should anticipate to get her period. 
+
+	This could be enhanced with the use of a tool that lines up with the shortest strip and the longest strip in the range of data points and, with springs or rubber bands attached to the middle mark, draws a line between the two to come up with an alternate means of estimating the average.
+
+	\item Wrap the strip of paper around two rods, such as pencils, for the number of cycles that have occurred. For example, if 
+
+\end{compactitem}
+
+\textbf{Lessons learned.}
+The strips of paper with date increments can be used for any type of time or date tracking. And the methods of comparing these date strips can be used for any type of averages tracking.
+
+% \begin{figure}
+% \centering
+% \includegraphics[width=.8\linewidth]{img/averages.png}
+% \caption{Subtraction band described in Section~\ref{sec:subtraction}.}
+% \label{fig:band}
+% \end{figure}
+
+% We also developed a tool that could help estimate averages. Averages, for instance, can be particularly useful in calculating the length of a typical menstrual cycle in order to predict the length of future cycles. In its simplest form, a rolled strip of paper can be incrementally unrolled by a standard unit size to track each day the individual is not menstruating and then ripped or torn when menstruation occurs. 
+
+% When these strips of paper are layered up on top of each other, the thickest part of the strips would indicate where the average would be located. The next time the individual is unrolling the strips of paper, they can know where to anticipate their cycle to end. Additionally, the halfway point is a good approximation of when ovulation would occur. A similar process could be done with the strips of paper folded in half to have a rough estimate of when the individual is most fertile. 
+
+% Arranging these strips of paper next to each other would also give a good ``eyeball" estimate of the average, as seen in Figure~\ref{fig:avg-basic}. This could be enhanced with the use of a tool that lines up with shortest strip and the longest strip in the range of data points and, with springs or rubber bands attached to the middle mark, draws a line between the two to come up with an alternate means of estimating the average as seen in Figure~\ref{fig:avg-spring}. These two do not necessarily give a very accurate average, but each has its own strengths. 
+
+% Another potential design is taking thinner but sturdier strips of paper or string marked with standardized units. The strip is unrolled during the current cycle from the end of the last cycle and all of it is wound around two thin stiff rods, such as a pencil, the number of times that is the number of cycles. These can then be readjusted so that the strip comfortably spans the two rods in a way that results in equivalent sections for the number of cycles. A graphical depiction is seen in Figure~\ref{fig:avg-wrap}. This can give a fairly accurate estimation of average. However, there is a tradeoff because this is one of the prototypes that is the hardest to implement due to the need for very specific materials and complicated gestures.
+
+% \begin{figure}%
+%     \centering
+%     \subfloat[Basic]{{\label{fig:avg-basic}\includegraphics[width=.25\linewidth]{img/avg-basic.png} }}%
+%     \qquad
+%     \subfloat[Spring]{{\label{fig:avg-spring}\includegraphics[width=.25\linewidth]{img/avg-spring.png} }}%
+%     \qquad
+%     \subfloat[Wrap]{{\label{fig:avg-wrap}\includegraphics[width=.25\linewidth]{img/avg-wrap.png} }}%
+%     \caption{Different iterations of a tool to find averages.}%
+%     \label{fig:avg}
+% \end{figure}
 
 \subsection{In the Field Design Iterations}
+\label{sec:field}
 
 After our ideation sessions, we developed context-specific tools that were designed specifically to address any deficiencies in existing paper artifacts we observed. We conducted contextual inquiries in the domains of microfinance and public health in Accra, Tema, Dodowa, and Awutu-Senya in Ghana over a period of three weeks in July 2014. During this time, we observed the organizational settings, user practices, and existing paper artifacts. We briefly describe these artifacts, the tools we designed in response, and their testing and subsequent iterations during our time in the field.
 

@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1407915060 "main.aux" "main.bbl" "main" 1407915065
+["bibtex main"] 1407934470 "main.aux" "main.bbl" "main" 1407993976
   "/usr/local/texlive/2013/texmf-dist/bibtex/bst/base/abbrv.bst" 1292289607 20329 b5fed53e10044d0f8112183785c759b1 ""
-  "main.aux" 1407915065 10221 be4ca11692cc188e4e6c87599ff49802 ""
+  "main.aux" 1407934475 9206 70385700edb46e3dfffe8855a7ed5eb9 ""
   "main.bcf" 0 -1 0 ""
   "ref.bib" 1407915053 10740 81143f48a25d14a5e5f332e1d2b8a52c ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1407915061 "main.tex" "main.pdf" "main" 1407915065
+["pdflatex"] 1407934470 "main.tex" "main.pdf" "main" 1407993976
   "/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
   "/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty" 1303254447 7324 11d14f318d865f420e692d4e6c9c18c3 ""
@@ -51,13 +51,8 @@
   "/usr/local/texlive/2013/texmf-dist/tex/latex/tools/array.sty" 1254151720 13146 3e38b06d6e7ca62ce1bdb63b0d6148a5 ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/tools/tabularx.sty" 1254151720 6076 90ca6002d5df607cc27699a4af5ff84e ""
   "/usr/local/texlive/2013/texmf-dist/tex/latex/tools/xspace.sty" 1312409015 4405 b7f0681f78908bf1aa3cd73228e9fd38 ""
-  "img/add-final.png" 1407735874 25560 ba91e9ede9c74a8682ab40009b0898ce ""
-  "img/add-init.png" 1407735874 23109 b3d1eaed6cead25d308ef1891023407b ""
-  "img/avg-basic.png" 1407735874 8210 07b26eca9eed0e7ea22ed710b7013bfa ""
-  "img/avg-spring.png" 1407735874 15197 ef4f7fa3398031161763ee8777a3d124 ""
-  "img/avg-wrap.png" 1407735874 27165 836966324b96fb24bfa5100ac68a4343 ""
-  "img/band-final.png" 1407735874 11131 da63280da8942c6aeb2fe003e610c547 ""
-  "img/band-init.png" 1407735874 11382 cc5d124db1e734792239ca112b10e2d5 ""
+  "img/add.png" 1407932400 132634 fb107feb1549363cdedcc21144245313 ""
+  "img/band.png" 1407932519 56877 eb1ab61bb13d0ba35fd7e906fa9d5303 ""
   "img/circletool.png" 1407735874 321535 c03d6a4bd96708bd3b3acda1a030fd2f ""
   "img/flowchart-booklet.png" 1407735874 64060 959c852db9bc77685cc0bb21c03d7de9 ""
   "img/flowchart-grameen.png" 1407735874 622433 913ae5efc8a84f2a81f653b4b8acad23 ""
@@ -70,15 +65,16 @@
   "img/graph-tool.png" 1407735874 70878 4d82aed42df36d7ac0d183957a170703 ""
   "img/graph-viewfinder.png" 1407735874 56303 959f15f700cca3d5734415c0217b1979 ""
   "img/home-screen.png" 1407735874 280794 b27e9bc09f855029ecf196c49998a692 ""
+  "img/spectrum.png" 1407933315 29428 ec4560316eb1c75bff588e0438c4c089 ""
   "img/susu-final.png" 1407735874 24355 d17c209a3077153e52f914eb7d167bab ""
   "img/susu-init.png" 1407735874 33131 2c64e851fff27b9cce6f65e85309b461 ""
   "img/table-basic.png" 1407735874 15216 0e7fe58e2377608ea8a2d37f09f4fcb0 ""
   "img/table-inputs.png" 1407735874 23269 4544f6a18eda44e6fb3a62f299ea6d81 ""
   "img/table-split.png" 1407735874 32699 3abdfa83f89bdc7fdf9e3120b8c068f0 ""
   "img/tracking-screen.png" 1407735874 199672 3c694a3463b6e3b50101fd17cc3f30b3 ""
-  "main.aux" 1407915065 10221 be4ca11692cc188e4e6c87599ff49802 ""
-  "main.bbl" 1407915061 6786 78534f829f1a93941166930a179577bc "bibtex main"
-  "main.tex" 1407914295 76468 385ef46c49abf45dc833086b3ea8c189 ""
+  "main.aux" 1407934475 9206 70385700edb46e3dfffe8855a7ed5eb9 ""
+  "main.bbl" 1407934470 6786 78534f829f1a93941166930a179577bc "bibtex main"
+  "main.tex" 1407934464 84999 9e049ea8eab1998e0757bfa7ab0ed4c3 ""
   "sig-alternate.cls" 1407735874 58095 3c82fd28fb22c25d8dc5facd718fcbbf ""
   (generated)
   "main.log"
