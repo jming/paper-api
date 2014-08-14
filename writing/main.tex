@@ -14,16 +14,12 @@
 \maketitle
 
 \begin{abstract}
-% For low-resource organizations working in developing regions, paper remains the default information medium of choice. 
-%is it by choice or by necessity% 
+
 Despite the recent push toward leveraging information and communication technologies (ICTs) for replacing paper-based tasks, there remain many barriers to designing deployable and appropriate technical solutions that replace paper.
-%i dont like this%
-%also what tasks do you mean when you say "these tasks"%
 As a result, paper tools such as forms, charts, and graphs continue to be widely used in low-resource organizations working in developing regions.
 Unfortunately, existing paper tools are often designed to be out of reach for end-users and depend on intermediaries to input data and interpret information. 
 We apply ideas from computability and human-computer interaction to design a system to automatically generate paper tools that provide immediate computation, visual feedback, and independence from both ICTs and intermediaries at the point of use. 
 \nifty is a system that is easy to use and allows low-resource organizations to quickly transform data tracking or information dissemination requirements into printable ``smart'' paper tools. 
-%maybe we should come up with a different phrase from "data tracking" and "information dissemination"
 In this paper, we explore how paper tools are currently being used by organizations in Ghana, explore the design space for smart paper tools, and describe \nifty's design and implementation.
 
 \end{abstract}
@@ -37,11 +33,9 @@ In this paper, we explore how paper tools are currently being used by organizati
 
 \section{Introduction}
 
-% Even as computing devices proliferate, often with the singularly ambitious goal of eliminating paper from a given ecosystem, the fact that paper continues to be pervasive in professional and personal spaces is undeniable. 
 
 Even as computing devices proliferate and try to eliminate paper from a given ecosystem, it is undeniable that paper continues to be pervasive in professional and personal spaces.
 Paper is light, low-cost, familiar, accessible, easy to use, intuitive to manipulate, and convenient to distribute \cite{sellen1997,sellen2002,johnson1993}. Moreover, in low-resource settings where technology infrastructure, such as stable electricity, cutting-edge computer hardware and software, and skilled human capital, is deficient, paper is an obvious choice because it can accomplish many of the same tasks that computers can, including tracking, recording, and look-up. Furthermore, generations of paper-based organizational and end-user tasks have ensured that national regulations seek compliance with paper-based record keeping rules. The enduring legacy of paper, especially amongst current paper-based workflows, provides inertia against switching to more technically intensive replacements. 
-% It is little wonder then that paper continues to be the information medium of choice in many low-resource organizations providing community health and microfinance services in the developing world.
 
 Still, paper is not without its constraints. When compared to information and communication technology (ICT) alternatives, paper is less malleable once data is inscribed, has less``computational output'', and is difficult to digitize. Electronic media that is designed and built to replace paper possesses an inverse profile of not only strengths but also constraints, unable to capitalize on paper's more accessible and tangible properties \cite{johnson1993}. Can paper itself be designed to overcome some of its limitations? Can paper, for instance, make its static content dynamic? Or, perhaps, even more ambitiously, can paper provide computational feedback to its end users?
 
@@ -58,20 +52,6 @@ These examples of ``smart" paper tools indicate a particularly compelling resear
 
 \end{compactitem}
 
-% We believe \nifty is an unusual but appropriate marriage between paper and technology for developing contexts: a computer is used to support the organization's design of context-specific paper tools, but the produced paper tools require no ICT support or leverage at the end user. [something else]
-
-% To address this research problem, we conducted a needs assessment in low-resource settings in Ghana that sought to appraise existing paper artifacts in the health and microfinance contexts. Based on our needs assessment, we found that though paper tools are fairly ubiquitous, they often require intermediaries for use and interpretation. From our findings, we design paper tools that provided direct and immediate computational or visual feedback for end users. These tools are specifically designed for low-literate populations, ensuring that the need for any textual input was alleviated as much as was possible. We also develop more general smart paper tools that are not grounded in context-specific constraints to focus more on exploring, and perhaps, exploiting, the many properties of paper for a broader range of problems.
-%We elaborate on this process in Section~\ref{sec:exploring-paper}, the ``Exploring Paper" section.
-
-%Based on the lessons we learned from our needs assessment
-%, as discussed in Sections~\ref{sec:abstraction} and \ref{sec:constraints}, 
-% From our exploration we abstracted the problem in order to develop, \nifty, a system for \emph{intermediaries} in low-resource organizations to automatically generate smart paper tools by simply defining their tasks and their associated parameters. Given these inputs \nifty produces suggestions of smart paper tools for the intermediary to select based on the resources available and capabilities of the end user. The intermediary can then print and construct the paper tool according to the instructions provided by \nifty and then distribute the tool to \emph{end users}. We believe \nifty is an unusual but appropriate marriage between paper and technology for developing contexts: a computer is used to support the organization's design of context-specific paper tools, but the produced paper tools require no ICT support or leverage at the end user. For clarity, throughout this paper we refer to the ``end user'' as the user who uses the paper tools themselves, and the ``user'' as the low-resource organization's intermediary who uses \nifty to create paper tools.
-%The system is described in Section.
-
-%We make two important design decisions at the onset of developing \nifty. First, in order to deliver smart paper tools to potentially low-literate users with limited exposure to computers and other forms of technology, it is necessary that a more skilled intermediary or a representative from a particular organizational setting (such as a hospital or an MFI) that is familiar with the context defines the input parameters on \nifty and generates the required paper tools. Therefore, \nifty was designed to be used by these intermediaries, whereas the paper tools were generated to be used by the customers of the MFI or the patients at the clinic. Second, the decision to introduce technology was taken to develop an infrastructure that could support the construction and dissemination of these smart paper tools on a larger scale. Therefore, a computer is necessary to support the centralized production and distribution of context-specific paper tools. This integration points to an unusual marriage of paper and technology, where the beneficial properties of paper, such as its tangibility, flexibility, affordability, and accessibility are completely preserved, and where the technology is required only until the point of distribution. The actual assembly and use of the paper outputs requires no technical support or leverage. 
-
-%We describe this system, NiftyPaper, in detail in Section~\ref{sec:system-desc}. Finally, we conclude with the ``discussion and conclusion" in section~\ref{sec:discussion} and point to directions for ``future work" in Section~\ref{sec:future-work}. 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Related Work}
@@ -85,16 +65,6 @@ There is a spectrum of innovations that attempt to bridge the gap between techno
 \caption{Spectrum between paper and technology.}
 \label{fig:spectrum}
 \end{figure}
-
-% pure paper-based tools
-% paper composites with other low-cost materials
-% paper composites with electronic things
-% paper prototyping
-% paper computing
-% paper-like technologies
-% pure ``technology''
-
-% (Where does technological generation of paper fall on this spectrum?)
 
 The tools that rest in the space between paper and technology most strongly integrated with technology are \emph{paper-like technologies}. This includes a set of tablets and mobile devices, including PaperTab, PaperFold, and MorePhone, that are electronic devices that are as reconfigurable as paper itself \cite{gomes2014,gomes2013,tarun2013}. The selling point of these technologies are their paper-like properties, including portability, maneuverability, and flexibility, a familiar look and feel to technology with the provision of the same capacities as a full-fledged tablet or phone. This reinforces the draw to include the benefits of paper in technological design, but does so in a fairly expensive way.
 
@@ -111,13 +81,6 @@ In addition to being tightly coupled with technology, these tools are used mainl
 
 We believe \nifty is an unusual but appropriate marriage between paper and technology for developing contexts: a computer is used to support the organization's design of context-specific paper tools, but the produced paper tools require no ICT support or leverage at the end user. Moreover, \nifty provides feedback to the end-users, encouraging utilization and adherence to the processes.
 
-% The oldest vision for the integration of paper and computers may perhaps be the conceptualization of Digital Desk \cite{wellner1993}. Digital Desk sought to more seamlessly integrate paper and digital documents by coupling paper with graphics projections, enabling interactions with paper in a way that allows for the completion of typical computing tasks. Still, the most recognizable paper-computer relationship is manifest in the printer itself \cite{qi2010}. However, when it comes to existing work that is directly related to this study, the printer is mostly used as a means to generate interesting paper artifacts that is an integration of computation and paper. For instance, the printer has been leveraged to generate 3-D shapes or pop-up sculptures \cite{eisenberg1997, hendrix2005}. Similarly, for this study, we rely on the printer to generate standalone, smart paper tools that provide augmented computational and visual feedback.
-
-% The emerging field of ``paper computing" is a step in the direction of more seamlessly integrating paper's inherent, constructive affordances with the computational power of technology, and in doing so, rejecting the very notion of a ``paperless world" \cite{kaplan2010}. Current work includes augmented paper documents, where paper sheets are digitally enhanced through the use of printed visual markers such as QR codes \cite{kaplan2010} or through the inscription of digital notes via specialized devices \cite{anoto, pietrzak2010}. Still other applications include leveraging paper itself as an interface to computer applications; these interfaces may be paper-based \cite{bonnard2010, portocarrero2010} or paper-like \cite{qi2010, coelho2009}. In addition, there are various examples of paper computing tools that have been designed specifically for the developing world. For example, CAM, a user interface toolkit, uses a mobile phone with a camera to record and store data from paper logs in rural microfinance groups in India \cite{parikh2006}. Digital Slate, an example of a paper-like interface, is a low-cost electronic slate that allows for pen-to-paper writing motion to capture data in savings groups in India \cite{ratan2010}. Shreddr is another example of paper to electronic data conversion technology that can be used in any low-resource organization that remains heavily dependent on paper\cite{chen2012}. However, these paper computing tools that have been designed for the developing world almost exclusively focus on capturing and converting data, while ignoring a range of other tasks.
-
-% In general, in the best-case scenarios for paper computing tools, the constructive benefits of paper and technology are leveraged equally. In the worst-case scenarios, as is usually the case, these instances of the integration of paper and technology almost always end up compromising on paper's low-cost and easy availability, or underutilizing its computational power. In contrast, this project focuses instead almost exclusively on exploiting and preserving the valuable affordances of paper by bringing in technology to furnish the \emph{supporting} infrastructure to generate smart paper tools. This unique stance is justified in low-resource settings where paper is inexpensive, easily accessible, and familiar, thereby mitigating resource, training, and infrastructure costs \cite{chen2012}.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Exploring Paper}
@@ -125,12 +88,9 @@ We believe \nifty is an unusual but appropriate marriage between paper and techn
 
 After reviewing related work and identifying real-world problems in the health and microfinance contexts in low-resource settings where paper is already deeply rooted and in constant use, we developed two sets of design iterations: one based solely on brainstorming sessions and the other based on in the field feedback. In Section~\ref{sec:brainstorming}, we describe designs that attempt to push the boundaries of paper to explore the range of computational and visual feedback that paper in and of itself could provide. Afterwards, in Section~\ref{sec:field}, we discuss designs that are based on a needs assessment to see how paper is being used in the health and microfinance contexts at field sites in Ghana and feedback from real end users.
 
-% For this project we focus on specific problems within the health and microfinance contexts. After establishing the problem space, reviewing the related work, and identifying real-world problems in low-resource settings where paper is already deeply rooted and in constant use, we held several brainstorming sessions to ambitiously explore the range of computational and visual feedback that paper in and of itself could provide, as seen in Section~\ref{sec:brainstorming}. We then explored how paper was being used in the health and microfinance contexts at field sites in Ghana to assess how paper is currently being used. Given this context, we designed several improvements to existing paper tools and iterated on our designs with real end users, as seen in Section~\ref{sec:field}.
-
 \subsection{Brainstorming Design Iterations}
 \label{sec:brainstorming}
 
-%Our brainstorming sessions were accompanied with needs assessment studies in parallel where we visited low-income populations (usually areas with low-income housing options, or wholesale market places) within Accra and conducted informal interviews with people regarding their health and financial practices, and any tools (paper or otherwise) they might already be using to support these practices. This qualitative understanding helped ground our ideas in a real-world context to justify their continued assessment and to focus our scope. 
 The primary goal of these preliminary brainstorming sessions was to push the boundaries of what ``smart paper" could accomplish. In other words, how could we re-design paper in a way that makes it somehow better? Here, we describe a small subset of the ``smart-paper" tools we designed.
 
 \subsubsection{The Subtraction Band}
@@ -156,21 +116,6 @@ This tool can be generalized from the basic use case to include any type of task
 \label{fig:band}
 \end{figure}
 
-% Analysis? Reflections? Benefits?
-
-% The subtraction band gives the difference of numbers. The base is made of stiff paper, plastic, cardboard, or other material that could support two narrow slits through which a closed paper loop could be smoothly slid and rotated. Figure \ref{fig:band} is a representation of this tool where the numbered upper region is the base in reference to which the paper loop, or darker region, would move.
-
-% To take a simple example, we shaded ten boxes on the number line on the base. We now want to subtract ``3" from ``10" (Figure~\ref{fig:band-init}). We locate ``3" on the number line and remove the stickers until that point. After this slide the paper band to the left such that the first shaded cell moves back to ``1". We can now see that the result is ``7" (Figure~\ref{fig:band-final}). Alternatively, if materials are available, shading cells could be replaced with sticking stickers.
-
-% \begin{figure}%
-%     \centering
-%     \subfloat[Initial]{{\label{fig:band-init}\includegraphics[width=.8\linewidth]{img/band-init.png} }}%
-%     \qquad
-%     \subfloat[Final]{{\label{fig:band-final}\includegraphics[width=.8\linewidth]{img/band-final.png} }}%
-%     \caption{Subtraction band initial and final state.}%
-%     \label{fig:band}%
-% \end{figure}
-
 \subsubsection{The Addition By Matching Tool}
 \label{sec:add}
 
@@ -182,9 +127,6 @@ This tool can be generalized from the basic use case to include any type of task
 If a user estimates that the incomes for the first day will be around 20 cedi, she or he would fill the cells in the income column for Day 1 up to the 20 cedi mark on the vertical axis. And then if the user estimates that on the second day, the income will be approximately 30 cedi, she or he would fill the cells up to the 30 cedi mark on the axis and then shift the band so that the stickers start after the filled income for the previous day, at the 20 cedi mark. In this case, the user can easily tell that over the two days, the income has been accumulated to 50 cedis. The user then can finish populating the rest of her or his projected income in a similar manner and continue in a similar manner for the expenses columns. In the example, the user can then see that over three days, she or he as earned and spent cumulatively 60 cedis. The user can also see that expenses exceed income on Day 1, income exceeds expenses on Day 2, and they match on Day 3.
 
 While tracking incomes and expenses, if there is an unexpected 10 cedis of expense that is introduced on Day 1, then the successive stacks of expenses must be readjusted. This is achieved by sliding the paper strip for the expenses on the following day up so that the filled in units rest above the end of the filled units for the day that was altered, and continued through to all of the successive days.
-% After populating the expenses columns in a similar 
-
-% if a user earns 200 cedi on the first day, they would fill up the projected income and expenses column on ``Day 1'' to the 100 cedi point. They would continue to do this 
 
 \textbf{Lessons learned.} This tool can be generalized to calculate any cumulative sum and compare and match analogous variables.
 
@@ -194,23 +136,6 @@ While tracking incomes and expenses, if there is an unexpected 10 cedis of expen
 \caption{Addition by matching described in Section~\ref{sec:add}.}
 \label{fig:add}
 \end{figure}
-
-% The addition by matching tool calculates the sum as well as compares and matches analogous variables. Again, the base would be made of stiff paper, plastic, cardboard, or other material that would support two narrow slits through which a paper strip could be smoothly slid up or down. Figure \ref{fig:add} is a representation of this tool, where the axes indicate the base in which each separate strip, or column, would move in relation to.
-
-% Income inflows for low-income populations typically engaged in the informal labour market are irregular and variable, accumulated through a variety of financial instruments such as money earned through different jobs and money borrowed through different sources of credit. This tool can be used to compare income and expenses, for instance, and determine when income-expenses can be met or matched or when one exceeds the other. To do this, we first shade in the requisite number of 100 cedi\footnote{local currency corresponding to roughly 0.28 USD per cedi at the time of writing} cells to fill up the projected income and expenses column on ``Day 1". We then fill in cells in the income and expenses column on ``Day 2", starting from the point where income and expenses leveled out, respectively, on the previous day. This is repeated for every successive day. At this point, the tool is able to tell the user when expenses exceed income. 
-
-% In this example, user estimates that the incomes for the first day will be around 200 cedi, shading cells to fill that amount. The user then estimates that on the second day, income will be approximately 300 cedi. He or she would then fill the cells from the bottom up to the 300 cedi point and then shift the band so that the starting point of the shaded cells is at the point in which they left off, or at the 200 cedi mark. The resulting configuration can be seen in Figure~\ref{fig:add-init}. The user is now able to tell that over the two days, the income has accumulated to 500 cedis. And after populating the expenses columns in a similar manner on the tool, the user can see that expenses exceed income on ``Day 1", income exceeds expenses on ``Day 2", and they match on ``Day 3". The tool also indicates how much money has accumulated at any given time, by checking the scale on the left.
- 
-% While tracking income-expenses, if there is an unexpected expense unit that is introduced on ``Day 1" (represented by the red cell in Figure \ref{fig:add-final}), then the successive stacks of expenses must be readjusted. This is achieved by sliding the paper strips representing expenses on ``Day 2" and ``Day 3" one unit up. The tool is therefore able to readjust to match the dynamic nature of money flow for low-income populations.
-
-% \begin{figure}%
-%     \centering
-%     \subfloat[Initial]{{\label{fig:add-init}\includegraphics[width=.43\linewidth]{img/add-init.png} }}%
-%     \qquad
-%     \subfloat[Final]{{\label{fig:add-final}\includegraphics[width=.43\linewidth]{img/add-final.png} }}%
-%     \caption{Addition and matching tool initial and final state.}%
-%     \label{fig:add}%
-% \end{figure}
 
 \subsubsection{Averages Tool}
 \label{sec:average}
@@ -223,7 +148,6 @@ In its simplest form, the tool is a long strip of paper segmented to represent d
 
 % \textbf{Usage.}
 Each day the individual does not have their period, she will unroll the strips of paper. 
-% The first idea is that on the day the woman does get her period, she will rip the strip of paper at that point to get a segment of dates that represent that one cycle. Once there are paper segments for each of the cycles, these strips can be layered on top of each other. The thickest portion of these layered strips would indicate where the average would be located. The next time, as the woman is unrolling her strip of paper, she will know that when she reaches that point, she should anticipate her cycle to end.
 On the day the woman does get her period, she will rip the strip of paper at that point to get a segment of dates that represent that one cycle. Once there are paper sections for each of the cycles, these sections are arranged next to each other. This could give a good ``eyeball'' estimate of the average, and the woman can have a sense of where the average would lie, as seen in the dotted region in Figure~\ref{fig:average}. The next time, as the the woman is unrolling her strip of paper, she will know that as her paper lines up similarly to the previous cycles, she should anticipate to be her period. This could be enhanced with the use of a tool that lines up with the shortest strip and the longest strip in the range of data points and, with springs or rubber bands attached to the middle mark, draws a line between the two to come up with an alternate means of estimating the average. This is seen with the bars and coils in Figure~\ref{fig:average}.
 
 A different idea for determining averages is the wrapping method. The woman would still continue to unroll the strips each day that she does not get her period. However, she will not rip the strips of paper on the days that she does get her period. Instead, she will have a length of the strip that represents all of the cycles she has had from the beginning. In this example, the woman would have a strip with the length of 167 for her 6 cycles. Then, she will take this long strip and wrap it around two rods, potentially pens or pencils, the number of times she has her cycles. In this example, she has had 6 cycles, so she will wrap the strip tightly six times around the two rods while tracking the end of the 167 day length. She can then hold onto the rods and separate them in a parallel manner in opposite directions until one rod is lined up with the square for the first day and the other rod is lined up with the square for the last day. This should give an even six lengths for the 167 days, which represent the average of the days.
@@ -238,48 +162,20 @@ The strips of paper with date increments can be used for any type of time or dat
 \label{fig:average}
 \end{figure}
 
-% We also developed a tool that could help estimate averages. Averages, for instance, can be particularly useful in calculating the length of a typical menstrual cycle in order to predict the length of future cycles. In its simplest form, a rolled strip of paper can be incrementally unrolled by a standard unit size to track each day the individual is not menstruating and then ripped or torn when menstruation occurs. 
-
-% When these strips of paper are layered up on top of each other, the thickest part of the strips would indicate where the average would be located. The next time the individual is unrolling the strips of paper, they can know where to anticipate their cycle to end. Additionally, the halfway point is a good approximation of when ovulation would occur. A similar process could be done with the strips of paper folded in half to have a rough estimate of when the individual is most fertile. 
-
-% Arranging these strips of paper next to each other would also give a good ``eyeball" estimate of the average, as seen in Figure~\ref{fig:avg-basic}. This could be enhanced with the use of a tool that lines up with shortest strip and the longest strip in the range of data points and, with springs or rubber bands attached to the middle mark, draws a line between the two to come up with an alternate means of estimating the average as seen in Figure~\ref{fig:avg-spring}. These two do not necessarily give a very accurate average, but each has its own strengths. 
-
-% Another potential design is taking thinner but sturdier strips of paper or string marked with standardized units. The strip is unrolled during the current cycle from the end of the last cycle and all of it is wound around two thin stiff rods, such as a pencil, the number of times that is the number of cycles. These can then be readjusted so that the strip comfortably spans the two rods in a way that results in equivalent sections for the number of cycles. A graphical depiction is seen in Figure~\ref{fig:avg-wrap}. This can give a fairly accurate estimation of average. However, there is a tradeoff because this is one of the prototypes that is the hardest to implement due to the need for very specific materials and complicated gestures.
-
-% \begin{figure}%
-%     \centering
-%     \subfloat[Basic]{{\label{fig:avg-basic}\includegraphics[width=.25\linewidth]{img/avg-basic.png} }}%
-%     \qquad
-%     \subfloat[Spring]{{\label{fig:avg-spring}\includegraphics[width=.25\linewidth]{img/avg-spring.png} }}%
-%     \qquad
-%     \subfloat[Wrap]{{\label{fig:avg-wrap}\includegraphics[width=.25\linewidth]{img/avg-wrap.png} }}%
-%     \caption{Different iterations of a tool to find averages.}%
-%     \label{fig:avg}
-% \end{figure}
-
 \subsection{In the Field Design Iterations}
 \label{sec:field}
 
-% After our ideation sessions, we developed context-specific tools that were designed specifically to address any deficiencies in existing paper artifacts we observed. 
 We conducted contextual inquiries in the domains of microfinance and public health in the Greater Accra area in Ghana, including Tema, Dodowa, and Awutu, over a period of three weeks in July 2014. During this time, we observed the organizational settings, user practices, and existing paper artifacts. 
-% We briefly describe these artifacts, the tools we designed in response, and their testing and subsequent iterations during our time in the field.
 
 \subsubsection{Susu Tracker}
 \label{sec:susu}
-% JAY: photo of existing susu tracker
+
 \textbf{Use cases.}
 We spent time with a microfinance institution (MFI) in Tema, observing their daily ``susu" (savings) operations. Clients deposit a standard amount for 31 days where 1 day is kept by the MFI as commission. These transactions are logged in a standard paper passbook along with the date on which a deposit was made, the amount deposited, and the running total for each cycle. However, the amount taken for commission and the cumulative sum across different cycles is not provided by the passbook. Therefore, when the customer goes for a withdrawal, they are unaware of how much money they have saved up in total and how much of the money they put in was separated for commission. We designed a tool that could give the customer this missing information, specifically geared toward those with low-literacy and arithmetic skills.
-
-
-% Clients deposit a standard susu deposit amount for 31 days, of which 30 days worth of accumulated sum is theirs to withdraw at any time and 1 days worth of deposit is the commission for the MFI. Therefore, the deposit that the customer made on the first day of a new cycle is immediately forfeited to the MFI as their commission. A standard paper passbook was used to record these transactions. The passbook provides the date on which a deposit was made, the amount deposited, and the running total up until 31 days. Therefore, if a customer had saved over multiple 31-day cycles without making any withdrawals, he or she would now have to add the accumulated sum per completed cycle, which would be a standard amount, plus any arbitrary amount for a partially completed cycle. Moreover, the passbook provides no commission information. More specifically, the running total for one cycle did not indicate to the user in any way that one day's worth of deposit would be immediately subtracted from the accumulated sum, should they choose to withdraw that amount.
 
 \textbf{Proposed tool.}
 We tested the usability of five design iterations with existing customers. 
 The first iteration is a calendar with a stack of stickers that has the running total, with commission accounted for in the first deposit of a cycle by a red sticker. The final iteration utilizes no stickers, but, in a simple passbook format, has the running total over all of the different cycles already printed out in the overall balance column. 
-% After observing these deficiencies, we designed a tool that could give the customer this missing information. Most of the existing customers had low-literacy and arithmetic skills, so we decided to keep the input process as simple and straightforward as possible. 
-
-
-% One of the first iterations used a calendar layout along with a stack of stickers that had the running total and commission information denoted by a red sticker that accumulated in arithmetic progression every 31 days (Figure \ref{fig:susu-init}). After five design and usability testing iterations, our final susu tracker represented a simple passbook format (without stickers) where the dates and the running total were already printed out (retaining the commission information as before), and customers only had to mark or tick off the days on which they made a deposit using a pen or pencil (Figure \ref{fig:susu-final}).
 
 % \textbf{Usage.}
 \textbf{Lessons learned.}
@@ -293,26 +189,11 @@ With the feedback from the users, it was found that the layout that capitalizes 
 \label{fig:average}
 \end{figure}
 
-% We spent time with a microfinance institution (MFI) in Tema, observing their daily ``susu" (savings) operations. The susu process itself is straightforward. Clients deposit a standard susu deposit amount for 31 days, of which 30 days worth of accumulated sum is theirs to withdraw at any time and 1 days worth of deposit is the commission for the MFI. Therefore, the deposit that the customer made on the first day of a new cycle is immediately forfeited to the MFI as their commission. A standard paper passbook was used to record these transactions. The passbook provides the date on which a deposit was made, the amount deposited, and the running total up until 31 days. Therefore, if a customer had saved over multiple 31-day cycles without making any withdrawals, he or she would now have to add the accumulated sum per completed cycle, which would be a standard amount, plus any arbitrary amount for a partially completed cycle. Moreover, the passbook provides no commission information. More specifically, the running total for one cycle did not indicate to the user in any way that one day's worth of deposit would be immediately subtracted from the accumulated sum, should they choose to withdraw that amount.
-
-% After observing these deficiencies, we designed a tool that could give the customer this missing information. Most of the existing customers had low-literacy and arithmetic skills, so we decided to keep the input process as simple and straightforward as possible. One of the first iterations used a calendar layout along with a stack of stickers that had the running total and commission information denoted by a red sticker that accumulated in arithmetic progression every 31 days (Figure \ref{fig:susu-init}). After five design and usability testing iterations, our final susu tracker represented a simple passbook format (without stickers) where the dates and the running total were already printed out (retaining the commission information as before), and customers only had to mark or tick off the days on which they made a deposit using a pen or pencil (Figure \ref{fig:susu-final}).
-
-% \begin{figure}%
-%     \centering
-%     \subfloat[Initial]{{\label{fig:susu-init}\includegraphics[width=.8\linewidth]{img/susu-init.png} }}%
-%     \qquad
-%     \subfloat[Final]{{\label{fig:susu-final}\includegraphics[width=.6\linewidth]{img/susu-final.png} }}%
-%     \caption{Susu tracker initial and final state.}%
-%     \label{fig:susu}%
-% \end{figure}
-
 \subsubsection{Graph Reader}
 \label{sec:graph}
 
 \textbf{Use cases.}
 We observed medical practices and conducted interviews with different doctors and nurses at a government district and children's hospital in the greater Accra region and interviewed medical professors and intermediaries, such as local community health volunteers. 
-% Through our interactions we learned that women are required to maintain two booklets before, during, and after pregnancy. One booklet was used to track the health of the mother, and the other, of the child. Unfortunately, the information contained in these booklets was presented in a very complicated manner, primarily to be used by trained medical personnel.
-% In the booklets t
 
 There is a chart that nurses use to determine whether the child is at a healthy weight-age balance based on the WHO regulations of child growth percentiles. This chart also tracks the child's weight over 24 months, accompanied by a legend to indicate the possible slopes between each of the points, and their implications, as seen in Figure~\ref{fig:graph-slope}. Though this information is relevant to the mothers, the confusing and esoteric presentation makes it inaccessible for those who do not know how to read graphs, and clunky to use for those who could. Therefore, we decided to develop a tool that would help individuals read this graphical information more easily.
 
@@ -334,36 +215,6 @@ These graph reading tools can be applied to any type of basic line graph.
 \label{fig:graph}
 \end{figure}
 
-% \begin{figure}%
-%     \centering
-%     \subfloat[]{{\label{fig:graph-slope}\includegraphics[width=.3\linewidth]{img/graph-slope.png} }}%
-%     \subfloat[]{{\label{fig:graph-view}\includegraphics[width=.3\linewidth]{img/graph-view.png} }}%
-%     \qquad
-%     \subfloat[]{{\label{fig:graph-focus}\includegraphics[width=.8\linewidth]{img/graph-focus.png} }}%
-%     \qquad
-%     \subfloat[]{{\label{fig:graph-tool}\includegraphics[width=.6\linewidth]{img/graph-tool.png} }}%
-%     \caption{Graph reader in Section~\ref{sec:graph}.}%
-%     \label{fig:graph-focus}%
-% \end{figure}
-
-% \begin{figure}%
-%     \centering
-%     \subfloat[Square]{{\label{fig:graph-square}\includegraphics[width=.4\linewidth]{img/graph-square.png} }}%
-%     \qquad
-%     \subfloat[Strips]{{\label{fig:graph-strips}\includegraphics[width=.4\linewidth]{img/graph-strips.png} }}%
-%     \caption{Different ideas for narrowing focus on a graph.}%
-%     \label{fig:graph-focus}%
-% \end{figure}
-
-% \begin{figure}%
-%     \centering
-%     \subfloat[Baseline slope]{{\label{fig:graph-slope}\includegraphics[width=.8\linewidth]{img/graph-slope.png} }}%
-%     \qquad
-%     \subfloat[Smart viewfinder]{{\label{fig:graph-viewfinder}\includegraphics[width=.6\linewidth]{img/graph-viewfinder.png} }}%
-%     \caption{Different ways of comparing two points to determine change over time.}%
-%     \label{fig:graph-changein}%
-% \end{figure}
-
 \subsubsection{Flowchart Booklet}
 \label{sec:flowchart}
 
@@ -383,25 +234,6 @@ We find that since any ``smart" paper tool in a low-resource setting will most l
 \caption{Flowchart booklet in Section~\ref{sec:flowchart}.}
 \label{fig:flowchart}
 \end{figure}
-
-%JAY: existing flowcharts and final booklet
-% JOY: which flowcharts do we want to put? like the ones from grameen from anitha vs. from the chv coordinator (are we allowed to) or the IMCI ones?
-
-
-
-
-% Finally, we also conducted interviews with a reputable not-for profit organization in Accra that was engaged in public health interventions. Through these conversations, as well as through our interactions with community health volunteers, we learned that one of the tools that is used by nurses in the field is a decision tree for diagnosing common ailments. An example is a page on diarrhea treatment from the Integrated Management of Childhood Illnesses (IMCI), which is essentially a flowchart that instructs the intermediary on which questions to ask the parents or guardians  of the patient, or which symptoms to check for, as well as how to proceed depending on the results of these inquiries. However, the current representation of the logic for this process is either too overwhelming in that there is a lot of text on a single diagram, or it is oversimplified in order to accommodate the information in a way that is easily represented on a single diagram. Therefore, we decided to create a more efficient tool for presenting this information to the intermediaries.
-
-% \begin{figure}%
-%     \centering
-%     % \subfloat[Text-based diagnosis]{{\label{fig:flowchart-chv}\includegraphics[width=.8\linewidth]{img/flowchart-chv.png} }}%
-%     % \qquad
-%     \subfloat[Full flowchart]{{\label{fig:flowchart-grameen}\includegraphics[width=.8\linewidth]{img/flowchart-grameen.png} }}%
-%     \qquad
-%     \subfloat[Simplified IMCI flowchart]{{\label{fig:flowchart-imci}\includegraphics[width=.8\linewidth]{img/flowchart-imci.png} }}%
-%     \caption{Different flowchart examples.}%
-%     \label{fig:flowchart-examples}%
-% \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
