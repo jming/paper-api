@@ -321,6 +321,7 @@ The system is implemented as a web-based system with HTML/CSS and Javascript bui
 % \end{figure}
 
 \subsection{Progress Tracking}
+\label{sec:tracking}
 
 \emph{Use cases.}
 Tracking encompasses tasks that require periodic user input, including marking the days a patient takes pills to visualize regularity of medication consumption or tracking the days the microfinance savings customer makes the required two cedi deposits to calculate cumulative sum. Other use cases include caloric intake each day over a month, amount of sleep each day, length of menstrual cycle each month, daily journaling or mood tracking, journaling each day, or spread of disease throughout a community.
@@ -338,9 +339,17 @@ In the cases where there is more than one piece of data being tracked over time,
 \emph{System implementation.}
 One challenge is allowing users to input task specifications and parameters in an understandable way and to translate this input to paper tool outputs. We originally proposed to allow the user to string together a series of ``per" and ``over" phrases for each relevant time and location to specify their task. For example, an input could read ``I am tracking the regularity of my medication consumption per day over three months." However, this method proves to be ambiguous and difficult for both the user and the computer with more complicated inputs. Eventually, the minimal series of questions was developed to determine the dimensions of the tracking task and differentiate between each of the potential outputs. 
 
-The system asks the user a series of questions about the tracking task they are proposing, including the values of the input and the frequency and duration of the tracking. The system is interactive---for each question, \nifty iterates on the user's answers and outputs suggestions, allowing the user to visualize the impact of each additional constraint. For example, after answering the first question, ``What are you tracking?", the user is presented a blank one-column table where only the first row is filled with the task name. The next question asks about the possible values of the tracking task. If the user indicates that they are tracking only whether the event occurs or not, another suggested output is the same one-column table populated with ``YES/NO" in each row so that the end-user can circle the corresponding word based on the occurrence of the event. The user can very clearly see the incremental difference between the blank table and the new ``YES/NO" table when choosing between the two.
+The system asks the user a series of questions about the tracking task they are proposing, including the values of the input and the frequency and duration of the tracking. The system is interactive---for each question, \nifty iterates on the user's answers and outputs suggestions, allowing the user to visualize the impact of each additional constraint. For example, after answering the first question, ``What are you tracking?", the user is presented a blank one-column table where only the first row is filled with the task name. The next question asks about the possible values of the tracking task. If the user indicates that they are tracking only whether the event occurs or not, another suggested output is the same one-column table populated with ``YES/NO" in each row so that the end-user can circle the corresponding word based on the occurrence of the event. The user can very clearly see the incremental difference between the blank table and the new ``YES/NO" table when choosing between the two. From there, other options are built such as calendar-based charts for monthly tracking or outcome tallying to count the number of times someone does or does not take their medication. Some examples are seen in Figure~\ref{fig:tracking}.
 
-Each of the output suggestions includes the base table that will be used, as well as a set of possible instructions that vary based on the level of literacy of the end user and the cost of any external materials. In the previous example, for the blank table, the user receives potential instructions of writing either ``Y" or ``N" on each of the lines depending on whether the event occurs, shading in the rows for the time intervals the event occurs, or placing stickers in those rows. The user then has the opportunity to compare all of the possible tools along with their associated instructions and select the one that matches their specific context. 
+Each of the output suggestions includes the base table that will be used, as well as a set of possible instructions that vary based on the level of literacy of the end user and the cost of any external materials. In the previous example, for the blank table, the user receives potential instructions of writing either ``Y" or ``N" on each of the lines depending on whether the event occurs, shading in the rows for the time intervals the event occurs, or placing stickers in those rows.  The user then has the opportunity to compare all of the possible tools along with their associated instructions and select the one that matches their specific context. 
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/tracking.png}
+\caption{Tracking example from \ref{sec:tracking}.}
+\label{fig:tracking}
+\end{figure}
+
 % A screenshot of the \nifty Tracking workflow is seen in Figure~\ref{fig:tracking}. The potential table-based outputs are similar to Figure~\ref{fig:add-init} and Figure~\ref{fig:band-final} for ``sticker with calendar" and ``no sticker with merged tables" outputs respectively.
 
 % For example, if the user wants to track their medication consumption over a month, they would first be asked ``What are you tracking?" They then are prompted to complete the sentence ``I am tracking..." with ``my medication consumption." At this step, the user will be presented with a table one column and only the task name, or ``my medication consumption" as the first row. Then the user is asked to specify what types of input could be given at each point in the process. The types of inputs that the \nifty system currently supports includes tracking occurrence or a single numeric value each time. In the case of medication consumption, the user will specify that they are tracking ``whether the event happens or not" and be presented with a tables that have ``YES / NO" prepopulated for each row. Other outputs would include a two column tally of the number of times the event occurs and the number of times the event does not occur. And if the user had chosen a single numeric value for each time, the rows would be prepopulated with the cumulative sum for each row. Then, the user would be asked about the frequency and duration for which they will be tracking, allowing the tables to have an additional column that would be prepopulated with the time increments the user specifies. And the user would also be presented with a clock or calendar for tracking. This could be that the user will simply mark the times in which the event occurs. Or the user could place a green or red sticker to better visualize regularity.
@@ -429,7 +438,7 @@ Calendar year calculations are a specific type of calculation for which there is
 
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth]{img/circletool.png}
+\includegraphics[width=.6\linewidth]{img/circletool.png}
 \caption{Example of calendar year calculation tool.}
 \label{fig:circletool}
 \end{figure}
@@ -448,18 +457,26 @@ In the \nifty system, the user can specify the logic of the process in flowchart
 
 For example, if the user is looking to create a tool to help parents with the home treatment of fever in their children, the user would first create a step with the question of ``How long has the child had a fever?" From this question, there would be two possible paths that can be taken. The user would create another step connected to the first step with the option ``less than seven days" and the instruction to ``bring the child to the nearest community health center." For the other possible answer to the question, the user would create another step that is connected to the first question with the option ``more than seven days" and with the question ``Does the child have any abnormal bleeding?". The user would then continue this process in specifying the answers to this question and continue until no questions remain and all paths end in instruction. This example is presented in Figure~\ref{fig:flowchart-input}.
 
-Then, the system converts this logic into a booklet. Each page of the booklet will present one question from the flowchart and the potential answer options associated with it as tabs below. The end-user can flip the tab over of the option that they select and continue with either the question or the instruction on the page. An example of the output of the \nifty system is show in Figure~\ref{fig:flowchart-booklet}.
+Then, the system converts this logic into a booklet. Each page of the booklet will present one question from the flowchart and the potential answer options associated with it as tabs below. The end-user can flip the tab over of the option that they select and continue with either the question or the instruction on the page.
 
 Some of the challenges for this workflow in \nifty include figuring out the order of the steps and instructions. In order to incorporate the feedback from the needs assessment that there should be no blank pages, balanced with the need to show visible instructions, whether it is all possible options at a given time or a ``STOP" instruction, our resulting algorithm for adapting the process logic from a flowchart to a booklet ended up being a depth first traversal that highlighted all nodes, or steps, that were accessed, even those that had been visited before. At each node, the algorithm would access the children of the node and append these options as tabs at the bottom of the page but if there were no children, append a ``STOP". Another challenge was determining the best way to fit all of the instructions on a page, as per the ``screen real estate" constraint of paper. The default presentation of information is using a fourth of an A4 sheet of paper. However, since there seemed to be varying preferences from the feedback, the user also has the option to adjust the size of each of the pages as well and our system uses this to parameterize the output.
 
-\begin{figure}%
-    \centering
-    \subfloat[Flowchart]{{ \label{fig:flowchart-input}\includegraphics[width=.4\linewidth]{img/flowchart-input.png} }}%
-    \qquad
-    \subfloat[Booklet]{{\label{fig:flowchart-booklet}\includegraphics[width=.4\linewidth]{img/flowchart-booklet.png} }}%
-    \caption{Process logic depicted as a flowchart and as a booklet.}%
-    \label{fig:process}%
+% \begin{figure}%
+%     \centering
+%     \subfloat[Flowchart]{{ \label{fig:flowchart-input}\includegraphics[width=.4\linewidth]{img/flowchart-input.png} }}%
+%     \qquad
+%     \subfloat[Booklet]{{\label{fig:flowchart-booklet}\includegraphics[width=.4\linewidth]{img/flowchart-booklet.png} }}%
+%     \caption{Process logic depicted as a flowchart and as a booklet.}%
+%     \label{fig:process}%
+% \end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=.6\linewidth]{img/flowchart-input.png}
+\caption{Example of calendar year calculation tool.}
+\label{fig:flowchart-input}
 \end{figure}
+
 
 % \subsection{Implementation}
 

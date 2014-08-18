@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  17 AUG 2014 16:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  17 AUG 2014 17:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -455,60 +455,63 @@ Package pdftex.def Info: img/flowchart.png used on input line 233.
 (pdftex.def)             Requested size: 240.0pt x 208.81673pt.
 
 [5 <./img/graph.png> <./img/flowchart.png>] [6]
+<img/tracking.png, id=46, 632.6034pt x 305.943pt>
+File: img/tracking.png Graphic file (type png)
+ <use img/tracking.png>
+Package pdftex.def Info: img/tracking.png used on input line 348.
+(pdftex.def)             Requested size: 240.0pt x 116.06813pt.
+
 Underfull \vbox (badness 1558) has occurred while \output is active []
 
 
-Overfull \hbox (8.26947pt too wide) in paragraph at lines 378--379
+Overfull \hbox (8.26947pt too wide) in paragraph at lines 387--388
 []\T1/aer/m/n/9 Tables are rel-a-tively easy to use for low-dimensional lookups
 .
  []
 
-<img/table.png, id=46, 673.0746pt x 379.6584pt>
+<img/table.png, id=47, 673.0746pt x 379.6584pt>
 File: img/table.png Graphic file (type png)
  <use img/table.png>
-Package pdftex.def Info: img/table.png used on input line 384.
+Package pdftex.def Info: img/table.png used on input line 393.
 (pdftex.def)             Requested size: 240.0pt x 135.37346pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1158) has occurred while \output is active []
 
- [7 <./img/table.png>] <img/graph-print.png, id=52, 701.9826pt x 542.025pt>
+ [7 <./img/tracking.png> <./img/table.png>]
+<img/graph-print.png, id=54, 701.9826pt x 542.025pt>
 File: img/graph-print.png Graphic file (type png)
-
-<use img/graph-print.png>
-Package pdftex.def Info: img/graph-print.png used on input line 425.
+ <use img/graph-print.png>
+Package pdftex.def Info: img/graph-print.png used on input line 434.
 (pdftex.def)             Requested size: 240.0pt x 185.31161pt.
- <img/circletool.png, id=53, 351.714pt x 360.8682pt>
+
+<img/circletool.png, id=55, 351.714pt x 360.8682pt>
 File: img/circletool.png Graphic file (type png)
+ <use img/circletool.png>
+Package pdftex.def Info: img/circletool.png used on input line 441.
+(pdftex.def)             Requested size: 144.00146pt x 147.75317pt.
 
-<use img/circletool.png>
-Package pdftex.def Info: img/circletool.png used on input line 432.
-(pdftex.def)             Requested size: 240.0pt x 246.25162pt.
-
-Overfull \hbox (8.60231pt too wide) in paragraph at lines 451--452
+Overfull \hbox (8.60231pt too wide) in paragraph at lines 460--461
 \T1/aer/m/n/9 page of the book-let will present one ques-tion from the flowchar
 t
  []
 
-<img/flowchart-input.png, id=54, 420.06938pt x 384.43625pt>
+
+Underfull \vbox (badness 5802) has occurred while \output is active []
+
+ [8 <./img/graph-print.png> <./img/circletool.png>]
+<img/flowchart-input.png, id=61, 420.06938pt x 384.43625pt>
 File: img/flowchart-input.png Graphic file (type png)
 
 <use img/flowchart-input.png>
-Package pdftex.def Info: img/flowchart-input.png used on input line 457.
-(pdftex.def)             Requested size: 95.99854pt x 87.85533pt.
+Package pdftex.def Info: img/flowchart-input.png used on input line 475.
+(pdftex.def)             Requested size: 144.00146pt x 131.78593pt.
 
-<img/flowchart-booklet.png, id=55, 358.33875pt x 438.63875pt>
-File: img/flowchart-booklet.png Graphic file (type png)
-
-<use img/flowchart-booklet.png>
-Package pdftex.def Info: img/flowchart-booklet.png used on input line 459.
-(pdftex.def)             Requested size: 95.99854pt x 117.51039pt.
- [8 <./img/graph-print.png> <./img/circletool.png>]
-Overfull \hbox (1.80328pt too wide) in paragraph at lines 476--477
+Overfull \hbox (1.80328pt too wide) in paragraph at lines 493--494
 \T1/aer/m/n/9 mo-ti-va-tions, prin-ci-ples, and ap-pli-ca-tions re-main broadly
  con-
  []
 
-(./main.bbl [9 <./img/flowchart-input.png> <./img/flowchart-booklet.png>]
+(./main.bbl [9 <./img/flowchart-input.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ) [10]
@@ -521,13 +524,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4631 strings out of 493315
- 67098 string characters out of 6137904
- 136469 words of memory out of 5000000
- 7969 multiletter control sequences out of 15000+600000
+ 4627 strings out of 493315
+ 66938 string characters out of 6137904
+ 136448 words of memory out of 5000000
+ 7965 multiletter control sequences out of 15000+600000
  52181 words of font info for 70 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 41i,9n,47p,1551b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,7n,38p,1551b,279s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/tex
 live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texliv
@@ -539,9 +542,9 @@ xmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2013/texmf-dis
 t/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
 pe1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/ti
 mes/utmri8a.pfb>
-Output written on main.pdf (10 pages, 1743900 bytes).
+Output written on main.pdf (10 pages, 1805382 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
+ 103 PDF objects out of 1000 (max. 8388607)
  56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
