@@ -1,35 +1,113 @@
-\documentclass{sig-alternate}
-\usepackage{enumitem}
+\documentclass{sigchi}
+
+% Use this command to override the default ACM copyright statement (e.g. for preprints). 
+% Consult the conference website for the camera-ready copyright statement.
+
+
+%% EXAMPLE BEGIN -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP -- (July 22, 2013 - Paul Baumann)
+% \toappear{Permission to make digital or hard copies of all or part of this work for personal or classroom use is 	granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org. \\
+% {\emph{CHI'14}}, April 26--May 1, 2014, Toronto, Canada. \\
+% Copyright \copyright~2014 ACM ISBN/14/04...\$15.00. \\
+% DOI string from ACM form confirmation}
+%% EXAMPLE END -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP -- (July 22, 2013 - Paul Baumann)
+
+
+% Arabic page numbers for submission. 
+% Remove this line to eliminate page numbers for the camera ready copy
+% \pagenumbering{arabic}
+
+
+% Load basic packages
+\usepackage{balance}  % to better equalize the last page
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage{times}    % comment if you want LaTeX's default font
+\usepackage{url}      % llt: nicely formatted URLs
+
 \usepackage{xspace}
-\usepackage{caption}
-\usepackage{subfig}
 \usepackage{paralist, tabularx}
 
+% llt: Define a global style for URLs, rather that the default one
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\bf\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+
+% To make various LaTeX processors do the right thing with page size.
+\def\pprw{8.5in}
+\def\pprh{11in}
+\special{papersize=\pprw,\pprh}
+\setlength{\paperwidth}{\pprw}
+\setlength{\paperheight}{\pprh}
+\setlength{\pdfpagewidth}{\pprw}
+\setlength{\pdfpageheight}{\pprh}
+
+% Make sure hyperref comes last of your loaded packages, 
+% to give it a fighting chance of not being over-written, 
+% since its job is to redefine many LaTeX commands.
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+pdftitle={SIGCHI Conference Proceedings Format},
+pdfauthor={LaTeX},
+pdfkeywords={SIGCHI, proceedings, archival format},
+bookmarksnumbered,
+pdfstartview={FitH},
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=black,
+urlcolor=black,
+breaklinks=true,
+}
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
+
+
+% End of preamble. Here it comes the document.
 \begin{document}
 \newcommand{\nifty}{\textsf{Papyr}\xspace}
 
-\conferenceinfo{DEV}{'14 San Jose, California USA}
-\title{Papyr: Automatically Generating ``Smart" Paper Tools for Low-resource Settings}
-\author{}
+\title{Papyr: Automatically Generating ``Smart'' Paper Tools for Low-Resource Settings}
+
+% \numberofauthors{3}
+% \author{
+%   \alignauthor 1st Author Name\\
+%     \affaddr{Affiliation}\\
+%     \affaddr{Address}\\
+%     \email{e-mail address}\\
+%     \affaddr{Optional phone number}
+%   \alignauthor 2nd Author Name\\
+%     \affaddr{Affiliation}\\
+%     \affaddr{Address}\\
+%     \email{e-mail address}\\
+%     \affaddr{Optional phone number}    
+%   \alignauthor 3rd Author Name\\
+%     \affaddr{Affiliation}\\
+%     \affaddr{Address}\\
+%     \email{e-mail address}\\
+%     \affaddr{Optional phone number}
+% }
+
 \maketitle
 
 \begin{abstract}
 
-Despite the recent push toward leveraging information and communication technologies (ICTs) to replace paper-based tasks, there remain many barriers to designing appropriate and deployable technical solutions that replace paper.
-As a result, paper tools such as forms, charts, and graphs continue to be widely used in low-resource organizations working in developing regions.
-Unfortunately, existing paper tools are often designed to be out of reach for end-users and depend on intermediaries to input data and interpret information. 
-We apply ideas from computability and human-computer interaction to design a system that automatically generates paper tools to provide immediate computational and visual feedback as well as independence from both ICTs and intermediaries at the point of use. 
-\nifty is a system that is easy to use and allows low-resource organizations to quickly transform data tracking or information dissemination requirements into printable ``smart'' paper tools. 
-In this paper, we explore how paper tools are currently being used by organizations in Ghana, explore the design space for smart paper tools, and describe \nifty's design and implementation.
+Despite the recent push toward leveraging information and communication technologies (ICTs) to replace paper-based tasks, there remain many barriers to designing appropriate and deployable technical solutions. As a result, paper tools such as forms, charts, and graphs continue to be widely used in low-resource organizations working in developing regions. Unfortunately, existing paper tools are often out of reach for end-users. We apply ideas from computability and human-computer interaction to design \nifty, a system that allows low-resource organizations to transform data tracking or information dissemination requirements into printable ``smart'' paper tools that provide immediate computational and visual feedback as well as independence from both ICTs and intermediaries at the point of use. In this paper, we analyze how paper tools are currently being used by organizations in Ghana, explore the design space for smart paper tools, and describe \nifty's design and implementation.
 
 \end{abstract}
 
-% \category{}{}{}
-% \category{}{}{}
-% \terms{}
-% \keywords{}
+\keywords{
+  Usability; design; ICTD; paper; Ghana
+  % ICT; paper; Ghana
+	% Guides; instructions; author's kit; conference publications;
+	% keywords should be separated by a semi-colon. \newline
+	% \textcolor{red}{Optional section to be included in your final version, 
+  % but strongly encouraged.}
+}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\category{H.5.2.}{Information Interfaces and Presentation (e.g. HCI)}{Theory and methods}
 
 \section{Introduction}
 
@@ -64,7 +142,7 @@ There is a spectrum of innovations that attempt to bridge the gap between techno
 
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth]{img/spectrum.png}
+\includegraphics[width=\linewidth]{img/spectrum}
 \caption{Spectrum between paper and technology (Section~\ref{sec:related}) based on the degree of integration with technology: leftmost end is most tightly coupled with technology and rightmost is most free of technology.}
 \label{fig:spectrum}
 \end{figure}
@@ -589,8 +667,10 @@ We thank the participants of our studies for their patience, helpfulness, and va
 % We thank the people we interviewed and who helped give us feedback (?)
 % Also, how would you even "deeply thank" someone?
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{abbrv}
-\bibliography{ref}
+
+\balance
+
+\bibliographystyle{acm-sigchi}
+\bibliography{sample}
 
 \end{document}

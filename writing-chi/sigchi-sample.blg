@@ -1,0 +1,83 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: sigchi-sample.aux
+The style file: acm-sigchi.bst
+Database file #1: sample.bib
+I was expecting a `,' or a `}'---line 193 of file sample.bib
+ :     
+ :     BOOKTITLE="In Proceedings of the fourth international conference on Tangible, embedded, and embodied interaction",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 243 of file sample.bib
+ :     pages={87-96}
+ :                  .
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 333 of file sample.bib
+ :     
+ :     TITLE="Shreddr: pipelined paper digitization for low-resource organizations",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 353 of file sample.bib
+ :     
+ :     TITLE="Mobile phones and paper documents: evaluating a new approach for capturing microfinance data in rural India",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 375 of file sample.bib
+ :     
+ :     TITLE="Managing microfinance with paper, pen and digital slate",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Name 5 in "A. Tarun and P. Wang and A. Girouard and P. Strohmeier and D. Reilly, and R. Vertgaal" has a comma at the end for entry tarun2013
+while executing---line 1097 of file acm-sigchi.bst
+Warning--empty year in anoto
+Warning--empty title in chen2012
+Warning--empty booktitle in chen2012
+Warning--empty journal in who1988
+Warning--empty title in parikh2006
+Warning--empty booktitle in parikh2006
+Warning--empty title in ratan2010
+Warning--empty booktitle in ratan2010
+Name 5 in "A. Tarun and P. Wang and A. Girouard and P. Strohmeier and D. Reilly, and R. Vertgaal" has a comma at the end for entry tarun2013
+while executing---line 1138 of file acm-sigchi.bst
+You've used 30 entries,
+            2243 wiz_defined-function locations,
+            688 strings with 9281 characters,
+and the built_in function-call counts, 11374 in all, are:
+= -- 1069
+> -- 535
+< -- 0
++ -- 225
+- -- 190
+* -- 793
+:= -- 1755
+add.period$ -- 83
+call.type$ -- 30
+change.case$ -- 180
+chr.to.int$ -- 0
+cite$ -- 38
+duplicate$ -- 497
+empty$ -- 955
+format.name$ -- 190
+if$ -- 2482
+int.to.chr$ -- 0
+int.to.str$ -- 30
+missing$ -- 32
+newline$ -- 146
+num.names$ -- 60
+pop$ -- 257
+preamble$ -- 1
+purify$ -- 155
+quote$ -- 0
+skip$ -- 336
+stack$ -- 0
+substring$ -- 656
+swap$ -- 130
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 116
+warning$ -- 8
+while$ -- 99
+width$ -- 32
+write$ -- 294
+(There were 7 error messages)
