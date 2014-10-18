@@ -1,0 +1,111 @@
+#flowchart-canvas,
+#booklet-canvas {
+  /*width:960px;*/
+  margin:10px auto;
+}
+
+rect{
+  fill:none;
+  /*stroke:grey;  */
+  /*stroke-width:1px;*/
+}
+
+line{
+  stroke:grey;
+  stroke-width:1px;
+}
+
+#treesvg g text:hover, 
+#treesvg g rect:hover{
+  cursor:pointer;
+}
+
+#treesvg{
+  border:1px solid grey;
+}
+
+#g_labels text {
+  font: 11px sans-serif;
+}
+
+.booklet-page {
+  margin: 45px 0px;
+}
+
+.booklet-page table {
+  border: 1px solid grey;
+  table-layout: fixed;
+  /*font-size: 36px;*/
+}
+
+.booklet-page td {
+  border: 1px solid grey;
+  width: 350px;
+  text-align: center;
+}
+
+.booklet-page tr {
+  border: 1px solid grey;
+  height: 410px;
+  /*background-color: grey;*/
+}
+
+.options-table table {
+  table-layout: fixed;
+  background-color: grey;
+}
+
+.options-table tr {
+  height:60px;
+  font-size: 28px;
+  background-color: lightgrey;
+}
+
+.booklet-text {
+  vertical-align: middle;
+  font-size: 36px;
+  border: 1px solid grey;
+  position: relative;
+  text-align: center;
+  display: table-cell;
+}
+
+.booklet-stop {
+  background-color: #ff9999;
+  position: absolute;
+  bottom: 0;
+  width: 348px;
+  font-size: 28px;
+  /*height: ;*/
+}
+
+@media print {
+  body * { visibility: hidden; }
+  #flowchart-canvas * { visibility: visible; }
+  #flowchart-canvas { 
+    position: absolute; 
+    top: 0px; 
+    left: 20px; 
+    margin: 0px;
+  }
+  #booklet-canvas * { visibility: visible; }
+  #booklet-canvas {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    margin: 0px;
+    width: 100%;
+    border: 1px solid grey;
+  }
+  .booklet-page {
+    margin: 4.5px 0px;
+  }
+/*
+  .options-table tr {
+    background-color: lightgrey;
+  }
+
+  .booklet-stop {
+    background-color: #ff9999;
+  }*/
+}

@@ -1,0 +1,55 @@
+
+
+.output-table,
+.output-table tr,
+.output-table th,
+.output-table tbody,
+.output-table td {
+  border: 1px solid rgb(204, 204, 204);
+  margin: 0;
+}
+
+.output-table tr {
+  height: 25px;
+  width: 100px;
+}
+
+.output-table td {
+  width: 100px;
+}
+
+.continuebutton-div {
+  margin-bottom: 10px;
+}
+
+.output-calendar tr {
+  height: 50px;
+}
+
+.output-print {
+  float: right;
+  padding: 1px 5px;
+}
+
+.output-clock {
+  height: 200px;
+  width: 200px;
+}
+
+.input-test {
+  font-family: 'Delius Swash Caps';
+}
+
+@media print {
+
+  body * { visibility: hidden; }
+
+  .toprint * { visibility: visible; }
+  .toprint { 
+    position: absolute;
+    top: 0px; 
+    left: 20px; 
+    margin: 0px;
+  }
+
+}

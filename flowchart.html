@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>NiftyPaper</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/flowchart.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><b>NiftyPaper</b></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tracking.html">Tracking</a></li>
+            <li class="active"><a href="flowchart.html">Process</a></li>
+            <li><a href="lookup.html">Lookup</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="about.html">About and Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="main-content">
+
+        <h1>Process</h1>
+        <p>Build a flowchart that demonstrates the logic of the process that you want to represent.
+          <ul>
+            <li>Start the process by clicking on the "<b>Begin!</b>" button. You will be asked to fill in the content of the first box. This often comes in the form of a QUESTION such as "How long has the child had a fever?"</li>
+            <li>To add the next step, click an existing step. You will be asked to fill in the: 
+              <ul>
+                <li><b>Option</b>, which is the logic that brings you to the next step. Often times, this comes in the form of an ANSWER. For example, "Less than 7 days" or "7 days or more" would be answers to the first question.</li>
+                <li><b>Text</b> is the text you would like to include for the next step based on the logic of the option. This could come in the form of a followup QUESTION such as "Does the child have any abnormal bleeding?" or in the form of an INSTRUCTION such as "Bring the child to the nearest community health center."</li>
+              </ul>
+            </li>
+          </ul>
+          See the <a href='flowchart-resources'>resources page </a>to see some examples of flowcharts you can construct.</p>
+        </p>
+
+        <p>When you are done inputting the logic, you can press the <b>Create Tool</b> button to generate the booklet with the logic that you inputted. And you can <b>print</b> the page (either with Ctrl+P or navigating via File > Print) to print out the booklet!</p>
+        
+        <!-- <p>Click on an existing box to add a new step to the procedure that you want to communicate. The three main types of steps you can include are:
+          <ul>
+            <li><b class='green-text'>Question.</b> Basic question to determine the direction of the next step. For example, "How long has the child had a fever?"</li>
+            <li><b class='yellow-text'>Answer.</b> This is an answer option to each of the questions. For example, "Less than 7 days" or "7 days or more" would be answers to the first question.</li>
+            <li><b class='red-text'>Instruction.</b> This is an instruction of an action to take once the state has been determined by the answers give. This is terminal and the flowchart procedure should end here. For example, if a child has had a fever for "7 days or more," it is advised that "The child should be brought to the nearest community health center."</li>
+          </ul>
+        See the <a href='flowchart-resources'>resources page </a>to see some examples of flowcharts you can construct.</p> -->
+        
+        <button class='btn' id='addFlowchartButton'>Begin!</button>
+        <button class='btn' id='createFlowchartButton' style='display:none;'>Create Booklet</button>
+        <button class='btn' id='showFlowchartButton' style='display:none;'>Show Flowchart</button>
+        
+        <div id='flowchart-canvas'></div>
+        <div id='booklet-canvas'></div>
+
+        <div class="modal fade" id='editLeaf-modal'>
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Add a step.</h4>
+              </div>
+              <div class="modal-body">
+                <form role='form'>
+                  <input type='text' id='editLeaf-v' hidden />
+                  <div class='form-group' id='editLeaf-answer-group'>
+                    <label for='editLeaf-answer'>Option.</label>
+                    <textarea class='form-control' rows='1' id='editLeaf-answer'></textarea>
+                  </div>
+                  <!-- <div class='form-group'>
+                    <label for='editLeaf-type'>Type</label>
+                    <select class='form-control' id='editLeaf-type'>
+                      <option value='q'>Question</option>
+                      <option value='o'>Answer</option>
+                      <option value='s'>Instruction</option>
+                    </select>
+                  </div> -->
+                  <div class='form-group'>
+                    <label for='editLeaf-label'>Text.</label>
+                    <textarea class='form-control' rows='3' id='editLeaf-label'></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" id='editLeaf-save'>Add</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id='editLeaf-cancel'>Cancel</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        
+      </div><!-- main-content -->
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src='js/flowchart.js'></script>
+  </body>
+</html>
