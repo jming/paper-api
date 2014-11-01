@@ -1,0 +1,83 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: abbrv.bst
+Database file #1: ref.bib
+I was expecting a `,' or a `}'---line 97 of file ref.bib
+ :     
+ :     BOOKTITLE="In Proceedings of the fourth international conference on Tangible, embedded, and embodied interaction",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 122 of file ref.bib
+ :     pages={87-96}
+ :                  .
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 167 of file ref.bib
+ :     
+ :     TITLE="Shreddr: pipelined paper digitization for low-resource organizations",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 177 of file ref.bib
+ :     
+ :     TITLE="Mobile phones and paper documents: evaluating a new approach for capturing microfinance data in rural India",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 188 of file ref.bib
+ :     
+ :     TITLE="Managing microfinance with paper, pen and digital slate",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Name 5 in "A. Tarun and P. Wang and A. Girouard and P. Strohmeier and D. Reilly, and R. Vertgaal" has a comma at the end for entry tarun2013
+while executing---line 1049 of file abbrv.bst
+Warning--empty year in anoto
+Warning--empty title in chen2012
+Warning--empty booktitle in chen2012
+Warning--empty journal in who1988
+Warning--empty title in parikh2006
+Warning--empty booktitle in parikh2006
+Warning--empty title in ratan2010
+Warning--empty booktitle in ratan2010
+Name 5 in "A. Tarun and P. Wang and A. Girouard and P. Strohmeier and D. Reilly, and R. Vertgaal" has a comma at the end for entry tarun2013
+while executing---line 1090 of file abbrv.bst
+You've used 30 entries,
+            2118 wiz_defined-function locations,
+            661 strings with 9086 characters,
+and the built_in function-call counts, 11888 in all, are:
+= -- 1165
+> -- 561
+< -- 14
++ -- 225
+- -- 190
+* -- 782
+:= -- 1856
+add.period$ -- 101
+call.type$ -- 30
+change.case$ -- 180
+chr.to.int$ -- 0
+cite$ -- 38
+duplicate$ -- 508
+empty$ -- 953
+format.name$ -- 190
+if$ -- 2625
+int.to.chr$ -- 0
+int.to.str$ -- 30
+missing$ -- 32
+newline$ -- 150
+num.names$ -- 60
+pop$ -- 258
+preamble$ -- 1
+purify$ -- 155
+quote$ -- 0
+skip$ -- 359
+stack$ -- 0
+substring$ -- 661
+swap$ -- 169
+text.length$ -- 14
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 116
+warning$ -- 8
+while$ -- 100
+width$ -- 32
+write$ -- 325
+(There were 7 error messages)
