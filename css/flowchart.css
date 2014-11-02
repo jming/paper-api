@@ -39,13 +39,13 @@ line{
 }
 
 .booklet-page td {
-  border: 1px solid grey;
+  border: 1px dashed grey;
   width: 350px;
   text-align: center;
 }
 
 .booklet-page tr {
-  border: 1px solid grey;
+  border: 1px dashed grey;
   height: 410px;
   /*background-color: grey;*/
 }
@@ -57,13 +57,13 @@ line{
 
 .options-table tr {
   height:60px;
-  font-size: 28px;
+  font-size: 20px;
   background-color: lightgrey;
 }
 
 .booklet-text {
   vertical-align: middle;
-  font-size: 36px;
+  font-size: 24px;
   border: 1px solid grey;
   position: relative;
   text-align: center;
@@ -74,9 +74,28 @@ line{
   background-color: #ff9999;
   position: absolute;
   bottom: 0;
-  width: 348px;
-  font-size: 28px;
+  width: 345px;
+  font-size: 20px;
+  padding:2px;
   /*height: ;*/
+  border: 1px solid grey;
+}
+
+.booklet-number {
+  font-size: 16px;
+  position: relative;
+  top: 0;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.option-active {
+  /*color: white;*/
+}
+
+#option-inactive {
+  color: white;
+  background-color: white;
 }
 
 @media print {
@@ -100,12 +119,17 @@ line{
   .booklet-page {
     margin: 4.5px 0px;
   }
-/*
+
   .options-table tr {
     background-color: lightgrey;
   }
 
   .booklet-stop {
     background-color: #ff9999;
-  }*/
+  }
+
+  #option-inactive {
+    color: white;
+    background-color: white;
+  }
 }

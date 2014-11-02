@@ -341,11 +341,15 @@ function fillInfoLabels (t) {
     var v = p[0];
     var d = p[1];
     console.log(v.l, step_number, d);
-    
+    // console.log('discovered',discovered);
 
     // if it has not been looked at before
-    if (discovered.indexOf(v.v) == -1) {
-      discovered.push(v.v);
+    var results = discovered.filter(function (obj) { return obj.v == v.v } );
+    // var results = $.grep(discovered, function(e) { return e.v = v.v });
+    // console.log('results',results);
+    if (results.length <= 0) {
+    // if (discovered.indexOf(v.v) == -1) {
+      discovered.push({v:v.v, n:1});
       // if (v.t == 'q') {
       if (v.c.length > 0) {
         addTextToStep(v.l, step_number, d);
@@ -355,7 +359,7 @@ function fillInfoLabels (t) {
         // add children's labels as options
         for (var i=0; i<children.length; i++) {
           options.push(children[i].l);
-          discovered.push(children[i].v);
+          discovered.push({v:children[i].v, n:1});
           // push children's children onto stack
           var childrens_children = children[i].c;
           childrens_children.reverse();
@@ -368,7 +372,7 @@ function fillInfoLabels (t) {
         S.pop();
         // add these options as text
         options.reverse();
-        addOptionsToStep(options, step_number, d);
+        addOptionsToStep(options, step_number, 1);
       }
       // else it is of type stop/instruction
       else {
@@ -379,6 +383,18 @@ function fillInfoLabels (t) {
     // if it has been looked at before
     // just need to add information
     else {
+
+      // results.n++;
+      // results.pop()
+      // console.log('derp', discovered, results);
+
+      var result = results[0];
+      // console.log('results', result);
+      // console.log('derp1', discovered);
+      result.n = result.n+1;
+      var n = result.n
+      discovered.push(result);
+      // console.log('derp', discovered)
       if (v.c.length > 0) {
         var c = v.c;
         var o = [];
@@ -390,7 +406,8 @@ function fillInfoLabels (t) {
 
         }
         addTextToStep(v.l, step_number, d);
-        addOptionsToStep(o, step_number);
+        // console.log('results.n', n);
+        addOptionsToStep(o, step_number, result.n);
       } else {
         addTextToStep(v.l, step_number, d - 1);
       }
@@ -411,26 +428,30 @@ function addTextToStep (text, step_number, depth) {
   }
   $('#row-'+Math.floor(step_number/2)).append('<td class="booklet-page" id="col-'+step_number+'">');
   // $('#col-'+step_number).append(step_number.toString() + '.<br>');
-  $('#col-'+step_number).append(
-    $('<div class="booklet-text" style="width: 500px; height:'+getHeight('t',depth)+'">').append(
+  $('#col-'+step_number)
+  .append($('<div class="booklet-number">').append(step_number.toString()))
+  .append(
+    $('<div class="booklet-text" style="width: 500px; height:'+getHeight('t',depth)+'">')
+    .append(
       // $('<div>').append(text)
       text
       // $('<tr>').append(text)
     )
+    // .append($('<div>').append(text))
   );
 }
 
 function getHeight(type, depth) {
   if (type == 't') {
-    return (420 - 60 * (parseInt(depth) + 1)).toString() + 'px';
+    return (405 - 60 * (parseInt(depth) + 1)).toString() + 'px';
   }
   else if (type == 'o') {
     return (40 * (parseInt(depth) +1)).toString() + 'px';
   }
 }
 
-function addOptionsToStep (options, step_number, depth) {
-  console.log('addOptionsToStep', options, step_number);
+function addOptionsToStep (options, step_number, active) {
+  console.log('addOptionsToStep', options, step_number, active);
   // $('#col-'+step_number).append('<br>'+options.toString());
   $('#col-'+step_number).append(
     $('<div>').append(
@@ -441,7 +462,12 @@ function addOptionsToStep (options, step_number, depth) {
     )
   );
   for (var i=0; i<options.length; i++) {
-    var l = $('#col-'+step_number+' table tr').append($('<td>').append(options[i]));
+    if (i == active - 1) {
+      var l = $('#col-'+step_number+' table tr').append($('<td class="option-active">').append(options[i]));
+    }
+    else {
+      var l = $('#col-'+step_number+' table tr').append($('<td id="option-inactive">').append(options[i]));
+    }
   }
   
 }
