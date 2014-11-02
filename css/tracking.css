@@ -46,10 +46,10 @@
 
   .toprint * { visibility: visible; }
   .toprint { 
-    position: absolute;
-    top: 0px; 
+    position: relative;
+/*    top: 0px; 
     left: 20px; 
-    margin: 0px;
+    margin: 0px;*/
   }
 
 }
