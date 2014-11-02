@@ -124,7 +124,7 @@ function optionHTML (n, opt_n, stuff) {
   return '<div class="panel panel-default">' +
   '<div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#option'+n+'">' +
     'Tool #' +opt_n +
-  '</a><button class="btn output-print" onclick="outputPrint('+opt_n+')"><span class="glyphicon glyphicon-print"></span></button></h4></div>' +
+  '</a><button class="btn output-print" onclick="outputPrint(\''+n+'\')"><span class="glyphicon glyphicon-print"></span></button></h4></div>' +
   '<div id=option'+n+' class="panel-collapse collapse options-collapse in"><div class="panel-body">' +
     '<p class="instructions"></p>' +
     '<div class="option">'+stuff+'</div>' +
@@ -203,8 +203,13 @@ function updateValueType (select) {
 }
 
 function outputPrint (opt) {
+  // console.log(opt);
+  //  TODO: remove all other 'toprints'
+  $('.toprint').each(function() {
+    $(this).removeClass('toprint');
+  });
   $('#option'+opt).addClass('toprint');
-  console.log(opt);
+  // console.log(opt);
   window.print();
   
 }
