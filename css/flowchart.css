@@ -121,7 +121,7 @@ line{
   }
 
   .options-table tr {
-    background-color: lightgrey;
+    background-color: lightgrey !important;
   }
 
   .booklet-stop {
