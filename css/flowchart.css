@@ -125,11 +125,11 @@ line{
   }
 
   .booklet-stop {
-    background-color: #ff9999;
+    background-color: #ff9999 !important;
   }
 
   #option-inactive {
-    color: white;
-    background-color: white;
+    color: white !important;
+    background-color: white !important;
   }
 }

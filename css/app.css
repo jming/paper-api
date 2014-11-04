@@ -1,6 +1,7 @@
 body {
   padding-top: 50px;
   font-weight: 300;
+  -webkit-print-color-adjust:exact;
 }
 
 .starter-template {
