@@ -3,6 +3,7 @@ var width = 500,
     innerRadius = 185,
     outerRadius = 195,
     innerInnerRadius = 175;
+    innerestRadius = 50;
 
 var arc_days = d3.svg.arc()
     .outerRadius(outerRadius)
@@ -18,7 +19,9 @@ var arc_select = d3.svg.arc()
 
 var arc_inside = d3.svg.arc()
     .outerRadius(innerInnerRadius)
-    .innerRadius(160);
+    .innerRadius(innerestRadius);
+
+// var circle_left = d3.svg.circle()
 
 var pie_days = d3.layout.pie()
     .sort(null)
@@ -34,7 +37,7 @@ var pie_select = d3.layout.pie()
 
 var pie_inside = d3.layout.pie()
     .sort(null)
-    .value(function(d) { return 1; });
+    .value(function(d) { return d.num_days; });
 
 var svg_days = d3.select("#calendar-output1").append("svg")
     .attr("width", width)
@@ -49,20 +52,22 @@ var svg_months = d3.select("#calendar-output2").append("svg")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 var svg_select = d3.select('#calendar-output3').append('svg')
-    .attr("width", width)
+    .attr("width", width*2)
     .attr("height", height)
   .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    .attr("transform", "translate(" + width*1.5 + "," + height / 2 + ")");
 
 var svg_inside = d3.select('#calendar-output4').append('svg')
-    .attr("width", width)
+    .attr("width", width*2)
     .attr("height", height)
   .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    .attr("transform", "translate(" + width*1.5 + "," + height / 2 + ")");
 
 function updateHighlights(data) {
-  d3.csv('days.csv',function(error,data) {
-    var g = svg_inside.selectAll(".arc")
+  // d3.csv('days.csv',function(error,data) {
+    // console.log(data);
+
+  var g = svg_inside.selectAll(".arc")
       .data(pie_inside(data))
     .enter().append("g")
       .attr("class", "arc");
@@ -70,27 +75,40 @@ function updateHighlights(data) {
   g.append("path")
     .attr("d", arc_inside)
     .style("fill", function(d) { return getColor(d, 'inside'); })
-    .style('stroke', 'none');
+    .style('stroke', 'black');
 
   g.append("text")
     .attr("transform", function(d) {
+      // console.log(d);
+
       var c = arc_inside.centroid(d),
           x = c[0],
           y = c[1],
           h = Math.sqrt(x*x + y*y),
-          labelr = innerInnerRadius-25;
+          labelr = innerestRadius+50;
       return "translate(" + (x/h * labelr) + ',' + (y/h * labelr) + ')rotate(' + angle(d) + ')';
 
     })
     .attr("dy", ".35em")
+    .attr('x', 10)
     .style("text-anchor", "middle")
-    .style('font-size','12px')
-    .style('fill', 'red')
+    .style('font-size', '18px')
     .text(function(d) { return getText(d,'inside'); });
-  });
+
+  g.append('circle')
+    .attr('cx', 0)
+    .attr('cy', 0)
+    .attr('r', 5)
+  // });
 }
 
-updateHighlights();
+updateHighlights([
+  {'num_days': 90, 'section':1, 'name': 'First Trimester'}, 
+  {'num_days': 90, 'section':3, 'name': 'Second Trimester'},
+  {'num_days': 90, 'section':4, 'name': 'Third Trimester'},
+  {'num_days': 95, 'section':0, 'name': ''}
+
+]);
 
 d3.csv("days.csv", function(error, data) {
 
@@ -117,6 +135,11 @@ d3.csv("days.csv", function(error, data) {
     .style("text-anchor", "middle")
     .style('font-size','10px')
     .text(function(d) { return getText(d,'days'); });
+
+  g.append('circle')
+    .attr('cx', 0)
+    .attr('cy', 0)
+    .attr('r', 5)
 
   var g2 = svg_select.selectAll('.arc')
       .data(pie_select(data))
@@ -146,9 +169,9 @@ d3.csv("days.csv", function(error, data) {
 
 
 d3.csv('months.csv', function (error, data) {
-  data.forEach(function(d) {
-    d.population = +d.num_days;
-  });
+  // data.forEach(function(d) {
+  //   d.population = +d.num_days;
+  // });
 
   var g = svg_months.selectAll(".arc")
       .data(pie_months(data))
@@ -181,6 +204,7 @@ d3.csv('months.csv', function (error, data) {
 function getColor(d, type) {
   var colors_basic = ['#FF66CC', '#FF667F', '#FF9966', '#FFE666', '#CCFF66', '#7FFF66', '#66FF99', '#66FFE6', '#66CCFF', '#667FFF', '#9966FF', '#E666FF'];
   var colors_highlight = ['#CC0088', '#CC0022', '#CC4400', '#CCAA00', '#88CC00', '#22CC00', '#00CC44', '#00CCAA', '#0088CC', '#0022CC', '#4400CC', '#AA00CC'];
+  var colors_inside = ['#fff7f3', '#fde0dd', '#fcc5c0', '#fa9fb5','#f768a1','#dd3497','#ae017e','#7a0177','#49006a'];
 
   if (type == 'days') {
     // console.log(d);
@@ -196,9 +220,9 @@ function getColor(d, type) {
   }
   else if (type == 'select') {
     var day_no = parseInt(d.data.day_no,10);
-    if (day_no == 1 || day_no == 14 || day_no == 280) {
-      return 'red';
-    }
+    // if (day_no == 1 || day_no == 14 || day_no == 280) {
+    //   return 'red';
+    // }
     if (day_no % 7 === 0) {
       return 'grey';
     }
@@ -207,11 +231,10 @@ function getColor(d, type) {
     }
   }
   else if (type == 'inside') {
-    var dn = parseInt(d.data.day_no.split('/')[0],10) - 1;
-    if (dn == 0 || dn == 13 || dn == 279) {
-      return 'red';
-    }
-    return 'none';
+    // if (dn == 0 || dn == 13 || dn == 279) {
+    //   return 'red';
+    // }
+    return colors_inside[d.data.section];
   }
 
 }
@@ -223,7 +246,7 @@ function getText(d, type) {
       return d.data.date.split('/')[1];
     }
   }
-  else if (type=='months') {
+  else if (type=='months' || type=='inside') {
     return d.data.name;
   }
   else if (type=='select') {
@@ -232,23 +255,22 @@ function getText(d, type) {
       return day_no;
     }
   }
-  else if (type=='inside') {
-    var day_no = parseInt(d.data.day_no,10);
-    if (day_no == 1) {
-      // return day_no;
-      // return 'Last menses';
-    }
-    else if (day_no == 13) {
-      return 'Conception';
-    }
-    else if (day_no == 279) {
-      return 'Expected delivery';
-    }
-  }
+  // else if (type=='inside') {
+  //   var day_no = parseInt(d.data.day_no,10);
+  //   if (day_no == 1) {
+  //     // return day_no;
+  //     // return 'Last menses';
+  //   }
+  //   else if (day_no == 13) {
+  //     return 'Conception';
+  //   }
+  //   else if (day_no == 279) {
+  //     return 'Expected delivery';
+  //   }
+  // }
 }
 
 function angle(d) {
   var a = (d.startAngle + d.endAngle) * 90 / Math.PI ;
   return a;
 }
-
