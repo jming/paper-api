@@ -7,14 +7,17 @@ body {
 
 @media print {
   body * { visibility: hidden; }
-  #flowchart-canvas * { visibility: visible; }
-  #flowchart-canvas { 
+  #calendar-output1 *,
+  #calendar-output2 *,
+  #calendar-output3 *,
+  #calendar-output4 * { visibility: visible; }
+/*  #flowchart-canvas { 
     position: absolute; 
     top: 0px; 
     left: 20px; 
     margin: 0px;
-  }
-  #booklet-canvas * { visibility: visible; }
+  }*/
+/*  #booklet-canvas * { visibility: visible; }
   #booklet-canvas {
     position: absolute;
     top: 0px;
@@ -38,5 +41,5 @@ body {
   #option-inactive {
     color: white !important;
     background-color: white !important;
-  }
+  }*/
 }
