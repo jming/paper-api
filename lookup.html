@@ -84,6 +84,37 @@
 
           <p>This tool can be useful for estimating the occurrence events in twelve months from a given start date, essentially calculating based on a calendar year.</p>
 
+          <p>Below is the sample use case for pregnancy, where the inner circle (on the right) can be spun to indicate the different trimesters of pregnancy.</p>
+
+          <p><b>Try it yourself!</b> Input important date ranges in the format shown above.</p>
+
+          <table class='table' id='date-table'>
+            <thead>
+              <tr>
+                <th>Section name</th>
+                <th>Start day</th>
+                <th>End day</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>
+                  <input type='text' id='date-name' class='form-control' placeholder='First trimester'>
+                </td>
+                <td>
+                  <input type='text' id='date-start' class='form-control' placeholder='0'>
+                </td>
+                <td>
+                  <input type='text' id='date-end' class='form-control' placeholder='90'>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+          <p><button class='btn' id='date-new' onclick='newDate();'>New date</button></p>
+          <p><button class='btn' id='tool-update' onclick='updateTool();'>Update tool!</button></p>
+
           <!-- <p>One use case is in pregnancy, where the expected date of gestation can be calculated based on the date of the last menses.</p>
           <pre>
 {

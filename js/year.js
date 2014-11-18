@@ -17,10 +17,6 @@ var arc_select = d3.svg.arc()
     .outerRadius(innerRadius)
     .innerRadius(innerInnerRadius);
 
-var arc_inside = d3.svg.arc()
-    .outerRadius(innerInnerRadius)
-    .innerRadius(innerestRadius);
-
 // var circle_left = d3.svg.circle()
 
 var pie_days = d3.layout.pie()
@@ -35,9 +31,7 @@ var pie_select = d3.layout.pie()
     .sort(null)
     .value(function(d) { return 1; });
 
-var pie_inside = d3.layout.pie()
-    .sort(null)
-    .value(function(d) { return d.num_days; });
+
 
 var svg_days = d3.select("#calendar-output1").append("svg")
     .attr("width", width)
@@ -57,13 +51,23 @@ var svg_select = d3.select('#calendar-output3').append('svg')
   .append("g")
     .attr("transform", "translate(" + width*1.5 + "," + height / 2 + ")");
 
-var svg_inside = d3.select('#calendar-output4').append('svg')
+
+
+function updateHighlights(data) {
+
+  var arc_inside = d3.svg.arc()
+    .outerRadius(innerInnerRadius)
+    .innerRadius(innerestRadius);
+
+  var pie_inside = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.num_days; });
+
+  var svg_inside = d3.select('#calendar-output4').append('svg')
     .attr("width", width*2)
     .attr("height", height)
   .append("g")
     .attr("transform", "translate(" + width*1.5 + "," + height / 2 + ")");
-
-function updateHighlights(data) {
   // d3.csv('days.csv',function(error,data) {
     // console.log(data);
 
@@ -204,7 +208,7 @@ d3.csv('months.csv', function (error, data) {
 function getColor(d, type) {
   var colors_basic = ['#FF66CC', '#FF667F', '#FF9966', '#FFE666', '#CCFF66', '#7FFF66', '#66FF99', '#66FFE6', '#66CCFF', '#667FFF', '#9966FF', '#E666FF'];
   var colors_highlight = ['#CC0088', '#CC0022', '#CC4400', '#CCAA00', '#88CC00', '#22CC00', '#00CC44', '#00CCAA', '#0088CC', '#0022CC', '#4400CC', '#AA00CC'];
-  var colors_inside = ['#fff7f3', '#fde0dd', '#fcc5c0', '#fa9fb5','#f768a1','#dd3497','#ae017e','#7a0177','#49006a'];
+  var colors_inside = ['#fff', '#fff7f3', '#fde0dd', '#fcc5c0', '#fa9fb5','#f768a1','#dd3497','#ae017e','#7a0177','#49006a'];
 
   if (type == 'days') {
     // console.log(d);
@@ -273,4 +277,55 @@ function getText(d, type) {
 function angle(d) {
   var a = (d.startAngle + d.endAngle) * 90 / Math.PI ;
   return a;
+}
+
+function newDate() {
+
+  var name = $('#date-name').val();
+  var start = $('#date-start').val();
+  var end = $('#date-end').val();
+
+  $('#date-name').val('');
+  $('#date-start').val('');
+  $('#date-end').val('');
+
+  $('#date-table').find('tbody')
+    .append($('<tr>')
+      .append($('<td>').text(name))
+      .append($('<td>').text(start))
+      .append($('<td>').text(end))
+    );
+}
+
+function updateTool() {
+
+  var data = [];
+  var total_days = 0;
+
+  $('#date-table tbody tr').map(function() {
+    var row = $(this);
+    var section = new Object();
+    section.name = row.find(':nth-child(1)').text();
+    section.num_days = parseInt(row.find(':nth-child(3)').text()) - parseInt(row.find(':nth-child(2)').text());
+    section.section = data.length+1;
+    total_days += section.num_days;
+    data.push(section);
+  });
+
+  var final_section = {
+    'num_days' : 365-total_days,
+    'section' : 0,
+    'name': ''
+  }
+  data.push(final_section);
+
+  console.log(data);
+  $('#calendar-output4').empty();
+  updateHighlights(data);
+
+  // {'num_days': 90, 'section':1, 'name': 'First Trimester'}, 
+  // {'num_days': 90, 'section':3, 'name': 'Second Trimester'},
+  // {'num_days': 90, 'section':4, 'name': 'Third Trimester'},
+  // {'num_days': 95, 'section':0, 'name': ''}
+
 }

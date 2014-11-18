@@ -4,3 +4,39 @@ body {
 .arc path {
   stroke: #fff;
 }
+
+@media print {
+  body * { visibility: hidden; }
+  #flowchart-canvas * { visibility: visible; }
+  #flowchart-canvas { 
+    position: absolute; 
+    top: 0px; 
+    left: 20px; 
+    margin: 0px;
+  }
+  #booklet-canvas * { visibility: visible; }
+  #booklet-canvas {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    margin: 0px;
+    width: 100%;
+    border: 1px solid grey;
+  }
+  .booklet-page {
+    margin: 4.5px 0px;
+  }
+
+  .options-table tr {
+    background-color: lightgrey !important;
+  }
+
+  .booklet-stop {
+    background-color: #ff9999 !important;
+  }
+
+  #option-inactive {
+    color: white !important;
+    background-color: white !important;
+  }
+}
