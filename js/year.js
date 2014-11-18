@@ -285,19 +285,26 @@ function newDate() {
   var start = $('#date-start').val();
   var end = $('#date-end').val();
 
-  $('#date-name').val('');
-  $('#date-start').val('');
-  $('#date-end').val('');
+  if (name !== '' && start != '' && end != '') {
 
-  $('#date-table').find('tbody')
-    .append($('<tr>')
-      .append($('<td>').text(name))
-      .append($('<td>').text(start))
-      .append($('<td>').text(end))
-    );
+    $('#date-name').val('');
+    $('#date-start').val('');
+    $('#date-end').val('');
+
+    $('#date-table').find('tbody')
+      .append($('<tr>')
+        .append($('<td>').text(name))
+        .append($('<td>').text(start))
+        .append($('<td>').text(end))
+      );
+  }
+
+  
 }
 
 function updateTool() {
+
+  newDate();
 
   var data = [];
   var total_days = 0;
