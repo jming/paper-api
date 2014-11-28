@@ -313,22 +313,65 @@ function updateTool() {
     var row = $(this);
     var section = new Object();
     section.name = row.find(':nth-child(1)').text();
-    section.num_days = parseInt(row.find(':nth-child(3)').text()) - parseInt(row.find(':nth-child(2)').text());
+    section.day_end = parseInt(row.find(':nth-child(3)').text());
+    section.day_start = parseInt(row.find(':nth-child(2)').text());
+    section.num_days = section.day_end - section.day_start;
     section.section = data.length+1;
     total_days += section.num_days;
     data.push(section);
   });
 
-  var final_section = {
-    'num_days' : 365-total_days,
-    'section' : 0,
-    'name': ''
-  }
-  data.push(final_section);
+  
 
-  console.log(data);
+  data.sort(function(a,b) {
+    return a.day_start - b.day_start;
+  });
+
+  console.log('data', data);
+
+  var data_new = [];
+  data_new = data.slice(0);
+
+  var curr_counter = 0;
+
+  for (var i = 0; i < data.length; i++) {
+    curr_counter++;
+    if (i == 0) {
+      if (data[i].day_start > 0) {
+        console.log('option 1');
+        data_new.splice(0, 0, {
+          'num_days' : data[i].day_start,
+          'section' : 0,
+          'name': ''
+        });
+      }
+    }
+    else {
+      if (data[i].day_start - data[i-1].day_end > 0) {
+        console.log('option 2');
+        data_new.splice(curr_counter, 0, {
+          'num_days' : data[i].day_start - data[i-1].day_end,
+          'section' : 0,
+          'name' : ''
+        });
+      }
+    }
+    if (i == data.length - 1) {
+      console.log('option 3');
+      data_new.push({
+        'num_days' : 365-data[i].day_end,
+        'section' : 0,
+        'name': ''
+      });
+    }
+  }
+
+  // var final_section = 
+  // data.push(final_section);
+
+  console.log('data_new', data_new);
   $('#calendar-output4').empty();
-  updateHighlights(data);
+  updateHighlights(data_new);
 
   // {'num_days': 90, 'section':1, 'name': 'First Trimester'}, 
   // {'num_days': 90, 'section':3, 'name': 'Second Trimester'},
