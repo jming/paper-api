@@ -63,10 +63,13 @@
         
         <div id="graph" style="display:none;">
 
-          <p>
+          <div class='input-group'>
+
             <input type='text' id='graph-url' class='form-control' placeholder='Link to graph image'>
-            <button class='btn' onclick='loadGraph()'>Load graph</button>
-          </p>
+            <span class='input-group-btn'><button class='btn' onclick='loadGraph()'>Load graph</button></span>
+
+          </div>
+            
 
           <div class='row' id='graph-axis-div' style='display:none;'>
             <div class='col-md-6'>
@@ -74,10 +77,29 @@
             </div>
             <div class='col-md-6'>
               <div id='graph-xaxis-div'>
-                <button class='btn' onclick='selectAxis("x")'>Add x-axis</button>
+                <div class='input-group'>
+
+                  <input type='text' id='xaxis-label' class='form-control' placeholder='x-axis label'>
+
+                  <span class='input-group-btn'><button class='btn' onclick='selectAxis("x")'>Add x-axis</button></span>
+
+                </div>
+                
               </div>
               <div id='graph-yaxis-div'>
-                <button class='btn' onclick='selectAxis("y")'>Add y-axis</button>
+                
+
+                <div class='input-group'>
+
+                    <input type='text' id='yaxis-label' class='form-control' placeholder='y-axis label'>
+
+                    <span class='input-group-btn'><button class='btn' onclick='selectAxis("y")'>Add y-axis</button></span>
+
+                  </div>
+                  
+                </div>
+
+
               </div>
             </div>
           </div>

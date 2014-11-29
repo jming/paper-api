@@ -12,10 +12,15 @@ function loadGraph() {
 	$('#graph-img-div')
 		.append($('<img src='+graph_url+' class="graph-img-class" id="graph-img"> '));
 
-	$('#graph-img').Jcrop({
-		onSelect: loadCoords,
-		onChange: loadCoords
-	});
+	$('#graph-img')[0].style.width = '425px';
+	$('#graph-img')[0].style.height = '550px';
+
+	setTimeout(function(){
+	  $('#graph-img').Jcrop({
+	  	onSelect : loadCoords,
+	  	onChange : loadCoords
+	  });
+	}, 500);
 
 }
 
