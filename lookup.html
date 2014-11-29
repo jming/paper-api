@@ -63,44 +63,94 @@
         
         <div id="graph" style="display:none;">
 
-          <div class='input-group'>
-
-            <input type='text' id='graph-url' class='form-control' placeholder='Link to graph image'>
-            <span class='input-group-btn'><button class='btn' onclick='loadGraph()'>Load graph</button></span>
-
-          </div>
+          
             
 
-          <div class='row' id='graph-axis-div' style='display:none;'>
+          <div class='row' id='' style=''>
             <div class='col-md-6'>
+
+              <div class='input-group'>
+
+                <input type='text' id='graph-url' class='form-control' placeholder='Link to graph image'>
+                <span class='input-group-btn'><button class='btn' onclick='loadGraph()'>Load graph</button></span>
+
+              </div>
+
               <div id='graph-img-div'></div>
             </div>
-            <div class='col-md-6'>
-              
-                <div class='input-group'>
+            <div class='col-md-6' id='graph-axis-div' style='display:none;'>
 
-                  <input type='text' id='xaxis-label' class='form-control' placeholder='x-axis label'>
+              <table>
 
-                  <span class='input-group-btn'><button class='btn' onclick='selectAxis("x")'>Add x-axis</button></span>
+                <td>
+
+                  <div class='input-group'>
+
+                    <input type='text' id='xaxis-label' class='form-control' placeholder='x-axis label'>
+
+                    <span class='input-group-btn'><button class='btn' onclick='selectAxis("x")'>Add x-axis</button></span>
+
+                  </div>
+
+                </td>
+
+                <td>
+
+                  <div class='input-group'>
+
+                    <input type='text' id='yaxis-label' class='form-control' placeholder='y-axis label'>
+
+                    <span class='input-group-btn'><button class='btn' onclick='selectAxis("y")'>Add y-axis</button></span>
+
+                  </div>
+
+
+
+                </td>
+
+              </table>
+
+                <div class='input-group'><button class='btn' onclick='selectAxis("c")'>Add data region</button></div>
+
+                <div id='graph-svg-div'>
+
+                  <div id='graph-svg1-div' style="z-index:1;position:absolute;">
+
+                    <svg id='graph-svg1' width='450' height='750'>
+
+                      <rect width='225' height='350' class='graph-border-class' />
+                      <rect x='225' width='225' height='350' class='graph-border-class' />
+
+                    </svg>
+
+                  </div>
+
+                  <div id='graph-svg1-top-div' style="z-index:-1;position:absolute;">
+                    
+                    <svg id='graph-svg1-top' width='450' height='750' >
+                      <image x="20" y="20" width="300" height="80" xlink:href="http://i.imgur.com/XiSVdaW.png" />
+                    </svg>
+
+                  </div>
+
+                  <div id='graph-svg2-div' style="z-index:1;position:absolute;">
+
+                    <svg id='graph-svg2' width='450' height='750'>
+
+                      <rect width='225' height='350' class='graph-border-class' y='375'></rect>
+                      <rect x='225' width='225' height='350' class='graph-border-class' y='375'></rect>
+                      
+                    </svg>
+
+                  </div>
 
                 </div>
 
                 
 
-                <div class='input-group'>
-
-                  <input type='text' id='yaxis-label' class='form-control' placeholder='y-axis label'>
-
-                  <span class='input-group-btn'><button class='btn' onclick='selectAxis("y")'>Add y-axis</button></span>
-
-                </div>
-
-
-                <div class='input-group'><button class='btn' onclick='selectAxis("c")'>Add center of graph</button></div>
-                  
-                <div id='graph-yaxis-div'></div>
+                <!-- <div id='graph-yaxis-div'></div>
                 <div id='graph-xaxis-div'></div>
-                <div id='graph-caxis-div'></div>
+                <div id='graph-caxis-div'></div> -->
 
 
 

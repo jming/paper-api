@@ -12,8 +12,8 @@ function loadGraph() {
 	$('#graph-img-div')
 		.append($('<img src='+graph_url+' class="graph-img-class" id="graph-img"> '));
 
-	$('#graph-img')[0].style.width = '425px';
-	$('#graph-img')[0].style.height = '550px';
+	$('#graph-img')[0].style.width = '225x';
+	$('#graph-img')[0].style.height = '330px';
 
 	setTimeout(function(){
 	  $('#graph-img').Jcrop({
@@ -31,9 +31,12 @@ function loadCoords(c) {
 }
 
 function selectAxis(axis) {
-	$('#graph-'+axis+'axis-div').empty();
-	$('#graph-'+axis+'axis-div')
-		.append($('<img src='+graph_url+' class="graph-axis-class" id="graph-'+axis+'axis-img">'));
-	$('#graph-'+axis+'axis-img')[0].style.clip="rect("+global_c.y+"px, "+global_c.x2+"px, "+global_c.y2+"px, "+global_c.x+"px)";
+
+	$('#graph-svg1').append('<image xlink:href='+graph_url+' height="50px" width="50px"/>');
+
+	// $('#graph-'+axis+'axis-div').empty();
+	// $('#graph-'+axis+'axis-div')
+	// 	.append($('<img src='+graph_url+' class="graph-axis-class" id="graph-'+axis+'axis-img">'));
+	// $('#graph-'+axis+'axis-img')[0].style.clip="rect("+global_c.y+"px, "+global_c.x2+"px, "+global_c.y2+"px, "+global_c.x+"px)";
 	// h: 56 w: 424 x: 1 x2: 425 y: 315 y2: 371
 }
