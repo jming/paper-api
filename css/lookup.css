@@ -5,6 +5,17 @@ body {
   stroke: #fff;
 }
 
+.graph-img-class {
+  width: 425px;
+  height: 550px;
+}
+
+.graph-axis-class {
+  width: 425px;
+  height: 550px;
+  position: absolute;
+}
+
 @media print {
   body * { visibility: hidden; }
   #calendar-output1 *,
