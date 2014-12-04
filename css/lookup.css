@@ -16,6 +16,21 @@ body {
   position: absolute;
 }
 
+#graph-yaxis-img {
+  margin-left: 215px;
+  margin-top: 25px;
+}
+
+#graph-xaxis-img {
+  margin-left: 100px;
+  margin-top: 145px;
+}
+
+#graph-caxis-img {
+  margin-left: 225px;
+  margin-top: 25px;
+}
+
 .input-group {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -39,14 +54,21 @@ body {
   stroke-width: 2;
 }
 
+.graph-border-white {
+  fill: white;
+  strong: white;
+  stroke-width: 0;
+}
+
 @media print {
   body * { visibility: hidden; }
+
   #calendar-output1 *,
   #calendar-output2 *,
   #calendar-output3 *,
   #calendar-output4 * { visibility: visible; }
 
-  #graph-svg * {visibility : visible;}
+  #graph-svg-div * {visibility : visible;}
 /*  #flowchart-canvas { 
     position: absolute; 
     top: 0px; 
