@@ -27,6 +27,18 @@ body {
   stroke-width: 2;
 }
 
+.graph-cut-border {
+  fill: none;
+  stroke: red;
+  stroke-width: 2;
+}
+
+.graph-cut-center {
+  fill: red;
+  stroke: red;
+  stroke-width: 2;
+}
+
 @media print {
   body * { visibility: hidden; }
   #calendar-output1 *,

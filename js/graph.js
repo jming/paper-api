@@ -32,7 +32,10 @@ function loadCoords(c) {
 
 function selectAxis(axis) {
 
-	$('#graph-svg1').append('<image xlink:href='+graph_url+' height="50px" width="50px"/>');
+	// $('#graph-svg1-top').append('<image xlink:href='+graph_url+' height="50px" width="50px"/>');
+
+	$('#graph-svg1-top').append('<image x="20" y="20" width="300" height="80" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://i.imgur.com/XiSVdaW.png"></image>');
+
 
 	// $('#graph-'+axis+'axis-div').empty();
 	// $('#graph-'+axis+'axis-div')
