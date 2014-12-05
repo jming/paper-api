@@ -6,29 +6,29 @@ body {
 }
 
 .graph-img-class {
-  width: 225px;
-  height: 330px;
+  /*width: 225px;*/
+  /*height: 330px;*/
 }
 
 .graph-axis-class {
-  width: 225px;
-  height: 330px;
+  /*width: 225px;*/
+  /*height: 330px;*/
   position: absolute;
 }
 
 #graph-yaxis-img {
-  margin-left: 215px;
-  margin-top: 25px;
+/*  margin-left: 215px;
+  margin-top: 25px;*/
 }
 
 #graph-xaxis-img {
-  margin-left: 100px;
-  margin-top: 145px;
+/*  margin-left: 100px;
+  margin-top: 145px;*/
 }
 
 #graph-caxis-img {
-  margin-left: 225px;
-  margin-top: 25px;
+/*  margin-left: 225px;
+  margin-top: 25px;*/
 }
 
 .input-group {
