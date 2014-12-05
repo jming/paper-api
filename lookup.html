@@ -81,6 +81,8 @@
             </div>
             <div class='col-md-6' id='graph-axis-div' style='display:none;'>
 
+              <div class='input-group'><button class='btn' onclick='selectAxis("c")'>Add data region</button></div>
+
               <table>
 
                 <td>
@@ -111,7 +113,7 @@
 
               </table>
 
-                <div class='input-group'><button class='btn' onclick='selectAxis("c")'>Add data region</button></div>
+                
 
                 <div id='graph-svg-div'>
 
@@ -157,8 +159,12 @@
 
                       
                       <rect x='275' y='567.5' width='150' height='50' class='graph-cut-center'></rect>
+
                       <rect x='235' y='577.5' width='25' height='30' class='graph-cut-center'></rect>
+                      <text x='235' y='620' id='yaxis-label-text'></text>
+
                       <rect x='337.5' y='622.5' width='25' height='20' class='graph-cut-center'></rect>
+                      <text x='337.5' y='655' id='xaxis-label-text'></text>
 
                       <rect x='224' y='557.5' width='2' height='85' class='graph-cut-center'></rect>
 
