@@ -3,6 +3,12 @@ body {
   font-weight: 300;
   -webkit-print-color-adjust:exact;
   background-color: rgb(221,234,248);
+  font-family: 'Open Sans', sans-serif;
+}
+
+h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
 }
 
 h1, h3 {
@@ -28,6 +34,20 @@ h1, h3 {
 .navbar-inverse .navbar-toggle {
   background-color: rgb(32,99,170);
 }
+
+.btn {
+  /*background-color: white;*/
+  background-color: rgb(83,150,222);
+  color: white;
+}
+
+#treesvg,
+#graph-svg1,
+#calendar-output0,
+.booklet-page {
+  background-color: white;
+}
+
 
 .starter-template {
   padding: 40px 15px;
