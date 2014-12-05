@@ -2,6 +2,31 @@ body {
   padding-top: 50px;
   font-weight: 300;
   -webkit-print-color-adjust:exact;
+  background-color: rgb(221,234,248);
+}
+
+h1, h3 {
+  font-family: 'Cutive', serif;
+
+}
+
+.navbar-inverse .navbar-brand {
+  color: white;
+  font-family: 'Cutive', serif;
+}
+.navbar-inverse .navbar-nav>li>a {
+  color: white;
+}
+
+.navbar-inverse,
+.container>.navbar-header, 
+.container>.navbar-collapse {
+  background-color: rgb(83,150,222);
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-toggle {
+  background-color: rgb(32,99,170);
 }
 
 .starter-template {
@@ -13,6 +38,9 @@ body {
   color: black;
   text-decoration: none;
   border: none;
+  background-color: rgb(221,234,248);
+  /*background-color: rgb(253, 244, 182);*/
+  /*background-color: rgb(83,150,222)*/
 }
 
 a:hover {
