@@ -420,7 +420,7 @@ function addTextToStep (text, step_number, depth) {
   console.log('addTextToStep', text, step_number, depth);
   if (step_number % 4 === 0) {
     $('#booklet-canvas')
-      .append('<table class="booklet-page" id="table-'+Math.floor((step_number/4)).toString()+'">');
+      .append('<table class="booklet-page booklet-print-page" id="table-'+Math.floor((step_number/4)).toString()+'">');
   }
   if (step_number % 2 === 0) {
     $('#table-'+Math.floor(step_number/4))

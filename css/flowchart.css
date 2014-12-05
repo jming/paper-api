@@ -36,6 +36,8 @@ line{
   border: 1px solid grey;
   table-layout: fixed;
   /*font-size: 36px;*/
+/*  page-break-after: always;
+  page-break-before: always;*/
 }
 
 .booklet-page td {
@@ -100,24 +102,33 @@ line{
 
 @media print {
   body * { visibility: hidden; }
-  #flowchart-canvas * { visibility: visible; }
+/*  #flowchart-canvas * { visibility: visible; }
   #flowchart-canvas { 
     position: absolute; 
     top: 0px; 
     left: 20px; 
     margin: 0px;
-  }
+  }*/
   #booklet-canvas * { visibility: visible; }
   #booklet-canvas {
-    position: absolute;
-    top: 0px;
-    left: 20px;
+    /*position: absolute;*/
+    padding: 0px;
     margin: 0px;
+    /*top: 0px;*/
+    /*left: 20px;*/
+    /*margin: 0px;*/
     width: 100%;
     border: 1px solid grey;
+    page-break-before: always;
   }
   .booklet-page {
     margin: 4.5px 0px;
+    /*page-break-after: always;*/
+    /*page-break-before: always;*/
+  }
+
+  .booklet-print-page {
+    page-break-after: always;
   }
 
   .options-table tr {
@@ -126,6 +137,7 @@ line{
 
   .booklet-stop {
     background-color: #ff9999 !important;
+    width: 335px;
   }
 
   #option-inactive {
