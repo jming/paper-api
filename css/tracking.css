@@ -47,6 +47,8 @@
   .toprint * { visibility: visible; }
   .toprint { 
     position: relative;
+    page-break-before: always;
+    page-break-after: always;
 /*    top: 0px; 
     left: 20px; 
     margin: 0px;*/

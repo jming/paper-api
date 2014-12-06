@@ -61,6 +61,11 @@ body {
 }
 
 @media print {
+
+  @page {
+    size: landscape;
+  }
+  
   body * { visibility: hidden; }
 
   #calendar-output1 *,
@@ -68,7 +73,18 @@ body {
   #calendar-output3 *,
   #calendar-output4 * { visibility: visible; }
 
-  #graph-svg-div * {visibility : visible;}
+  #graph-img-div * { visibility: hidden; }
+  /*#graph-svg-div * { visibility : visible; }*/
+  #graph-svg1-div *,
+  #graph-svg1-top-div *, 
+  #graph-svg2-div * {
+    visibility: visible;
+  }
+
+  img {
+    position: absolute;
+  }
+  /*#graph-svg1-top-div * { visibility : visible;}*/
 /*  #flowchart-canvas { 
     position: absolute; 
     top: 0px; 

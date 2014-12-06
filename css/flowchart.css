@@ -102,13 +102,13 @@ line{
 
 @media print {
   body * { visibility: hidden; }
-/*  #flowchart-canvas * { visibility: visible; }
+  #flowchart-canvas * { visibility: visible; }
   #flowchart-canvas { 
     position: absolute; 
     top: 0px; 
     left: 20px; 
     margin: 0px;
-  }*/
+  }
   #booklet-canvas * { visibility: visible; }
   #booklet-canvas {
     /*position: absolute;*/
