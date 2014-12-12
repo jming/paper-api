@@ -65,7 +65,7 @@ body {
   @page {
     size: landscape;
   }
-  
+
   body * { visibility: hidden; }
 
   #calendar-output1 *,
@@ -73,17 +73,36 @@ body {
   #calendar-output3 *,
   #calendar-output4 * { visibility: visible; }
 
-  #graph-img-div * { visibility: hidden; }
-  /*#graph-svg-div * { visibility : visible; }*/
+  #graph-img-div * { visibility: hidden; display: none;}
   #graph-svg1-div *,
   #graph-svg1-top-div *, 
   #graph-svg2-div * {
     visibility: visible;
+    /*position: relative;*/
+/*    page-break-before: always;
+    page-break-after: always;
+    margin: 0;
+    padding: 0;*/
   }
 
-  img {
-    position: absolute;
+  #graph-svg1-top-div {
+    z-index: 2;
   }
+
+  #graph-svg-div {
+    page-break-before: always;
+  }
+
+  /*#graph-svg1,*/
+  #graph-svg2 {
+    /*margin-top: 50px;*/
+    page-break-before: always;
+    position: relative;
+  }
+
+/*  img {
+    position: absolute !important;
+  }*/
   /*#graph-svg1-top-div * { visibility : visible;}*/
 /*  #flowchart-canvas { 
     position: absolute; 

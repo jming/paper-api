@@ -42,7 +42,7 @@ var trackingHTML =
   '<p>I am tracking <span class="what-span"></span> over' +
     '<select class="form-control form-inline form-inline-small timespace-select">' +
     '<option value="time">time</option>' +
-    '<option value="space">space</option>' +
+    // '<option value="space">space</option>' +
     '</select>' +
   '</p>' +
 '</div>' +
